@@ -8,14 +8,15 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/marceillo/kayak-blog-pp4?color=green)
 <hr>
 
-## Table of Contents
+## Table of Contents test
 
 - [Overview](#overview)
-- [User Experience](#ux)
 - [Project Goal](#project-goal)
-- [Design](#design)
+- [User Experience](#ux)
+  - [User Stories](#user-stories)
+  - [Design](#design)
   - [Colour Scheme](#colour-scheme)
-- [Skeleton](#skeleton)
+  - [Skeleton](#skeleton)
   - [Wireframes](#wireframes)
   - [Flowchart](#flowchart)
   - [Visual Effects](#visual-effects)
@@ -25,8 +26,6 @@
   - [About Us Page](#about-us-page)
   - [Blogs Page](#blogs-page)
   - [Comments Page](#comments-page)
-  - [Recipes Page](#recipes-page)
-  - [Add Recipe Modal](#add-recipe-modal)
   - [Contact Page](#contact-page)
   - [Account Login](#account-login)
   - [Register](#register)
@@ -54,6 +53,17 @@
 
 ## Overview
 
+## Project Goal:
+
+**Project Objectives:**
+
+* Provide information about kayaking
+* Connect kayakers and organize trips
+* Share kayaking experiences and tips
+
+
+[Back to Table of Contents](#table-of-contents)
+
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -79,10 +89,10 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 |                                       |3A| As a logged-in user, I want to be able to see relevant blogs clearly|
 |                                       |3B| As a logged-in user, I want to be able to select a blog and comment and/or like selected blog|
 |                                       |3C| As a logged-in user, I want to be able to delete my own previous comments|
-|**RECIPES**                            |  ||
-|                                       |4A| As a user, I want to see the recipes individual overview clearly|
-|                                       |4B| As a user, I want to be able to access ingredients and methods|
-|                                       |4C| As a logged-in user, I want to be able to navigate through different recipes easily|
+|**Kayaking**                            |  ||
+|                                       |4A| As a user, I want to see the |
+|                                       |4B| As a user, I want to be able to access |
+easily|
 |**ADMINISTRATION**                     |  ||
 |                                       |5A| As a logged-in admin member, I want to be able to access the admin page|
 |                                       |5B| As a logged-in admin member, I want to be able to authenticate and authorise comments and posts|
@@ -96,39 +106,21 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 
 [Back to Table of Contents](#table-of-contents)
 
-# Project Goal:
-
-
-
-**Project Objectives:**
-
-* To create a website with a simple and intuitive User Experience;
-* To add content that is relevant to the topic and helps create a better understanding;
-* To be able to differentiate between client and staff member accounts;
-* To implement fully functional features that will ease the staff members' tasks and upgrade clients' experience with the blog features;
-* To make the website responsive and functional on different devices.<br><br>
-
-[Back to Table of Contents](#table-of-contents)
 
 # Design
 
-#### Colours
+## Colours
 
 * 
-## Colour Scheme
+### Colour Scheme
 * 
 <img src="docs/readme-images/primary-green.png" width="30%">
-<img src="docs/readme-images/primary-white.png" width="30%">
-<img src="docs/readme-images/primary-black.png" width="30%">
-<img src="docs/readme-images/primary-grey.png" width="30%">
-<img src="docs/readme-images/primary-orange.png" width="30%">
+
 <br>
 
 * The secondary colour scheme was used for buttons, warnings, errors or for highlighting important information.<br>
 <img src="docs/readme-images/secondary-blue.png" width="30%">
-<img src="docs/readme-images/secondary-gray.png" width="30%">
-<img src="docs/readme-images/secondary-green.png" width="30%">
-<img src="docs/readme-images/secondary-lightblue.png" width="30%">
+
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -153,26 +145,7 @@ The wireframes for mobile were created with <br>
   <img src="docs/readme-images/wireframe-home.png"><br>
   <h4>About page</h4>
   <img src="docs/readme-images/wireframe-about.png"><br>
-  <h4>About more</h4>
-  <img src="docs/readme-images/wireframe-aboutmore.png"><br>
-  <h4>Blog page</h4>
-  <img src="docs/readme-images/wireframe-blog.png"><br>
-  <h4>Blog user comments</h4>
-  <img src="docs/readme-images/wireframe-comments.png"><br>
-  <h4>Recipes</h4>
-  <img src="docs/readme-images/wireframe-recipe.png"><br>
-  <h4>Recipe details</h4>
-  <img src="docs/readme-images/wireframe-recipedetail.png"><br>
-  <h4>Contact us</h4>
-  <img src="docs/readme-images/wireframe-contactpage.png"><br>
-  <h4>Submit message</h4>
-  <img src="docs/readme-images/wireframe-contactmsg.png"><br>
-  <h4>User profile</h4>
-  <img src="docs/readme-images/wireframe-profile.png"><br>
-  <h4>Sign in</h4>
-  <img src="docs/readme-images/wireframe-signin.png"><br>
-  <h4>Sign up</h4>
-  <img src="docs/readme-images/wireframe-signup.png"><br>
+
 </details>
 </details><br>
 
@@ -216,16 +189,10 @@ The wireframes for mobile were created with <br>
 
 [Back to Table of Contents](#table-of-contents)
 
-### Recipes Page
-
-![Recipes](docs/readme-images/screen-recipes.png)
-
 * 
+
 [Back to Table of Contents](#table-of-contents)
 
-### Add  Modal
-
-![Recipes](docs/readme-images/screen-addrecipe.png)
 
 * 
 
@@ -306,16 +273,15 @@ LightHouse - for testing performance<br>
 # Testing
 
 * Testing has taken place continuously throughout the development of the project. Each view was tested regularly. 
-  When the outcome was not as expected, debugging took place at that point.
+ 
 
   ### Python Validation - PEP8
-* Python testing was done using the PEP8 Online to ensure there were no syntax errors in the project. All python files
-were entered into the online checker and no errors were found in any of the custom codes.
+*
 
 ![Pyhton](docs/readme-images/screen-pyhton.png)
 
 ## Lighthouse
-Lighthouse was used to test Performance, Best Practices, Accessibility, and SEO on Desktop.
+Lighthouse 
 
 ![Lighthouse](docs/readme-images/screen-lighthouse.png)
 
@@ -342,18 +308,21 @@ Lighthouse was used to test Performance, Best Practices, Accessibility, and SEO 
 
 [Back to Table of Contents](#table-of-contents)
 
+- All manual testing was done with DEBUG = False in the settings.py file.g
+
+
 * **All known bugs have been fixed**
 
 ## Fixed bugs
 
 | **Bug** | **Fix** |
 | --- | --- |
-| Bug: Performance is very low | Solution: Load Css and Javascript asynchronously |
-| Bug:  While I was developing the project I tried to merge my recipe model and my recipe detail model and when I tried to migrate the changes I got an error in the terminal telling me the terminal required a default number for the new foreign key. | I entered no and closed terminal and entered default value in the model itself
+| Bug:jkhhklj  | klkjlkl |
+| Bug:  
 
 [Back to Table of Contents](#table-of-contents)
 
-## Creating the Django app
+## Creating the Django app hello
 
 1. Go to the Code Institute Gitpod Full Template [Template](https://github.com/Code-Institute-Org/gitpod-full-template)
 2. Click on Use This Template
@@ -440,4 +409,3 @@ to copy the URL
 
 * 
 [Back to Table of Contents](#table-of-contents)
-
