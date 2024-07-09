@@ -8,7 +8,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/marceillo/kayak-blog-pp4?color=green)
 <hr>
 
-## Table of Contents test
+## Table of Contents 
 
 - [Overview](#overview)
 - [Project Goal](#project-goal)
