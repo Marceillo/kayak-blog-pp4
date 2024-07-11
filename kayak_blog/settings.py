@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 #SECRET_KEY = 'django-insecure-k^r292g8v7!n0aay&qkle!t+9j89wwt2-7akh271wql5a17d@!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-marceillo-kayakblogpp4-7k6a7fjpl13.ws.codeinstitute-ide.net','.herokuapp.com']
 
@@ -89,6 +89,11 @@ WSGI_APPLICATION = 'kayak_blog.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://8000-marceillo-kayakblogpp4-7k6a7fjpl13.ws.codeinstitute-ide.net/",
+    "https://kayakblog-32990d013e9a.herokuapp.com/"
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
