@@ -12,7 +12,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
@@ -22,7 +22,7 @@ class Post(models.Model):
     
     class Meta:
         ordering = ['-publish']
-    indexes = [
+        indexes = [
         models.Index(fields=['-publish']),
         ]
     
