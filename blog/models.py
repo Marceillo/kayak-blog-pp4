@@ -10,15 +10,16 @@ class Post(models.Model):
         PUBLISHED = 'PB', 'Published'
 
 
-    title = models.CharField(max_length=250, unique=True)
-    slug = models.SlugField(max_length=250, unique=True)
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=2, choices=PostStatus.choices, default=PostStatus.DRAFT)
-    
+    excerpt = models.TextField(max_length=200, blank=True)
+    favorites = models.ManyToManyField(User, related_name='favorite_posts', blank=True)
     
     class Meta:
         ordering = ['-publish']
