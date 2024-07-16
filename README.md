@@ -74,35 +74,32 @@ This website was created using the Five Planes Of Website Design<br>
 
 User stories can be viewed here on the project [kanban board ](https://github.com/users/hughes84/projects/1)
 
-|   EPIC                                |ID|                                User Story                                                   |
-| :-------------------------------------|--|:------------------------------------------------------------------------------------------- |
-|**User Authentication and Profiles**             |  ||
-|                                       |1.1| As a role, I can register and login so that I can access the website|             
-|                                       |1.2| As a user, I want to view and edit my profile|
-|                                       
-|**Core Blog Functionality**                      |  || 
-|                                       |2.1| As a user, I want to search for specific kayaking topics|
-|                                       |2.2| As a content creator, I can write blog posts so that it is published|
-|                                       |2.3| As a user, I want to read blog posts about kayaking experiences|
-|                                       
-|**BLOGS**                                        |  ||
-|                                       |3A| As a logged-in user, I want to be able to see relevant blogs clearly|
-|                                       |3B| As a logged-in user, I want to be able to select a blog and comment and/or like selected blog|
-|                                       |3C| As a logged-in user, I want to be able to delete my own previous comments|
-|**Kayaking**                                     |  ||
-|                                       |4A| As a user, I want to see the |
-|                                       |4B| As a user, I want to be able to access |
-|
-|**ADMINISTRATION**                               |  ||
-|                                       |5A| As a logged-in admin member, I want to be able to access the admin page|
-|                                       |5B| As a logged-in admin member, I want to be able to authenticate and authorise comments and posts|
-|                                       |5C| As a logged-in admin member, I want to be able to publish new recipes|
-|                                       |5D| As a logged-in admin member, I want to be able to create a new user, recipes, author and categories|
-|                                       |5E| As a logged-in admin member, I want to be able to delete users, recipes, authors, categories and comments|
-|**CONTACT**                                      |  ||
-|                                       |6A| As a user, I want to be able to contact the site with ease|
-|                                       |6B| As a user, I want to get a reply that my messgae has been received|
-|                                       |6C| As a user, I want to see contact information on the website|
+| EPIC                               | ID | User Story                                                           |
+| :--------------------------------- | -- | :------------------------------------------------------------------- |
+| **User Authentication and Profiles**|    |                                                                      |
+|                                     | 1.1| As a role, I can register and login so that I can access the website |             
+|                                     | 1.2| As a user, I want to view and edit my profile                        |
+| **Core Blog Functionality**         |    |                                                                      | 
+|                                     | 2.1| As a user, I want to search for specific kayaking topics             |
+|                                     | 2.2| As a content creator, I can write blog posts so that it is published |
+|                                     | 2.3| As a user, I want to read blog posts about kayaking experiences      |
+| **BLOGS**                           |    |                                                                      |
+|                                     | 3A | As a logged-in user, I want to be able to see relevant blogs clearly |
+|                                     | 3B | As a logged-in user, I want to be able to select a blog and comment and/or like selected blog |
+|                                     | 3C | As a logged-in user, I want to be able to delete my own previous comments |
+| **Kayaking**                        |    |                                                                      |
+|                                     | 4A | As a user, I want to see the                                         |
+|                                     | 4B | As a user, I want to be able to access                               |
+| **ADMINISTRATION**                  |    |                                                                      |
+|                                     | 5A | As a logged-in admin member, I want to be able to access the admin page |
+|                                     | 5B | As a logged-in admin member, I want to be able to authenticate and authorise comments and posts |
+|                                     | 5C | As a logged-in admin member, I want to be able to publish new recipes |
+|                                     | 5D | As a logged-in admin member, I want to be able to create a new user, recipes, author and categories |
+|                                     | 5E | As a logged-in admin member, I want to be able to delete users, recipes, authors, categories and comments |
+| **CONTACT**                         |    |                                                                      |
+|                                     | 6A | As a user, I want to be able to contact the site with ease           |
+|                                     | 6B | As a user, I want to get a reply that my message has been received   |
+|                                     | 6C | As a user, I want to see contact information on the website          |
 
 [Back to Table of Contents](#table-of-contents)
 
