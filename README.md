@@ -76,15 +76,15 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 
 |   EPIC                                |ID|                                User Story                                                   |
 | :-------------------------------------|--|:------------------------------------------------------------------------------------------- |
-|**CONTENT AND NAVIGATION**             |  ||
-|                                       |1A| As a user, I want to see a menu so I can easily navigate through website content |             
-|                                       |1B| As a user, I want to know what the website is about without having to do too much reading|
-|                                       |1C| As a user, I want the website to have a nice and intuitive design that will match the blog's theme|
-|**USER REGISTRATION**                  |  || 
-|                                       |2A| As a user, I want to be able to register on the website|
-|                                       |2B| As a user, I want to be able to authenticate using only email and password|
-|                                       |2C| As a user, I want to be able to log out at any time|
-|                                       |2D| As a user, I want to know that I've logged out successfully|
+|**User Authentication and Profiles**             |  ||
+|                                       |1.1| As a role, I can register and login so that I can access the website|             
+|                                       |1.2| As a user, I want to view and edit my profile|
+|                                       
+|**Core Blog Functionality**                  |  || 
+|                                       |2.1| As a user, I want to search for specific kayaking topics.|
+|                                       |2.2| As a content creator, I can write blog posts so that it is published|
+|                                       |2.3| As a user, I want to read blog posts about kayaking experiences.|
+|                                       |
 |**BLOGS**                              |  ||
 |                                       |3A| As a logged-in user, I want to be able to see relevant blogs clearly|
 |                                       |3B| As a logged-in user, I want to be able to select a blog and comment and/or like selected blog|
