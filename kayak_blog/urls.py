@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from blog import views as index_views 
 from about import views as about_views
+from .custom_auth_views import custom_logout
 
 urlpatterns = [
     path('about/', about_views.about_kayaking, name='about'),
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('',include("blog.urls"), name='blog-urls'),
+   
 ]
