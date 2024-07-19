@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>User Profile</h2>
+    <p>Username: {{user.username}}    </p>
+    <p>Email: {{user.email}}</p>
+    {% if user.userprofile%}
+    <p>First Name: {{user.userprofile.first_name}}</p>
+    <p>Last Name: {{user.userprofile.last_name}} </p>
+    <p>Location: {{user.userprofile.location}} </p>
+    <p>Experience Level: {{user.userprofile.experience_level}} </p>
+    <p>Favorite Gear: {{user.userprofile.favorite_gear}} </p>
+    <p>Bio: {{user.userprofile.bio}} </p>
+    {%else%}
+    <p>No profile information available </p>
+    {%endif%}
+    <!--Still need a button here-->
+</div>
+{%endblock%}
+
+
