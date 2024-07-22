@@ -9,7 +9,17 @@
             <div class="card" style="background-color: #e3f2fd;">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4">{% trans "User Profile" %}</h2>
-                    <a href="{% url 'delete_profile' %}" class="btn btn-danger">{% trans 'Delete Profile'%}</a>
+                    <div class="row mb-3 ">
+
+                        <div class="col-6 ">
+                            <a href="{% url 'account_change_password' %}" class="btn btn-outline-success">{% trans 'Password Change'%}</a>
+                        </div>
+                        <div class="col-6 text-end">
+                            <a href="{% url 'delete_profile' %}" class="btn btn-danger">{% trans 'Delete Profile'%}</a> 
+                        </div>
+                                
+                    </div>
+                                   
                     <p class="card-text"><strong>{% trans "Username:" %}</strong> {{ user.username }}</p>
                     <p class="card-text"><strong>{% trans "Email:" %}</strong> {{ user.email }}</p>
 
