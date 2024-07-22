@@ -4,8 +4,8 @@ from .models import Post, UserProfile
 from .forms import UserProfileForm
 from django.contrib.auth import logout
 from django.contrib import messages
-from django.urls import reverse_lazy
-from allauth.account.views import PasswordChangeView 
+#from django.urls import reverse_lazy
+#from allauth.account.views import PasswordChangeView 
 
 
 # Create your views here.
@@ -54,12 +54,12 @@ def delete_profile(request):
     return render(request, 'account/delete_profile.html')
 
 
-class BlogPasswordChangeView(PasswordChangeView):
-    template_name = 'account/password_change.html'
-    success_url = reverse_lazy('home')
+#class BlogPasswordChangeView(PasswordChangeView):
+#    template_name = 'account/password_change.html'
+#    success_url = reverse_lazy('home')
     
-    def get_success_url(self):
-        return self.success_url
+#    def get_success_url(self):
+#        return self.success_url
     
 
     

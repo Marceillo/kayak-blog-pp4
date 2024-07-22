@@ -61,6 +61,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 
+
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
@@ -140,6 +142,7 @@ AUTHENTICATION_BACKENDS = [
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
