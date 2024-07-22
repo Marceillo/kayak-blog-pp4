@@ -9,9 +9,10 @@
             <div class="card" style="background-color: #e3f2fd;">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4">{% trans "User Profile" %}</h2>
-                    
+                    <a href="{% url 'delete_profile' %}" class="btn btn-danger">{% trans 'Delete Profile'%}</a>
                     <p class="card-text"><strong>{% trans "Username:" %}</strong> {{ user.username }}</p>
                     <p class="card-text"><strong>{% trans "Email:" %}</strong> {{ user.email }}</p>
+
                     
                     {% if user.userprofile %}
                         <p class="card-text"><strong>{% trans "First Name:" %}</strong> {{ user.userprofile.first_name }}</p>
