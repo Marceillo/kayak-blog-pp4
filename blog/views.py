@@ -10,6 +10,8 @@ from django.contrib import messages
 
 # Create your views here.
 
+
+
 def home(request):
     posts = Post.objects.filter(status=Post.PostStatus.PUBLISHED).order_by('-publish')
     return render(request,'blog/index.html', {'posts': posts})
@@ -31,9 +33,10 @@ def userprofile(request):
 def profile_edit(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=profile)
+        form = UserProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
+            messages.success(request, "Profile updated successfully")
             return redirect('user_profile')
     
     else:
@@ -53,7 +56,7 @@ def delete_profile(request):
             
     return render(request, 'account/delete_profile.html')
 
-
+#the below was to for after password change but did not work
 #class BlogPasswordChangeView(PasswordChangeView):
 #    template_name = 'account/password_change.html'
 #    success_url = reverse_lazy('home')

@@ -56,6 +56,7 @@ class Comment(models.Model):
 
 class UserProfile (models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
+    profile_picture = CloudinaryField('image', default='profile_pic')
     first_name = models.CharField("First Name",max_length=50, null=True, blank=True)
     last_name =  models.CharField("Last Name",max_length=50, null=True, blank=True)
     location = models.CharField(max_length=100, blank=True)
