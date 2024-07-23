@@ -25,10 +25,10 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'first_name', 'last_name', 'location', 'experience_level',]
+    list_display = ['user', 'profile_picture', 'first_name', 'last_name', 'location', 'experience_level',]
     list_filter = ['location','experience_level']
     search_fields = ['user__username', 'first_name', 'last_name', 'location', 'bio']
-    fields = ['user', 'first_name', 'last_name', 'location', 'experience_level','favorite_gear','bio']
+    fields = ['user', 'profile_picture', 'first_name', 'last_name', 'location', 'experience_level','favorite_gear','bio']
     
 
 

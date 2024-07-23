@@ -10,7 +10,9 @@ from django.contrib import messages
 
 # Create your views here.
 
-
+def post_detail(request, slug):
+    post = get_object_or_404(Post, slug=slug, status=Post.PostStatus.PUBLISHED)
+    return render(request, 'blog/post_kayak_blog.html', {'post': post})
 
 def home(request):
     posts = Post.objects.filter(status=Post.PostStatus.PUBLISHED).order_by('-publish')

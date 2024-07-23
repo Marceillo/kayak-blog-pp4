@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4">{% trans "Profile Edit" %}</h2>
                     <p class="card-text text-center">{% trans "Kayaker profile update" %}</p>
-                    <form method="post" action="{% url 'profile_edit'%}">
+                    <form method="post" action="{% url 'profile_edit'%}" enctype="multipart/form-data" >
                         {%csrf_token%}
                         {{form | crispy}}
                         <div class="d-grid gap-2 mt-4">
