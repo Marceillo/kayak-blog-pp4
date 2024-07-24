@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from cloudinary.models import CloudinaryField
-
+from django.templatetags.static import static
 
 # Create your models here.
 
@@ -56,13 +56,18 @@ class Comment(models.Model):
 
 class UserProfile (models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_picture = CloudinaryField('image', default='profile_pic')
+    profile_picture = CloudinaryField('image', null=True, blank=True)
     first_name = models.CharField("First Name",max_length=50, null=True, blank=True)
     last_name =  models.CharField("Last Name",max_length=50, null=True, blank=True)
     location = models.CharField(max_length=100, blank=True)
     experience_level = models.CharField(max_length=20, blank=True)
     favorite_gear = models.TextField(blank=True)
     bio = models.TextField(max_length=500, blank=True)
+
+    def get_profile_picture_url(self):
+        if self.profile_picture:
+            return self.profile_picture.url
+        return static('images/default_profile_picture.png')
 
     def __str__(self):
         return f"{self.user.username} Profile"

@@ -9,15 +9,13 @@
             <div class="card" style="background-color: #e3f2fd;">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4">{% trans "Profile Edit" %}</h2>
+                    
                     <div class="text-center mb-4">
-                    {% if user.userprofile.profile_picture %}
-                        <img src="{{ user.userprofile.profile_picture.url }}" alt="Profile Picture" class="img-thumbnail" width="200">
-                    {% else %}
-                        <img src="{% static 'images/default_profile_picture.jpg' %}" alt="Profile Picture" class="img-thumbnail" width="200">
-                    {% endif %}
+                        <img src="{{ user.userprofile.get_profile_picture_url }}" alt="Profile Picture" class="img-thumbnail" width="200">
+                        <p>Profile Picture URL: {{ user.userprofile.get_profile_picture_url }}</p>
                     </div>
-                    <div class="row mb-3 ">
 
+                    <div class="row mb-3 ">
                         <div class="col-6 ">
                             <a href="{% url 'account_change_password' %}" class="btn btn-outline-success">{% trans 'Password Change'%}</a>
                         </div>
