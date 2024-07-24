@@ -15,7 +15,6 @@
                     <p class="card-text text-center">{% trans "Kayaker profile update" %}</p>
                     <div class="text-center mb-4">
                         <img src="{{ profile.get_profile_picture_url }}" alt="Profile picture" class="img-thumbnail" width="200">
-                        <p>Profile Picture URL: {{ user.userprofile.get_profile_picture_url }}</p>
                         <div class="mt3">
                             <button class="btn btn-outline-danger" type="submit" name="delete_image">{% trans "Delete Profile Picture" %}</button>
                         </div>
