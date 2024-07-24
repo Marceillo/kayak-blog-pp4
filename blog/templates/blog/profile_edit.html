@@ -13,6 +13,18 @@
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4">{% trans "Profile Edit" %}</h2>
                     <p class="card-text text-center">{% trans "Kayaker profile update" %}</p>
+                  
+                    {% if profile.profile_picture %}                    
+                    <div class="text-center mb-4">
+                        <img src="{{ profile.profile_picture.url }}" alt="Profile picture" class="img-thumbnail" width="200">
+                    </div>                    
+                    {% else %}                    
+                    <div class="text-center mb-4">
+                        
+                        <p>{% trans "No profile picture."%}</p>
+
+                    </div>                    
+                    {% endif %}
                     <form method="post" action="{% url 'profile_edit'%}" enctype="multipart/form-data" >
                         {%csrf_token%}
                         {{form | crispy}}

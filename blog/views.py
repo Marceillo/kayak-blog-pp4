@@ -44,7 +44,7 @@ def profile_edit(request):
     else:
         form = UserProfileForm(instance=profile)
 
-    return render (request, 'blog/profile_edit.html', {'form': form})
+    return render (request, 'blog/profile_edit.html', {'form': form, 'profile':profile})
 
 
 @login_required
