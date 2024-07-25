@@ -16,7 +16,7 @@
                     <div class="text-center mb-4">
                         <img src="{{ profile.get_profile_picture_url }}" alt="Profile picture" class="img-thumbnail" width="200">
                         <div class="mt3">
-                            <button class="btn btn-outline-danger" type="submit" name="delete_image">{% trans "Delete Profile Picture" %}</button>
+                            <a class="btn btn-outline-danger" href="{% url 'delete_profile_picture' %}">{% trans "Delete Profile Picture" %}</a>
                         </div>
                     </div>
                     <form method="post" action="{% url 'profile_edit' %}" enctype="multipart/form-data">
