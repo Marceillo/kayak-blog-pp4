@@ -6,7 +6,7 @@ from django.contrib.auth import logout
 from django.contrib import messages
 import cloudinary.uploader
 import cloudinary
-import logging
+
 
 
 #from django.urls import reverse_lazy
@@ -63,16 +63,20 @@ def delete_profile(request):
             
     return render(request, 'account/delete_profile.html')
 
-logger = logging.getLogger(__name__)
+
 
 @login_required
 def delete_profile_picture(request):
+    
         profile = UserProfile.objects.get(user=request.user)
+
         if profile.profile_picture:
+
             cloudinary.uploader.destroy(profile.profile_picture.public_id)
             profile.profile_picture = None
-            profile.save
+            profile.save()
             messages.success(request, "Profile picture deleted successfully")
+
             
         return redirect('profile_edit')
 
@@ -89,4 +93,3 @@ def delete_profile_picture(request):
 #        return self.success_url
     
 
-    
