@@ -1,0 +1,45 @@
+
+/* Body */
+body {
+    background-color: #FAF9F6;
+    
+}
+
+/* Authentica pages styles */
+
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0,1);
+    background-color: #e3f2fd;
+}
+
+/*.btn-primary {
+    background-color: #e3f2fd;
+    border-color: green;
+}
+*\
+/* Style for links */
+.card a {
+    color: green;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+.card-body {
+    color: #000;
+}
+
+/* Delete button  */
+.btn-danger {
+    color: white !important;
+    
+}
+
+
+
+
+
+    
