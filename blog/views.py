@@ -40,14 +40,18 @@ def userprofile(request):
 def profile_edit(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=profile)
+        form = UserProfileForm(request.POST, request.FILES, instance=profile, user=request.user)
         if form.is_valid():
-            form.save()
+            profile = form.save(commit=False)
+            if 'email' in form.cleaned_data:
+                request.user.email = form.cleaned_data['email']
+                request.user.save()
+            profile.save()
             messages.success(request, "Profile updated successfully")
             return redirect('user_profile')
     
     else:
-        form = UserProfileForm(instance=profile)
+        form = UserProfileForm(instance=profile, user=request.user)
 
     return render (request, 'blog/profile_edit.html', {'form': form, 'profile':profile})
 
