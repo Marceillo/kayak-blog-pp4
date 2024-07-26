@@ -1,25 +1,16 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
     <h1>Blog</h1>
-    {% for post in posts%}
+
     <div>
         <h2>{{post.title}}</h2>
-        <p>{{post.body}} | {{post.created}} </p>
+        <p>{{post.body}}</p>
+        <p><em>Created on: {{post.created}} </em></p>
         <p><em>Published on: {{post.publish}}</em></p>
+        <p><em>Author: {{ post.author.username }}</em></p>
     </div>
-   {%endfor%}
-</body>
-</html>
-{% endblock  %}
+    {% endblock %}

@@ -9,6 +9,7 @@ urlpatterns = [
     path('user_profile/', views.userprofile, name='user_profile'),
     path('profile_edit/', views.profile_edit, name='profile_edit'),
     path('delete_profile/', views.delete_profile, name='delete_profile'),
-    path('delete_profile_picture', views.delete_profile_picture, name='delete_profile_picture')
+    path('delete_profile_picture', views.delete_profile_picture, name='delete_profile_picture'),
+    path('<slug:slug>', views.post_detail, name='post_detail')
     #path('accounts/password/change/', BlogPasswordChangeView.as_view(),name='account_password_change')
 ]

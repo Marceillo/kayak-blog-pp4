@@ -19,8 +19,8 @@
                 <img class="card-img-top" src="{{ post.blog_image.url }}" alt="{{ post.title }}">
                 {% endif %}
                 <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text">{{ post.excerpt }}</p>
+                    <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
+                    <p class="card-text">{{ post.excerpt }} | {{post.created}} </p>
                     <p class="card-text"><small class="text-muted">Author: {{ post.author.username }} | Published: {{ post.publish|date:"F d, Y" }}</small></p>
                 </div>
             </div>
