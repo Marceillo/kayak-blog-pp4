@@ -2,7 +2,6 @@
 /* Body */
 body {
     background-color: #FAF9F6;
-    
 }
 
 /* Authentica pages styles */
@@ -26,6 +25,7 @@ body {
 
 .card a:hover {
     text-decoration: underline;
+
 }
 
 .card-body {

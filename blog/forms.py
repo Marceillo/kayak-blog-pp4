@@ -18,7 +18,7 @@ class UserProfileForm( forms.ModelForm ):
 class PostForm(forms.ModelForm):
     class Meta:
         model= Post
-        fields = ['title', 'body', 'status', 'excerpt']
+        fields = ['title', 'body', 'status', 'excerpt', 'blog_image']
         widgets = {
         'body': forms.Textarea(attrs={'rows': 10}),
         'excerpt': forms.Textarea(attrs={'rows': 3}),
