@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">
+                       New Kayak Blog
+                       <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy}}
+                        <button type="submit" class="btn tbn-promary">Save Post</button>
+                       </form> 
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+
+

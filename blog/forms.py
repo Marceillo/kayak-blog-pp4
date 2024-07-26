@@ -1,5 +1,5 @@
 from django import forms 
-from .models import UserProfile 
+from .models import UserProfile, Post 
 
 
 class UserProfileForm( forms.ModelForm ):
@@ -14,4 +14,14 @@ class UserProfileForm( forms.ModelForm ):
         super(UserProfileForm, self).__init__(*args, **kwargs)
         if user:
             self.fields['email'].initial = user.email
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model= Post
+        fields = ['title', 'body', 'status', 'excerpt']
+        widgets = {
+        'body': forms.Textarea(attrs={'rows': 10}),
+        'excerpt': forms.Textarea(attrs={'rows': 3}),
+    }
+
        

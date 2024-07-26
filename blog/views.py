@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 from .models import Post, UserProfile
-from .forms import UserProfileForm
+from .forms import UserProfileForm, PostForm
 from django.contrib.auth import logout
 from django.contrib import messages
 import cloudinary.uploader
@@ -85,6 +88,16 @@ def delete_profile_picture(request):
         return redirect('profile_edit')
 
 
+
+class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
+    model = Post
+    form_class=PostForm
+    template_name = 'blog/create_kayak_post.html'
+    success_url = reverse_lazy('home')
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
     
 
 

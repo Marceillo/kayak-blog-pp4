@@ -63,6 +63,9 @@
               <li class="nav-item">
                 <a class="nav-link {% if request.path == user_profile_url %}active" aria-current="page{% endif %}" href="{% url 'user_profile' %}"><i class="fa-solid fa-user"></i>{{ user }}</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == 'create_kayak_post_url' %}active" aria-current="page{% endif %}"  href="{% url 'create_kayak_post' %}" >Create Post</a>
+              </li>
               {% else %}
               <li class="nav-item">
                 <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}">Register</a>
