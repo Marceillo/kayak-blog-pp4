@@ -4,6 +4,7 @@
 
 
 {% block content %}
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -12,7 +13,20 @@
                     <h2 class="card-title">
                        <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{ form|crispy}}
+                        {% for field in form %}
+                        {% if field.name == ' blog_image'%}
+                        <div class="form-group">
+                            <label for="{{field.id_for_label}}">{ field.label }</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" id="{{ field.id_for_label}}" name="{{ field.name }}">
+                                <button class="btn btn-outline-secondary" type="button" id="clear-file-btn"></button>
+                            </div>
+                        </div>
+                        {% else %}
+                        {{ field|as_crispy_field }}
+                        {% endif %}                        
+                        {% endfor %}
+                        
                         <button type="submit" class="btn tbn-promary">Save Post</button>
                        </form> 
                     </h2>
@@ -21,7 +35,26 @@
         </div>
     </div>
 </div>
-    
-{% endblock %}
+{% endblock content %}
+{% block extras %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fileInput = document.getElementById('{{ form.blog_image.id_for_label }}');
+        const clearButton = document.getElementById('clear-file-btn');
+        clearButton.addEventListener('click', function() {
+            fileInput.value = '';
+            clearButton.style.display = 'none';
+        });
+
+        fileInput.addEventListener('change', function() {
+            clearButton.style.display = this.value ? 'block' : 'none';
+        });
+
+        
+        clearButton.style.display = 'none';
+    });
+</script>
+
+{% endblock extras %}
 
 

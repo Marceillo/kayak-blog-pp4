@@ -97,7 +97,24 @@ class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
     
     def form_valid(self, form):
         form.instance.author = self.request.user
+        if form.cleaned_data.get('delete_image') and self.object.blog_image:
+            cloudinary.uploader.destroy(self.object.blog_image.public_id)
+            self.object.blog_image = None
         return super().form_valid(form)
+
+
+#class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
+#    model = Post
+#    form_class=PostForm
+#    template_name = 'update_kayak_post.html'
+#    success_url = reverse_lazy('home')
+    
+#    def form_valid(self, form):
+#        form.instance.author = self.request.user
+#        if form.cleaned_data.get('delete_image') and self.object.blog_image:
+#            cloudinary.uploader.destroy(self.object.blog_image.public_id)
+#            self.object.blog_image = None
+#        return super().form_valid(form)
     
 
 

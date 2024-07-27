@@ -35,6 +35,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        if self.pk and not self.blog_image:
+            self.blog_image = None
+        super(Post, self).save(*args, **kwargs)
 
 
 class Comment(models.Model):

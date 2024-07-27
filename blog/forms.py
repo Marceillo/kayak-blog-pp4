@@ -24,4 +24,10 @@ class PostForm(forms.ModelForm):
         'excerpt': forms.Textarea(attrs={'rows': 3}),
     }
 
+    #def __init__(self, *args, **kwargs):
+    #    super(PostForm, self).__init__(*args, **kwargs)
+    #    if self.instance and self.instance.pk:
+    #        self.fields['delete_image'].widget.attrs.update({'class': 'form-check-input'})
+
+
        
