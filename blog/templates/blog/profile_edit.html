@@ -21,7 +21,19 @@
                     </div>
                     <form method="post" action="{% url 'profile_edit' %}" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{ form|crispy }}
+                        {% for field in form %}
+                        {% if field.name == 'profile_picture' %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" id="{{ field.id_for_label }}" name="{{ field.name }}">
+                                <button class="btn btn-outline-secondary" type="button" id="clear-file-btn" style="display: none;"><i class="fa-solid fa-eraser"></i></button>
+                            </div>
+                        </div>
+                        {% else %}
+                        {{ field|as_crispy_field }}
+                        {% endif %}
+                        {% endfor %}
                         <div class="d-grid gap-2 mt-4">
                             <button class="btn btn-outline-success" type="submit">{% trans "Save Changes" %}</button>
                         </div>
@@ -38,5 +50,23 @@
         </div>
     </div>    
 </div>
+{% endblock %}
+{% block extras %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fileInput = document.getElementById('{{ form.profile_picture.id_for_label }}');
+        const clearButton = document.getElementById('clear-file-btn');
+        clearButton.addEventListener('click', function() {
+            fileInput.value = '';
+            clearButton.style.display = 'none';
+        });
+
+        fileInput.addEventListener('change', function() {
+            clearButton.style.display = this.value ? 'block' : 'none';
+        });
+
+        clearButton.style.display = 'none';
+    });
+</script>
 {% endblock %}
 

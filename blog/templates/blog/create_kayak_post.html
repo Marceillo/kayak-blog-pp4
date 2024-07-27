@@ -14,12 +14,13 @@
                        <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {% for field in form %}
-                        {% if field.name == ' blog_image'%}
+                        {% if field.name == 'blog_image'%}
                         <div class="form-group">
-                            <label for="{{field.id_for_label}}">{ field.label }</label>
+                            <label for="{{field.id_for_label}}"></label>
                             <div class="input-group">
                                 <input type="file" class="form-control" id="{{ field.id_for_label}}" name="{{ field.name }}">
-                                <button class="btn btn-outline-secondary" type="button" id="clear-file-btn"></button>
+                              
+                                <button class="btn btn-outline-secondary" type="button" id="clear-file-btn" style="display: none;"><i class="fa-solid fa-eraser"></i></button>
                             </div>
                         </div>
                         {% else %}
@@ -38,6 +39,7 @@
 {% endblock content %}
 {% block extras %}
 <script>
+    
     document.addEventListener('DOMContentLoaded', function() {
         const fileInput = document.getElementById('{{ form.blog_image.id_for_label }}');
         const clearButton = document.getElementById('clear-file-btn');
