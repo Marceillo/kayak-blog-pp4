@@ -29,8 +29,8 @@ class PostForm(forms.ModelForm):
         instance = super().save(commit=False)
         if not instance.excerpt:
             instance.excerpt = instance.body[:200] + '...'
-            if commit:
-                instance.save
+        if commit:
+            instance.save()
             return instance
 
 

@@ -15,8 +15,8 @@
                         <br>
                         {% if user == post.author %}
                         <div class="mb-3">
-                            <a href="{% url 'update_kayak_post' post.slug %}"  class="btn btn-outline-success" >Edit Post<i class="fa-solid fa-file-pen"></i></a>
-                            <a href="{% url 'delete_kayak_post' post.slug %}"  class="btn btn-danger" >Delete Post<i class="fa-solid fa-eraser"></i></i></a>                            
+                            <a href="{% url 'update_kayak_post' post.slug %}"  class="btn btn-outline-success" ><i class="fa-solid fa-file-pen"></i> Edit Post</a>
+                            <a href="{% url 'delete_kayak_post' post.slug %}"  class="btn btn-danger" >Delete Post <i class="fa-solid fa-eraser"></i></i></a>                            
                         </div>
                         {% endif %}                
                         {% if post.blog_image %}
