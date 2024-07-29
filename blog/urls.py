@@ -15,5 +15,6 @@ urlpatterns = [
     path('post/new', views.Create_Kayak_Post_View.as_view(), name='create_kayak_post'),
     path('post/<slug:slug>/edit/', views.Update_Kayak_Post_View.as_view(), name='update_kayak_post'),
     path('post/<slug:slug>/delete/', views.Delete_Kayak_Post_View.as_view(), name='delete_kayak_post'),
+    
     #path('accounts/password/change/', BlogPasswordChangeView.as_view(),name='account_password_change')
 ]

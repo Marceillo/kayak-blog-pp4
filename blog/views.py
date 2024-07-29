@@ -130,6 +130,16 @@ class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
         return Post.objects.filter(author=self.request.user) 
 
 
+class My_Post_List_View(LoginRequiredMixin, DeleteView):
+    model = Post
+    template_name = 'blog/my_post_list.html'
+    context_object_name = 'post'
+
+
+    def get_queryset(self):
+        return post.objects.filter(author=self.request.user).order_by('-created')
+
+
 #the below was to for after password change but did not work
 #class BlogPasswordChangeView(PasswordChangeView):
 #    template_name = 'account/password_change.html'
