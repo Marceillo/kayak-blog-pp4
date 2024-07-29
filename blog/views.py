@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Post, UserProfile
 from .forms import UserProfileForm, PostForm
@@ -102,20 +102,32 @@ class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
             self.object.blog_image = None
         return super().form_valid(form)
 
+#Update posts
+class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
+    model = Post
+    form_class=PostForm
+    template_name = 'blog/update_kayak_post.html'
+    success_url = reverse_lazy('home')
 
-#class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
-#    model = Post
-#    form_class=PostForm
-#    template_name = 'update_kayak_post.html'
-#    success_url = reverse_lazy('home')
+    def get_queryset(self):
+        return Post.objects.filter(author=self.request.user)
     
-#    def form_valid(self, form):
-#        form.instance.author = self.request.user
-#        if form.cleaned_data.get('delete_image') and self.object.blog_image:
-#            cloudinary.uploader.destroy(self.object.blog_image.public_id)
-#            self.object.blog_image = None
-#        return super().form_valid(form)
-    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        if form.cleaned_data.get('delete_image') and self.object.blog_image:
+            cloudinary.uploader.destroy(self.object.blog_image.public_id)
+            self.object.blog_image = None
+        return super().form_valid(form)
+
+#Delete posts 
+class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
+    model = Post
+    template_name = 'blog/delete_kayak_post.html'
+    success_url = reverse_lazy('home')
+
+
+    def get_queryset(self):
+        return Post.objects.filter(author=self.request.user) 
 
 
 #the below was to for after password change but did not work

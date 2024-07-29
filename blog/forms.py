@@ -24,6 +24,19 @@ class PostForm(forms.ModelForm):
         'excerpt': forms.Textarea(attrs={'rows': 3}),
     }
 
+    # Excerpt to generate automatically
+    def save (self, commit=True ):
+        instance = super().save(commit=False)
+        if not instance.excerpt:
+            instance.excerpt = instance.body[:200] + '...'
+            if commit:
+                instance.save
+            return instance
+
+
+
+
+
     #def __init__(self, *args, **kwargs):
     #    super(PostForm, self).__init__(*args, **kwargs)
     #    if self.instance and self.instance.pk:
