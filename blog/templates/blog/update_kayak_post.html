@@ -10,13 +10,18 @@
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title">
+                    <h2 class="card-title">Edit Post: {{ post.title }}</h2>
                        <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {% for field in form %}
                         {% if field.name == 'blog_image'%}
                         <div class="form-group">
-                            <label for="{{field.id_for_label}}"></label>
+                            <label for="{{field.id_for_label}}">{{ field.label }}</label>
+                            {% if post.blog_image %}
+                            <div class="mb-2">
+                                <img src="{{ post.blog_image.url }}" alt="Current blog image" class="img-fluid" style="max-width: 200px;">
+                            </div>
+                            {% endif %}
                             <div class="input-group">
                                 <input type="file" class="form-control" id="{{ field.id_for_label}}" name="{{ field.name }}">
                               
@@ -30,7 +35,6 @@
                         
                         <button type="submit" class="btn btn-outline-success">Update Post</button>
                        </form> 
-                    </h2>
                 </div>
             </div>
         </div>
