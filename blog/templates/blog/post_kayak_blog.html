@@ -13,6 +13,12 @@
                         {{post.title}}
                         <br>
                         <br>
+                        {% if user == post.author %}
+                        <div class="mb-3">
+                            <a href="{% url 'update_kayak_post' post.slug %}"  class="btn btn-primary btn-sm" >Edit Post<i class="fa-solid fa-file-pen"></i></a>
+                            <a href="{% url 'delete_kayak_post' post.slug %}"  class="btn btn-danger" >Delete Post<i class="fa-solid fa-eraser"></i></i></a>                            
+                        </div>
+                        {% endif %}                
                         {% if post.blog_image %}
                         <img src="{{ post.blog_image.url }}" class="img-fluid mb-3" alt="{{ post.title }}">
                         {% endif %}
