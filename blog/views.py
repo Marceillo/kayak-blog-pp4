@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from .models import Post, UserProfile
 from .forms import UserProfileForm, PostForm
@@ -130,14 +131,14 @@ class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
         return Post.objects.filter(author=self.request.user) 
 
 
-class My_Post_List_View(LoginRequiredMixin, DeleteView):
+class My_Post_List_View(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'blog/my_post_list.html'
-    context_object_name = 'post'
+    context_object_name = 'posts'
 
 
     def get_queryset(self):
-        return post.objects.filter(author=self.request.user).order_by('-created')
+        return Post.objects.filter(author=self.request.user).order_by('-created')
 
 
 #the below was to for after password change but did not work
