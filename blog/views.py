@@ -40,6 +40,10 @@ def about(request):
     return render(request, 'blog/about.html')
 
 
+#def kayak_search_result(request):
+
+
+
 class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
     model = Post
     form_class=PostForm
@@ -89,6 +93,7 @@ class My_Post_List_View(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Post.objects.filter(author=self.request.user).order_by('-created')
+
 
 
 # After login code 
