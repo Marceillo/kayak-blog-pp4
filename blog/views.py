@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import Http404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -17,11 +18,19 @@ import cloudinary
 #from allauth.account.views import PasswordChangeView 
 
 
-# Create your views here.
+# Views 
 
 def post_detail(request, slug):
-    post = get_object_or_404(Post, slug=slug, status=Post.PostStatus.PUBLISHED)
-    return render(request, 'blog/post_kayak_blog.html', {'post': post})
+    post = get_object_or_404(Post, slug=slug)
+    if post.status == Post.PostStatus.PUBLISHED:
+        return render(request, 'blog/post_kayak_blog.html', {'post': post})
+    elif post.status == Post.PostStatus.DRAFT and request.user.is_authenticated and request.user == post.author:
+        
+            
+            return render(request, 'blog/post_kayak_blog.html', {'post: post'})
+            
+            raise Http404("Post not found")
+            
 
 def home(request):
     posts = Post.objects.filter(status=Post.PostStatus.PUBLISHED).order_by('-publish')
@@ -30,6 +39,59 @@ def home(request):
 def about(request):
     return render(request, 'blog/about.html')
 
+
+class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
+    model = Post
+    form_class=PostForm
+    template_name = 'blog/create_kayak_post.html'
+    success_url = reverse_lazy('home')
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        if form.cleaned_data.get('delete_image') and self.object.blog_image:
+            cloudinary.uploader.destroy(self.object.blog_image.public_id)
+            self.object.blog_image = None
+        return super().form_valid(form)
+
+#Update posts
+class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
+    model = Post
+    form_class=PostForm
+    template_name = 'blog/update_kayak_post.html'
+    success_url = reverse_lazy('home')
+
+    def get_queryset(self):
+        return Post.objects.filter(author=self.request.user)
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        if form.cleaned_data.get('delete_image') and self.object.blog_image:
+            cloudinary.uploader.destroy(self.object.blog_image.public_id)
+            self.object.blog_image = None
+        return super().form_valid(form)
+
+#Delete posts 
+class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
+    model = Post
+    template_name = 'blog/delete_kayak_post.html'
+    success_url = reverse_lazy('home')
+
+
+    def get_queryset(self):
+        return Post.objects.filter(author=self.request.user) 
+
+#User tobe able to see there posts 
+class My_Post_List_View(LoginRequiredMixin, ListView):
+    model = Post
+    template_name = 'blog/my_post_list.html'
+    context_object_name = 'posts'
+
+
+    def get_queryset(self):
+        return Post.objects.filter(author=self.request.user).order_by('-created')
+
+
+# After login code 
 
 @login_required
 def userprofile(request):
@@ -90,55 +152,6 @@ def delete_profile_picture(request):
 
 
 
-class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
-    model = Post
-    form_class=PostForm
-    template_name = 'blog/create_kayak_post.html'
-    success_url = reverse_lazy('home')
-    
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        if form.cleaned_data.get('delete_image') and self.object.blog_image:
-            cloudinary.uploader.destroy(self.object.blog_image.public_id)
-            self.object.blog_image = None
-        return super().form_valid(form)
-
-#Update posts
-class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
-    model = Post
-    form_class=PostForm
-    template_name = 'blog/update_kayak_post.html'
-    success_url = reverse_lazy('home')
-
-    def get_queryset(self):
-        return Post.objects.filter(author=self.request.user)
-    
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        if form.cleaned_data.get('delete_image') and self.object.blog_image:
-            cloudinary.uploader.destroy(self.object.blog_image.public_id)
-            self.object.blog_image = None
-        return super().form_valid(form)
-
-#Delete posts 
-class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
-    model = Post
-    template_name = 'blog/delete_kayak_post.html'
-    success_url = reverse_lazy('home')
-
-
-    def get_queryset(self):
-        return Post.objects.filter(author=self.request.user) 
-
-
-class My_Post_List_View(LoginRequiredMixin, ListView):
-    model = Post
-    template_name = 'blog/my_post_list.html'
-    context_object_name = 'posts'
-
-
-    def get_queryset(self):
-        return Post.objects.filter(author=self.request.user).order_by('-created')
 
 
 #the below was to for after password change but did not work
