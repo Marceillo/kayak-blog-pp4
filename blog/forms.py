@@ -34,8 +34,8 @@ class PostForm(forms.ModelForm):
             return instance
 
 
-
-
+class SearchForm(forms.Form):
+    q = forms.CharField(label='Search', max_length=100, required=False)
 
     #def __init__(self, *args, **kwargs):
     #    super(PostForm, self).__init__(*args, **kwargs)
