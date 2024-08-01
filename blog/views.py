@@ -6,6 +6,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from .models import Post, UserProfile
+from django.db.models import Q
+from django.core.paginator import Paginator
 from .forms import UserProfileForm, PostForm
 from django.contrib.auth import logout
 from django.contrib import messages
@@ -38,6 +40,24 @@ def home(request):
 
 def about(request):
     return render(request, 'blog/about.html')
+
+
+def kayak_search_result(request):
+    query = request.GET.get('q')
+    if query:
+        results = Post.objects.filter(
+            Q(title__icontains=query) |
+            Q(body__icontains=query) |
+            Q(excerpt__icontains=query) |
+            Q(author__username__icontains=query) 
+        ).filter(status=Post.PostStatus.PUBLISHED).distinct().order_by('-publish')
+    else:
+        results = Post.objects.filter(status=Post.PostStatus.PUBLISHED).order_by('-publish')
+    
+    paginator = Paginator(results, 10 )
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'blog/kayak_search_result.html', {'page_obj': page_obj, 'query':query}) 
 
 
 #def kayak_search_result(request):
