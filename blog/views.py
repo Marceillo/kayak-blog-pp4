@@ -6,19 +6,13 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from .models import Post, UserProfile
-#from django.db.models import Q
-#from django.core.paginator import Paginator
+from django.db.models import Q
+from django.core.paginator import Paginator
 from .forms import UserProfileForm, PostForm
 from django.contrib.auth import logout
 from django.contrib import messages
 import cloudinary.uploader
 import cloudinary
-
-
-
-
-#from django.urls import reverse_lazy
-#from allauth.account.views import PasswordChangeView 
 
 
 # Views 
@@ -52,17 +46,15 @@ def kayak_search_result(request):
             Q(excerpt__icontains=query) |
             Q(author__username__icontains=query) 
         ).filter(status=Post.PostStatus.PUBLISHED).distinct().order_by('-publish')
+
     else:
         results = Post.objects.filter(status=Post.PostStatus.PUBLISHED).order_by('-publish')
+       
     
     paginator = Paginator(results, 10 )
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'blog/kayak_search_result.html', {'page_obj': page_obj, 'query':query}) 
-
-
-#def kayak_search_result(request):
-
 
 
 class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
@@ -77,6 +69,7 @@ class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
             cloudinary.uploader.destroy(self.object.blog_image.public_id)
             self.object.blog_image = None
         return super().form_valid(form)
+
 
 #Update posts
 class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
@@ -94,6 +87,7 @@ class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
             cloudinary.uploader.destroy(self.object.blog_image.public_id)
             self.object.blog_image = None
         return super().form_valid(form)
+
 
 #Delete posts 
 class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
@@ -115,10 +109,7 @@ class My_Post_List_View(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Post.objects.filter(author=self.request.user).order_by('-created')
 
-
-
 # After login code 
-
 @login_required
 def userprofile(request):
     profile,created = UserProfile.objects.get_or_create(user=request.user)
@@ -127,6 +118,7 @@ def userprofile(request):
         'profile': profile
     }
     return render(request, 'blog/user_profile.html', context)
+
 
 @login_required
 def profile_edit(request):
@@ -158,7 +150,6 @@ def delete_profile(request):
         return redirect('home')
             
     return render(request, 'account/delete_profile.html')
-
 
 
 @login_required
