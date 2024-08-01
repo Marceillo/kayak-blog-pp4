@@ -6,6 +6,9 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from cloudinary.models import CloudinaryField
 from django.templatetags.static import static
+from django.template.defaultfilters import slugify
+from django.utils.text import slugify
+import uuid
 
 
 
@@ -41,11 +44,13 @@ class Post(models.Model):
     
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = f"{self.title.replace('', '-')}-{str(self.id)}"
+            self.slug = slugify(self.title)
+            
+            if Post.objects.filter(slug=self.slug).exists():
+                self.slug = f"{self.slug}-{uuid.uuid4().hex[:8]}"
 
-        if self.pk and not self.blog_image:
-            self.blog_image = None
-        super(Post, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)                
+                
     
 
 class Comment(models.Model):

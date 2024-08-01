@@ -19,14 +19,14 @@ import cloudinary
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
+
+
     if post.status == Post.PostStatus.PUBLISHED:
         return render(request, 'blog/post_kayak_blog.html', {'post': post})
     elif post.status == Post.PostStatus.DRAFT and request.user.is_authenticated and request.user == post.author:
-        
-            
-            return render(request, 'blog/post_kayak_blog.html', {'post: post'})
-            
-            raise Http404("Post not found")
+        return render(request, 'blog/post_kayak_blog.html', {'post: post'})
+    else:
+        raise Http404("Post not found")
             
 
 def home(request):
