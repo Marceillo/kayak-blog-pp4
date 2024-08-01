@@ -6,13 +6,14 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from .models import Post, UserProfile
-from django.db.models import Q
-from django.core.paginator import Paginator
+#from django.db.models import Q
+#from django.core.paginator import Paginator
 from .forms import UserProfileForm, PostForm
 from django.contrib.auth import logout
 from django.contrib import messages
 import cloudinary.uploader
 import cloudinary
+
 
 
 
