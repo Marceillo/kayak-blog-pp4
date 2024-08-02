@@ -11,6 +11,7 @@
                 <div class="card-body">
                     <div class="card-title">Search Kayaking Blog</div>
                     <form  method="get" action="{% url 'kayak_search_result' %}" class="mb-4">
+                         {% csrf_token %}
                          {{ form|crispy }}
                          <button type="submit" class="btn btn-outline-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
                     </form>
