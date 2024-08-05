@@ -5,6 +5,26 @@ body {
     
 }
 
+/* Navigation bar */
+
+.nav-link {
+    color: initial;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus,
+.nav-link.active {
+    background-color: #ff6347;
+    color: #FAF9F6;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
 /* Authentica pages styles */
 
 .card {
