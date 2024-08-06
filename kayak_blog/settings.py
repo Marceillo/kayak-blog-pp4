@@ -30,13 +30,12 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 #SECRET_KEY = 'django-insecure-k^r292g8v7!n0aay&qkle!t+9j89wwt2-7akh271wql5a17d@!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-marceillo-kayakblogpp4-7k6a7fjpl13.ws.codeinstitute-ide.net','kayak-blog-pp4-1054055911f7.herokuapp.com']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
