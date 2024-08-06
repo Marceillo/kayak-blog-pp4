@@ -24,7 +24,7 @@ def post_detail(request, slug):
     if post.status == Post.PostStatus.PUBLISHED:
         return render(request, 'blog/post_kayak_blog.html', {'post': post})
     elif post.status == Post.PostStatus.DRAFT and request.user.is_authenticated and request.user == post.author:
-        return render(request, 'blog/post_kayak_blog.html', {'post: post'})
+        return render(request, 'blog/post_kayak_blog.html', {'post': post})
     else:
         raise Http404("Post not found")
             
