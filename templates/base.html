@@ -18,7 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!--Favicon-->
-    <link rel="shortcut icon" href="/static/images/kayak-blog-high-resolution-logo-transparent (1).png" type="image/x-icon">
+    
+    <link rel="shortcut icon" href="{% static 'images/kayak-blog-favicon-color.png' %}" type="image/kayak-icon">
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -38,41 +39,37 @@
     <!-- Navigation used from boostrap 5 -->
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static 'images/kayak-blog-high-resolution-logo-transparent (1).png' %}" alt="Kayaking blog logo" style="height: 50px;"></a>
+          <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static 'images/kayak-blog-high-resolution-logo-transparent.png' %}" alt="Kayaking blog logo" style="height: 50px;"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link {% if request.path == 'home_url' %}active" aria-current="page {% endif %}"  href="{% url 'home' %}">
-                  Home
-                </a>
+                <a class="nav-link {% if request.path == home_url %}active" aria-current="Home page {% endif %}" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {% if request.path == 'about_url' %} active"aria-current="page{% endif %}" href="{% url 'about' %}">
-                  About
-                </a>
+                <a class="nav-link {% if request.path == about_url %}active" aria-current="About page {% endif %}" href="{% url 'about' %}">About</a>
               </li>
               <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Classes</a>
               </li> -->
               {% if user.is_authenticated%}
               <li class="nav-item">
-                <a href="{% url 'account_logout' %}"class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page">Logout</a>
+                <a href="{% url 'account_logout' %}"class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="Logout page">Logout</a>
             </li>
               <li class="nav-item">
-                <a class="nav-link {% if request.path == user_profile_url %}active" aria-current="page{% endif %}" href="{% url 'user_profile' %}"><i class="fa-solid fa-user"></i>{{ user }}</a>
+                <a class="nav-link {% if request.path == user_profile_url %}active" aria-current="Profile page{% endif %}" href="{% url 'user_profile' %}"><i class="fa-solid fa-user"></i>{{ user }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  {% if request.path == 'create_kayak_post_url' %}active" aria-current="page{% endif %}"  href="{% url 'create_kayak_post' %}" >Create Post</a>
+                <a class="nav-link {% if request.path == create_kayak_post_url %}active" aria-current="Create blog page{% endif %}" href="{% url 'create_kayak_post' %}"> Create Blog </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {% if request.path == 'my_post_list_url' %}active" aria-current="page{% endif %}"  href="{% url 'my_post_list' %}" >My Posts</a>
+                <a class="nav-link {% if request.path == my_post_list_url %}active" aria-current="My blog page{% endif %}" href="{% url 'my_post_list' %}"> My Blog </a>
               </li>
               {% else %}
               <li class="nav-item">
-                <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}">Register</a>
+                <a class="nav-link {% if request.path == signup_url %}active" aria-current="Register page {% endif %}" href="{% url 'account_signup' %}">Register</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}">Login</a>
