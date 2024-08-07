@@ -5,10 +5,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
-from .models import Post, UserProfile
+from .models import Post, UserProfile, Comment
 from django.db.models import Q
 from django.core.paginator import Paginator
-from .forms import UserProfileForm, PostForm, SearchForm
+from .forms import UserProfileForm, PostForm, SearchForm, CommentForm 
 from django.contrib.auth import logout
 from django.contrib import messages
 import cloudinary.uploader
@@ -177,6 +177,50 @@ def delete_profile_picture(request):
         return redirect('profile_edit')
 
 
+@login_required
+def add_comment(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
+            return redirect('post_detail', slug=post.slug)
+    else:
+        form = CommentForm()
+    return render(request, 'blog/add_comment.html', {'form': form})
+
+
+@login_required
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if not comment.can_modify(request.user):
+        return HttpResponseForbidden("You can't edit this comment")
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            return redirect('post_detail', slug=comment.post.slug)
+    else:
+        form = CommentForm(instance=comment)
+        return render(request, 'blog/edit_comment.html', {'form': form, 'comment': comment })
+
+
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if not comment.can_modify(request.user):
+        return HttpResponseForbidden("You can't edit this comment")
+    if request.method == 'POST':
+        post_slug = comment.post.slug
+        comment.delete()
+        return redirect('post_detail', slug=post_slug)
+
+    return render(request, 'blog/delete_comment.html', {'comment': comment})
+
+    
 
 
 

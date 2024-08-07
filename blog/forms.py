@@ -37,6 +37,15 @@ class PostForm(forms.ModelForm):
 class SearchForm(forms.Form):
     q = forms.CharField(label='Search', max_length=100, required=False)
 
+
+class CommentForm(forms.ModelForm):
+    class Meta: 
+        model = Comment 
+        Fields = ['body']
+        widgets = {
+            'body' : forms.Textarea(attrs={'rows': 4}),
+        }
+
     #def __init__(self, *args, **kwargs):
     #    super(PostForm, self).__init__(*args, **kwargs)
     #    if self.instance and self.instance.pk:

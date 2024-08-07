@@ -57,6 +57,7 @@ body {
 /* All buttons that is used in the site */
 .btn.btn-outline-success {
     background-color: #ff6347 !important;
+    color: white !important;
     
 }
 
