@@ -19,7 +19,9 @@
                             <a href="{% url 'delete_kayak_post' post.slug %}"  class="btn btn-danger" >Delete Post <i class="fa-solid fa-eraser"></i></i></a>                            
                         </div>
                         {% endif %}                
-                        {% if post.blog_image %}
+                        {% if "placeholder" in post.blog_image.url %}
+                        <img src="{% static 'images/default.jpg' %}" class="img-fluid mb-3" alt=" Placeholder kayak image">
+                        {% else %}
                         <img src="{{ post.blog_image.url }}" class="img-fluid mb-3" alt="{{ post.title }}">
                         {% endif %}
                         <div class="post-content mb-4">
