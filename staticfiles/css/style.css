@@ -33,12 +33,8 @@ body {
     background-color: #e3f2fd;
 }
 
-/*.btn-primary {
-    background-color: #e3f2fd;
-    border-color: green;
-}
-*\
-/* Style for links */
+
+/* Style for all links */
 .card a {
     color: green;
     text-decoration: none;
@@ -58,7 +54,11 @@ body {
     
 }
 
-
+/* All buttons that is used in the site */
+.btn.btn-outline-success {
+    background-color: #ff6347 !important;
+    
+}
 
 
 
