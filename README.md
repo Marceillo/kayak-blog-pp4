@@ -314,8 +314,16 @@ Lighthouse
 
 | **Bug** | **Fix** |
 | --- | --- |
-| Bug:jkhhklj  | klkjlkl |
-| Bug:  
+| Bug1: Heroku log= Mis-cased procfile detected; ignoring. to Heruko | Rename it to Procfile to have it honored as it is case sensitive |
+| Bug2: deployment was an error on the Heroku app =Bad Request (400). | I forgot to add the Heruko site to the allowed hosts.
+| Bug3: Forbidden (403)CSRF verification failed. Request aborted. | Added Heroku to the  CSRF_TRUSTED_ORIGINS in settings 
+| Bug4: The model Post is already registered in app blog. |  Removed the duplicate admin.register(post)
+| Bug5: The drop-down list in the Django admin app was showing the ID and not the author's name. | Removed this incorrect code I created raw_id_fields = ['author',] which returned it to its stock feature a drop down list.
+| Bug6: admin.E108 The value of 'list_display[1]' refers to 'first-name', which is not a callable, an attribute of 'UserProfileAdmin', or an attribute or method on 'blog.UserProfile'. | changed the code from first-name to first_name as per my code.
+| Bug7: RelatedObjectDoesNotExist at /accounts/login/User has no userprofile.Exception Type:	RelatedObjectDoesNotExist | Accessed the manage.py shell and imported the UserProfile, testing after with the shell.Reason the model was changed and not synced with the database.
+| Bug: 
+
+
 
 [Back to Table of Contents](#table-of-contents)
 
