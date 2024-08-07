@@ -19,12 +19,13 @@ import cloudinary
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
-
+    comments = post.comments.all()
+    comment_form = CommentForm()
 
     if post.status == Post.PostStatus.PUBLISHED:
-        return render(request, 'blog/post_kayak_blog.html', {'post': post})
+        return render(request, 'blog/post_kayak_blog.html', {'post': post, 'comments': comments, 'comment_form': comment_form})
     elif post.status == Post.PostStatus.DRAFT and request.user.is_authenticated and request.user == post.author:
-        return render(request, 'blog/post_kayak_blog.html', {'post': post})
+        return render(request, 'blog/post_kayak_blog.html', {'post': post, 'comments': comments, 'comment_form': comment_form})
     else:
         raise Http404("Post not found")
             

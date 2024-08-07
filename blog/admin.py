@@ -15,13 +15,13 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['author', 'post', 'created', 'approved']
-    list_filter = ['approved', 'created']
+    list_display = ['author', 'post', 'created', ]
+    list_filter = [ 'created']
     search_fields = ['author__username', 'body']
-    actions  = ['approve_comments']
-    def approve_comments(self, request, queryset):
-        queryset.update(approved=True)
-    approve_comments.short_description = "approve selected comments"
+    #actions  = ['approve_comments']
+    #def approve_comments(self, request, queryset):
+    #    queryset.update(approved=True)
+    #approve_comments.short_description = "approve selected comments"
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
