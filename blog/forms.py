@@ -1,5 +1,5 @@
 from django import forms 
-from .models import UserProfile, Post 
+from .models import UserProfile, Post, Comment 
 
 
 class UserProfileForm( forms.ModelForm ):
@@ -41,7 +41,7 @@ class SearchForm(forms.Form):
 class CommentForm(forms.ModelForm):
     class Meta: 
         model = Comment 
-        Fields = ['body']
+        fields = ['body']
         widgets = {
             'body' : forms.Textarea(attrs={'rows': 4}),
         }
