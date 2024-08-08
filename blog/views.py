@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import Http404
+from django.shortcuts import render, redirect, get_object_or_404, redirect
+from django.http import Http404, HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -212,11 +212,12 @@ def edit_comment(request, comment_id):
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     if not comment.can_modify(request.user):
-        return HttpResponseForbidden("You can't edit this comment")
+        return HttpResponseForbidden("You can't dele this comment")
     if request.method == 'POST':
         post_slug = comment.post.slug
         comment.delete()
         return redirect('post_detail', slug=post_slug)
+    #return redirect('post_detail', slug=comment.post.slug)
 
     return render(request, 'blog/delete_comment.html', {'comment': comment})
 
