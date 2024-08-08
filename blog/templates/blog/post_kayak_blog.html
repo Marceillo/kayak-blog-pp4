@@ -40,6 +40,31 @@
             </div>
         </div>
     </div>
+    <!--For Comments-->
+    <div class="row justify-content-center mt-4">
+        <div class="col-12 col-lg-10">
+            <h3>Comments</h3>
+            {% for comment in comments %}
+            <div class="comment mb-3">
+                <p>{{ comment.body }}</p>
+                <small>By {{ comment.author.username }} on {{ comment.created|date:"F d, Y" }}</small>
+            </div>
+            {% empty %}
+            <p>No comments yet.</p>
+            {% endfor %} 
+            
+            {% if user.is_authenticated %}
+            <h4>Add a comment</h4>
+            <form method="post" action="{% url 'add_comment' post.slug %}">
+                {% csrf_token %}
+                {{ comment_form|crispy}}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {% else %}
+            <p>Please <a href="{% url 'account_login' %}">Log in</a> to leave a comment.</p>
+            {% endif %}
+        </div>
+    </div>
 </div>
     
 {% endblock %}
