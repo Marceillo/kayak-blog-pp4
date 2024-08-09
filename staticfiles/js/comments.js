@@ -38,10 +38,19 @@ for (let button of editButtons) {
  * - Displays a confirmation modal (`deleteModal`) to prompt 
  * the user for confirmation before deletion.
  */
- for (let button of deleteButtons) {
-    button.addEventListener("click", (e) => {
-        let commentId = e.target.getAttribute("data-comment_id");
-        deleteConfirm.href = `delete_comment/${commentId}`;
-        deleteModal.show();
+
+
+document.querySelectorAll('.btn-delete').forEach(button => {
+    button.addEventListener('click', function() {
+        const commentId = this.getAttribute('data-comment_id');
+        const deleteForm = document.querySelector(`#deleteModal form`);
+        deleteForm.action = `/comment/${commentId}/delete/`;
+        const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        modal.show();
     });
-}
+});
+
+
+
+
+    
