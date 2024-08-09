@@ -196,12 +196,16 @@ def add_comment(request, slug):
 @login_required
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
+    
     if not comment.can_modify(request.user):
         return HttpResponseForbidden("You can't edit this comment")
+    
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
+        
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your comment has been successfully updated.')
             return redirect('post_detail', slug=comment.post.slug)
     else:
         form = CommentForm(instance=comment)
@@ -211,13 +215,16 @@ def edit_comment(request, comment_id):
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
+    
     if not comment.can_modify(request.user):
-        return HttpResponseForbidden("You can't dele this comment")
+        return HttpResponseForbidden("You can't delete this comment")
+    
     if request.method == 'POST':
         post_slug = comment.post.slug
         comment.delete()
+        messages.success(request, 'Your comment has been deleted successfully.')
         return redirect('post_detail', slug=post_slug)
-    #return redirect('post_detail', slug=comment.post.slug)
+  
 
     return render(request, 'blog/delete_comment.html', {'comment': comment})
 

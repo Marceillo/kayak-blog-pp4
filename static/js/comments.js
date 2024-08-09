@@ -48,9 +48,8 @@ for (let button of editButtons) {
     });
 }*/
 
-document.addEventListener("DOMContentLoaded", function () {
- 
-
+/*document.addEventListener("DOMContentLoaded", function () {
+    
     for (let button of deleteButtons) {
         button.addEventListener("click", (e) => {
             let commentId = e.target.getAttribute("data-comment_id");
@@ -59,7 +58,17 @@ document.addEventListener("DOMContentLoaded", function () {
             deleteModal.show();
         });
     }
+});*/
+document.querySelectorAll('.btn-delete').forEach(button => {
+    button.addEventListener('click', function() {
+        const commentId = this.getAttribute('data-comment_id');
+        const deleteForm = document.querySelector(`#deleteModal form`);
+        deleteForm.action = `/comment/${commentId}/delete/`;
+        const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        modal.show();
+    });
 });
+
 
 /*  path('comment/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'), 
 @login_required
