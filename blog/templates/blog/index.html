@@ -20,6 +20,11 @@
                 {% endif %}
                 <div class="card-body">
                     <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
+                    {% if post in user.favorite_posts.all %}
+                    <a href="{% url 'kayak_toggle_favorite' post.slug  %}"><i class="fa-solid fa-star" style="color: #FFD43B;"></i></a>
+                    {% else %}
+                    <a href="{% url 'kayak_toggle_favorite' post.slug %}" ></a><i class="fa-regular fa-star" style="color: #FFD43B;"></i></a>
+                    {% endif %}
                     <p class="card-text">{{ post.excerpt }} | {{post.created}} </p>
                     <p class="card-text"><small class="text-muted">Author: {{ post.author.username }} | Published: {{ post.publish|date:"F d, Y" }}</small></p>
                 </div>

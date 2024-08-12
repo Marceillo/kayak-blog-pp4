@@ -20,4 +20,9 @@ urlpatterns = [
     path('post/<slug:slug>/add_comment/', views.add_comment, name='add_comment'),
     path('comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
     path('comment/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'),
+    #path('favorite/<slug:slug>/',views.favorite_kayak_post, name='favorite_kayak_post'),
+    #path('unfavorite/<slug:slug>/',views.unfavorite_kayak_post, name='unfavorite_kayak_post'),
+    path('post/<slug:slug>/',views.kayak_toggle_favorite, name='kayak_toggle_favorite')
 ]
+
+

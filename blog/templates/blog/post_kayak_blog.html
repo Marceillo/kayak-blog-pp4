@@ -36,6 +36,13 @@
 
                         </p>
                     </h2>
+                    <!--For Favorites-->
+                    {% if user.is_authenticated %}
+                    {% if is_favorited %}
+                    <a href="{% url 'kayak_toggle_favorite' post.slug  %}"><i class="fa-solid fa-star" style="color: #FFD43B;"></i></a>
+                    {% else %}
+                    <a href="{% url 'kayak_toggle_favorite' post.slug  %}"><i class="fa-regular fa-star" style="color: #FFD43B;"></i></a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -57,9 +64,8 @@
             </div>
             {% empty %}
             <p>No comments yet.</p>
-            {% endfor %} 
-            
-            {% if user.is_authenticated %}
+            {% endfor %}
+
             <h4>Add a comment</h4>
             <form method="post" action="{% url 'add_comment' post.slug %}">
                 {% csrf_token %}

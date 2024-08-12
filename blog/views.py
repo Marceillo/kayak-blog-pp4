@@ -31,11 +31,12 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     comments = post.comments.all()
     comment_form = CommentForm()
-
+    is_favorited = post.favorites.filter(id=request.user.id).exists() if request.user.is_authenticated else False
+    
     if post.status == Post.PostStatus.PUBLISHED:
-        return render(request, 'blog/post_kayak_blog.html', {'post': post, 'comments': comments, 'comment_form': comment_form})
+        return render(request, 'blog/post_kayak_blog.html', {'post': post, 'comments': comments, 'comment_form': comment_form, 'is_favorited': is_favorited})
     elif post.status == Post.PostStatus.DRAFT and request.user.is_authenticated and request.user == post.author:
-        return render(request, 'blog/post_kayak_blog.html', {'post': post, 'comments': comments, 'comment_form': comment_form})
+        return render(request, 'blog/post_kayak_blog.html', {'post': post, 'comments': comments, 'comment_form': comment_form, 'is_favorited': is_favorited})
     else:
         raise Http404("Post not found")
             
@@ -201,6 +202,26 @@ def delete_comment(request, comment_id):
   
 
     return render(request, 'blog/delete_comment.html', {'comment': comment})
+
+@login_required
+def kayak_toggle_favorite(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+
+    if request.user in post.favorites.all():
+        post.favorites.remove(request.user)
+        messages.success(request, "Blog unfavorited successfully.")
+    else:
+        post.favorites.add(request.user)
+        messages.success(request, "Blog favorited successfully.")
+    return redirect('post_detail', slug=post.slug)
+
+
+#@login_required
+#def favorite_kayak_post(request, slug):
+#    post = get_object_or_404(Post, slug=slug)
+#    post.favorites.remove(request.user)
+
+#    return redirect('post_detail', slug=post.slug)
 
     
 def kayak_search_result(request):
