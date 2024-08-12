@@ -2,20 +2,30 @@ from django.shortcuts import render, redirect, get_object_or_404, redirect
 from django.http import Http404, HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import logout
+from django.contrib import messages
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
-from .models import Post, UserProfile, Comment
-from django.db.models import Q
 from django.core.paginator import Paginator
-from .forms import UserProfileForm, PostForm, SearchForm, CommentForm 
-from django.contrib.auth import logout
-from django.contrib import messages
+from django.db.models import Q
+
 import cloudinary.uploader
 import cloudinary
 
+from .models import Post, UserProfile, Comment
+from .forms import UserProfileForm, PostForm, SearchForm, CommentForm 
 
-# Views 
+
+#General views 
+def home(request):
+    posts = Post.objects.filter(status=Post.PostStatus.PUBLISHED).order_by('-publish')
+    return render(request,'blog/index.html', {'posts': posts})
+
+
+def about(request):
+    return render(request, 'blog/about.html')
+
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
@@ -29,43 +39,7 @@ def post_detail(request, slug):
     else:
         raise Http404("Post not found")
             
-
-def home(request):
-    posts = Post.objects.filter(status=Post.PostStatus.PUBLISHED).order_by('-publish')
-    return render(request,'blog/index.html', {'posts': posts})
-
-def about(request):
-    return render(request, 'blog/about.html')
-
-
-def kayak_search_result(request):
-    form = SearchForm(request.GET)
-    results = Post.objects.none()
-    query = ''
-
-    if form.is_valid():
-        query = form.cleaned_data['q']
-        if query:
-            results = Post.objects.filter(
-                Q(title__icontains=query) |
-                Q(body__icontains=query) |
-                Q(excerpt__icontains=query) |
-                Q(author__username__icontains=query) 
-        ).filter(status=Post.PostStatus.PUBLISHED).distinct().order_by('-publish')
-
-       
-    paginator = Paginator(results, 10 )
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    context = {
-        'form': form,
-        'page_obj': page_obj,
-        'query': query,
-    }
-
-    return render(request, 'blog/kayak_search_result.html', context) 
-
-
+#post views
 class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
     model = Post
     form_class=PostForm
@@ -80,7 +54,6 @@ class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-#Update posts
 class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
     model = Post
     form_class=PostForm
@@ -107,6 +80,7 @@ class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
 
     def get_queryset(self):
         return Post.objects.filter(author=self.request.user) 
+
 
 #User tobe able to see there posts 
 class My_Post_List_View(LoginRequiredMixin, ListView):
@@ -229,7 +203,32 @@ def delete_comment(request, comment_id):
     return render(request, 'blog/delete_comment.html', {'comment': comment})
 
     
+def kayak_search_result(request):
+    form = SearchForm(request.GET)
+    results = Post.objects.none()
+    query = ''
 
+    if form.is_valid():
+        query = form.cleaned_data['q']
+        if query:
+            results = Post.objects.filter(
+                Q(title__icontains=query) |
+                Q(body__icontains=query) |
+                Q(excerpt__icontains=query) |
+                Q(author__username__icontains=query) 
+        ).filter(status=Post.PostStatus.PUBLISHED).distinct().order_by('-publish')
+
+       
+    paginator = Paginator(results, 10 )
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'form': form,
+        'page_obj': page_obj,
+        'query': query,
+    }
+
+    return render(request, 'blog/kayak_search_result.html', context) 
 
 
 #the below was to for after password change but did not work
