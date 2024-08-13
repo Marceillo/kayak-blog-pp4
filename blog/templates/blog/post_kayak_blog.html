@@ -40,17 +40,31 @@
                     {% if user.is_authenticated %}
                     {% if is_favorited %}
                     <a href="{% url 'kayak_toggle_favorite' post.slug  %}"><i class="fa-solid fa-star" style="color: #FFD43B;"></i></a>
+                   
                     {% else %}
                     <a href="{% url 'kayak_toggle_favorite' post.slug  %}"><i class="fa-regular fa-star" style="color: #FFD43B;"></i></a>
+                    
                     {% endif %}
+                    <a href="#comments">{% if comment_count > 0 %}<i class="fa-solid fa-comments" style="color: #FFD43B;"></i>{{ comment_count }}
+                    {% else %}
+                    <i class="fa-regular fa-comments" style="color: #FFD43B;"></i>
+                    {% endif %}
+                    </a>
+
+                                       
+               
                 </div>
             </div>
         </div>
     </div>
     <!--For Comments-->
+
+    
+    
     <div class="row justify-content-center mt-4">
         <div class="col-12 col-lg-10">
             <h3>Comments</h3>
+                       
             {% for comment in comments %}
             <div class="comment mb-3" id="comment {{comment.id}}">
                 <p>{{ comment.body }}</p>

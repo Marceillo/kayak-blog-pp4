@@ -24,7 +24,14 @@
                     <a href="{% url 'kayak_toggle_favorite' post.slug  %}"><i class="fa-solid fa-star" style="color: #FFD43B;"></i></a>
                     {% else %}
                     <a href="{% url 'kayak_toggle_favorite' post.slug %}" ></a><i class="fa-regular fa-star" style="color: #FFD43B;"></i></a>
+                    <a href="{% url 'post_detail' post.slug %}#comments">{% if post.comments.count > 0 %}<i class="fa-solid fa-comments" style="color: #FFD43B;"></i> {{ post.comments.count }}
+                    {% else %}
+                            <i class="fa-regular fa-comments" style="color: #FFD43B;"></i> No Comments
                     {% endif %}
+                    </a>
+                    {% endif %}
+                    
+
                     <p class="card-text">{{ post.excerpt }} | {{ post.created }}</p>
                     <p class="card-text"><small class="text-muted">Status: {{post.get_status_display}}</small></p>
                     <div class="mt-3">

@@ -51,6 +51,3 @@ document.querySelectorAll('.btn-delete').forEach(button => {
 });
 
 
-
-
-    

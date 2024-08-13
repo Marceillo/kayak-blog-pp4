@@ -32,11 +32,26 @@ def post_detail(request, slug):
     comments = post.comments.all()
     comment_form = CommentForm()
     is_favorited = post.favorites.filter(id=request.user.id).exists() if request.user.is_authenticated else False
+
+    comment_count = comments.count()
     
     if post.status == Post.PostStatus.PUBLISHED:
-        return render(request, 'blog/post_kayak_blog.html', {'post': post, 'comments': comments, 'comment_form': comment_form, 'is_favorited': is_favorited})
+        return render(request, 'blog/post_kayak_blog.html', {
+            'post': post, 
+            'comments': comments,
+            'comment_form': comment_form,
+            'is_favorited': is_favorited,
+            'comment_count': comment_count
+
+            })
     elif post.status == Post.PostStatus.DRAFT and request.user.is_authenticated and request.user == post.author:
-        return render(request, 'blog/post_kayak_blog.html', {'post': post, 'comments': comments, 'comment_form': comment_form, 'is_favorited': is_favorited})
+        return render(request, 'blog/post_kayak_blog.html', {
+            'post': post,
+            'comments': comments,
+            'comment_form': comment_form,
+            'is_favorited': is_favorited,
+            'comment_count': comment_count
+            })
     else:
         raise Http404("Post not found")
             
@@ -165,7 +180,8 @@ def add_comment(request, slug):
             return redirect('post_detail', slug=post.slug)
     else:
         form = CommentForm()
-    return render(request, 'blog/add_comment.html', {'form': form})
+    return redirect('post_detail', slug=post.slug)
+        
 
 
 @login_required
