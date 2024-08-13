@@ -52,17 +52,51 @@ body {
     color: #000;
 }
 
-/* Delete button  */
-.btn-danger {
+/* All buttons that is used in the site */
+/* Delete button */
+.btn.btn-outline-danger {
+    background-color: #8ecae6!important;
     color: white !important;
+    border: 5px solid  #219ebc!important;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.btn.btn-outline-danger:hover {
+    background-color: #ff6347  !important;
+}
+
+/*Edit button  */
+.btn.btn-outline-warning {
+    background-color: #e9c46a!important;
+    color: white !important;
+    border: 5px solid  #e9c46a!important;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.btn.btn-outline-warning:hover {
+    background-color: #2a9d8f  !important;
+}
+
+
+
+/* Submit button */
+.btn.btn-outline-success {
+    background-color: #8ecae6 !important;
+    color: white !important;
+    border: 5px solid #219ebc !important;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+
     
 }
 
-/* All buttons that is used in the site */
-.btn.btn-outline-success {
-    background-color: #ff6347 !important;
-    color: white !important;
-    
+.btn.btn-outline-success:hover {
+    background-color: #219ebc !important;
 }
 
 
