@@ -45,7 +45,9 @@ body {
 }
 
 .card a:hover {
+    color: #219ebc;
     text-decoration: underline;
+    
 }
 
 .card-body {
@@ -104,6 +106,9 @@ body {
 
 .alert.alert-custom {
     background-color: #8ecae6 !important;
+    color: white !important;
+    border: 5px solid #2a9d8f !important;
+    border-radius: 10px;
     margin-top: 20px;
     display: inline-block;
 }

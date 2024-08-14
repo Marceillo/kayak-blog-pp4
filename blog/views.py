@@ -207,8 +207,8 @@ def edit_comment(request, comment_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your comment has been successfully updated.')
-        else:
-            messages.error(request, "Error updating your comment.")
+       # else:
+            #messages.error(request, "Error updating your comment.")
             return redirect('post_detail', slug=comment.post.slug)
     else:
         form = CommentForm(instance=comment)
@@ -226,8 +226,8 @@ def delete_comment(request, comment_id):
         post_slug = comment.post.slug
         comment.delete()
         messages.success(request, 'Your comment has been deleted successfully.')
-    else:
-        messages.error(request, "Error deleting your comment.")
+    #else:
+        #messages.error(request, "Error deleting your comment.")
         return redirect('post_detail', slug=post_slug)
   
 
