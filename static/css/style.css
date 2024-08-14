@@ -105,12 +105,12 @@ body {
 /* Messages*/
 
 .alert.alert-custom {
-    background-color: #8ecae6 !important;
-    color: white !important;
+    background-color: #e9c46a !important;
     border: 5px solid #2a9d8f !important;
+    font-weight: bold;
     border-radius: 10px;
     margin-top: 20px;
-    display: inline-block;
+    display: inline-block !important;
 }
 
 
