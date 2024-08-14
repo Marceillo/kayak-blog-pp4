@@ -102,7 +102,7 @@ body {
 
 /* Messages*/
 
-.alert-custom {
+.alert.alert-custom {
     background-color: #8ecae6 !important;
     margin-top: 20px;
     display: inline-block;
