@@ -132,7 +132,9 @@ def profile_edit(request):
             profile.save()
             messages.success(request, "Profile updated successfully")
             return redirect('user_profile')
-    
+        else:
+            message.error(request, "Error updating profile.")
+
     else:
         form = UserProfileForm(instance=profile, user=request.user)
 
@@ -143,10 +145,16 @@ def profile_edit(request):
 def delete_profile(request):
     if request.method == 'POST':
         user = request.user
-        logout(request)
-        user.delete()
-        messages.success(request,'Your profile has been deleted successfully')
-        return redirect('home')
+
+        try:
+            logout(request)
+            user.delete()
+            messages.success(request,'Your profile has been deleted successfully')
+
+        except Exception as e:
+            messages.error(request, f"An error occurred while deleting your profile: {str(e)}")
+       
+            return redirect('home')
             
     return render(request, 'account/delete_profile.html')
 
@@ -162,6 +170,8 @@ def delete_profile_picture(request):
             profile.profile_picture = None
             profile.save()
             messages.success(request, "Profile picture deleted successfully")
+        else:
+            messages.error(request, "No profile picture to delete.")
 
             
         return redirect('profile_edit')
@@ -197,6 +207,8 @@ def edit_comment(request, comment_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your comment has been successfully updated.')
+        else:
+            messages.error(request, "Error updating your comment.")
             return redirect('post_detail', slug=comment.post.slug)
     else:
         form = CommentForm(instance=comment)
@@ -214,6 +226,8 @@ def delete_comment(request, comment_id):
         post_slug = comment.post.slug
         comment.delete()
         messages.success(request, 'Your comment has been deleted successfully.')
+    else:
+        messages.error(request, "Error deleting your comment.")
         return redirect('post_detail', slug=post_slug)
   
 
@@ -229,6 +243,7 @@ def kayak_toggle_favorite(request, slug):
     else:
         post.favorites.add(request.user)
         messages.success(request, "Blog favorited successfully.")
+
     return redirect('post_detail', slug=post.slug)
 
 

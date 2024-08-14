@@ -16,7 +16,7 @@
                         {% for field in form %}
                         {% if field.name == 'blog_image'%}
                         <div class="form-group">
-                            <label for="{{field.id_for_label}}"></label>
+                            <label for="{{field.id_for_label}}">Choose Image</label>
                             <div class="input-group">
                                 <input type="file" class="form-control" id="{{ field.id_for_label}}" name="{{ field.name }}">
                               

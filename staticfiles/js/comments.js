@@ -4,7 +4,7 @@ const commentForm = document.getElementById("commentForm");
 const submitButton = document.getElementById("submitButton");
 
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-const deleteButtons = document.getElementsByClassName("btn-delete");
+const deleteButtons = document.getElementsByClassName("btn-danger");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
 /*
@@ -40,7 +40,7 @@ for (let button of editButtons) {
  */
 
 
-document.querySelectorAll('.btn-delete').forEach(button => {
+document.querySelectorAll('.btn-danger').forEach(button => {
     button.addEventListener('click', function() {
         const commentId = this.getAttribute('data-comment_id');
         const deleteForm = document.querySelector(`#deleteModal form`);
@@ -51,3 +51,6 @@ document.querySelectorAll('.btn-delete').forEach(button => {
 });
 
 
+
+
+    

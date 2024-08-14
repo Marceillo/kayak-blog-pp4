@@ -40,7 +40,7 @@ body {
 *\
 /* Style for links */
 .card a {
-    color: green;
+    color: #2a9d8f ;
     text-decoration: none;
 }
 
@@ -100,6 +100,13 @@ body {
 }
 
 
+/* Messages*/
+
+.alert-custom {
+    background-color: #8ecae6 !important;
+    margin-top: 20px;
+    display: inline-block;
+}
 
 
 
