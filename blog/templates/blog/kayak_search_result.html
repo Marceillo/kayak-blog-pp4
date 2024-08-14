@@ -10,10 +10,11 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-title">Search Kayaking Blog</div>
-                    <form  method="get" action="{% url 'kayak_search_result' %}" class="mb-4">
-                         {% csrf_token %}
-                         {{ form|crispy }}
-                         <button type="submit" class="btn btn-outline-success"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                    <form method="get" action="{% url 'kayak_search_result' %}" class="mb-4">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-outline-success"><i
+                                class="fa-solid fa-magnifying-glass"></i> Search</button>
                     </form>
                     {% if query %}
                     <h3 class="mt-4">Results for "{{query}}"</h3>
@@ -22,10 +23,12 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <h3 class="card-title">
-                                <a href="{% url 'post_detail' post.slug %}" class="text-decoration-none">{{ post.title }}</a>
+                                <a href="{% url 'post_detail' post.slug %}"
+                                    class="text-decoration-none">{{ post.title }}</a>
                             </h3>
                             <p class="card-text">{{post.excerpt}}</p>
-                            <p class="card-text"><small class="text-muted">By {{ post.author }} on {{ post.publish }} </small></p>
+                            <p class="card-text"><small class="text-muted">By {{ post.author }} on {{ post.publish }}
+                                </small></p>
 
                         </div>
                     </div>
@@ -37,17 +40,19 @@
                         <ul class="pagination justify-content-center">
                             {% if page_obj.has_previous %}
                             <li class="page-item">
-                                <a href="?q={{query}}&page={{page_obj_previous_page_number }}" class="page-link">&laquo; Previous</a>
+                                <a href="?q={{query}}&page={{page_obj_previous_page_number }}" class="page-link">&laquo;
+                                    Previous</a>
                             </li>
                             {% endif %}
                             {% if page_obj.has_next %}
                             <li class="page-item">
-                                <a class="page-link" href="?q={{ query }}&page={{ page_obj.next_page_number }}">Next &raquo;</a>
+                                <a class="page-link" href="?q={{ query }}&page={{ page_obj.next_page_number }}">Next
+                                    &raquo;</a>
                             </li>
                             {% endif %}
                         </ul>
                     </nav>
-                    {% endif %}                    
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -56,5 +61,3 @@
 
 
 {% endblock %}
-
-

@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="card-title">Edit Post: {{ post.title }}</h2>
-                       <form method="post" enctype="multipart/form-data">
+                    <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {% for field in form %}
                         {% if field.name == 'blog_image'%}
@@ -19,22 +19,25 @@
                             <label for="{{field.id_for_label}}">{{ field.label }}</label>
                             {% if post.blog_image %}
                             <div class="mb-2">
-                                <img src="{{ post.blog_image.url }}" alt="Current blog image" class="img-fluid" style="max-width: 200px;">
+                                <img src="{{ post.blog_image.url }}" alt="Current blog image" class="img-fluid"
+                                    style="max-width: 200px;">
                             </div>
                             {% endif %}
                             <div class="input-group">
-                                <input type="file" class="form-control" id="{{ field.id_for_label}}" name="{{ field.name }}">
-                              
-                                <button class="btn btn-outline-secondary" type="button" id="clear-file-btn" style="display: none;"><i class="fa-solid fa-eraser"></i></button>
+                                <input type="file" class="form-control" id="{{ field.id_for_label}}"
+                                    name="{{ field.name }}">
+
+                                <button class="btn btn-outline-secondary" type="button" id="clear-file-btn"
+                                    style="display: none;"><i class="fa-solid fa-eraser"></i></button>
                             </div>
                         </div>
                         {% else %}
                         {{ field|as_crispy_field }}
-                        {% endif %}                        
+                        {% endif %}
                         {% endfor %}
                         <br>
                         <button type="submit" class="btn btn-outline-success">Update Post</button>
-                       </form> 
+                    </form>
                 </div>
             </div>
         </div>
@@ -43,24 +46,21 @@
 {% endblock content %}
 {% block extras %}
 <script>
-    
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const fileInput = document.getElementById('{{ form.blog_image.id_for_label }}');
         const clearButton = document.getElementById('clear-file-btn');
-        clearButton.addEventListener('click', function() {
+        clearButton.addEventListener('click', function () {
             fileInput.value = '';
             clearButton.style.display = 'none';
         });
 
-        fileInput.addEventListener('change', function() {
+        fileInput.addEventListener('change', function () {
             clearButton.style.display = this.value ? 'block' : 'none';
         });
 
-        
+
         clearButton.style.display = 'none';
     });
 </script>
 
 {% endblock extras %}
-
-

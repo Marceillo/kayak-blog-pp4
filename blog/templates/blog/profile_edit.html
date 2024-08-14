@@ -13,9 +13,11 @@
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4">{% trans "Profile Edit" %}</h2>
                     <div class="text-center mb-4">
-                        <img src="{{ profile.get_profile_picture_url }}" alt="Profile picture" class="img-thumbnail" width="200">
+                        <img src="{{ profile.get_profile_picture_url }}" alt="Profile picture" class="img-thumbnail"
+                            width="200">
                         <div class="mt3">
-                            <a class="btn btn-outline-danger" href="{% url 'delete_profile_picture' %}">{% trans "Delete Profile Picture" %}</a>
+                            <a class="btn btn-outline-danger"
+                                href="{% url 'delete_profile_picture' %}">{% trans "Delete Profile Picture" %}</a>
                         </div>
                     </div>
                     <form method="post" action="{% url 'profile_edit' %}" enctype="multipart/form-data">
@@ -25,8 +27,10 @@
                         <div class="form-group">
                             <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                             <div class="input-group">
-                                <input type="file" class="form-control" id="{{ field.id_for_label }}" name="{{ field.name }}">
-                                <button class="btn btn-outline-secondary" type="button" id="clear-file-btn" style="display: none;"><i class="fa-solid fa-eraser"></i></button>
+                                <input type="file" class="form-control" id="{{ field.id_for_label }}"
+                                    name="{{ field.name }}">
+                                <button class="btn btn-outline-secondary" type="button" id="clear-file-btn"
+                                    style="display: none;"><i class="fa-solid fa-eraser"></i></button>
                             </div>
                         </div>
                         {% else %}
@@ -37,8 +41,8 @@
                             <button class="btn btn-outline-success" type="submit">{% trans "Save Changes" %}</button>
                         </div>
                         {% if profile.profile_picture %}
-               
-                        {% endif %}                        
+
+                        {% endif %}
                     </form>
                     <div class="mt-3 text-center">
                         <a href="{% url 'user_profile' %}">{% trans "Back to Profile" %}</a>
@@ -47,20 +51,20 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </div>
 {% endblock %}
 {% block extras %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const fileInput = document.getElementById('{{ form.profile_picture.id_for_label }}');
         const clearButton = document.getElementById('clear-file-btn');
-        clearButton.addEventListener('click', function() {
+        clearButton.addEventListener('click', function () {
             fileInput.value = '';
             clearButton.style.display = 'none';
         });
 
-        fileInput.addEventListener('change', function() {
+        fileInput.addEventListener('change', function () {
             clearButton.style.display = this.value ? 'block' : 'none';
         });
 
@@ -68,4 +72,3 @@
     });
 </script>
 {% endblock %}
-
