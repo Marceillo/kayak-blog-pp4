@@ -2,15 +2,26 @@
 {%load crispy_forms_tags%}
 
 {%block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
-    <h1>About</h1>
-</body>
-</html>
+
+<div class="container mt-5">
+    <h1 class="text-center">About Our Kayaking Blog</h1>
+    <p class="lead text-center">Welcome to our kayaking blog! We are passionate kayakers dedicated to sharing our adventures and insights.</p>
+    
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <p>Our blog features a variety of content including:</p>
+        <ul>
+          <li><strong>Kayaking Tips:</strong> Learn the best practices for a safe and enjoyable kayaking experience.</li>
+          <li><strong>Gear Reviews:</strong> Find reviews on the latest kayaking equipment and accessories.</li>
+          <li><strong>Trip updates:</strong> Read about our kayaking adventures and get inspired for your next trip.</li>
+        </ul>
+        <p>Join us as we explore the beauty of nature from the water. Whether you're a seasoned kayaker or just starting out, there's something here for everyone!</p>
+        <p class="text-center">Feel free to <a href="{% url 'about:contact' %}">Contact Us</a> with any questions or comments.</p>
+        
+      </div>
+    </div>
+  </div>
+  
 {%endblock content%}
+
+
