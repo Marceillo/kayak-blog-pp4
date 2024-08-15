@@ -26,6 +26,10 @@ for (let button of editButtons) {
         submitButton.innerText = "Update";
         commentForm.setAttribute("action", `edit_comment/${commentId}`);
     });
+
+   /* setTimeout(() => {
+        messageDiv.remove();
+    }, 5000);*/
 }
 
 /*
@@ -43,6 +47,11 @@ for (let button of editButtons) {
 document.querySelectorAll('.btn-danger').forEach(button => {
     button.addEventListener('click', function() {
         const commentId = this.getAttribute('data-comment_id');
+        const isAuthor = this.getAttribute('data-is_author');
+        if (isAuthor==='false'){
+            showMessage('error', "You can't delete this comment.");
+            return;
+        } 
         const deleteForm = document.querySelector(`#deleteModal form`);
         deleteForm.action = `/comment/${commentId}/delete/`;
         const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
@@ -50,7 +59,24 @@ document.querySelectorAll('.btn-danger').forEach(button => {
     });
 });
 
+function showMessage(type, message) {
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('alert', 'alert-custom', `alert-${type}`, 'alert-dismissible', 'fade', 'show', 'text-center');
+    messageDiv.innerHTML =`${message} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
+    /*messageDiv.style.display = 'inline-block';*/
+    
+    
+    const container = document.querySelector('.container');
+    if(container) {
+        container.insertAdjacentElement('beforebegin', messageDiv);
+    }
 
+     setTimeout(() => {
+        messageDiv.remove();
+    }, 5000);
+}
+    
 
 
     

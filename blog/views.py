@@ -199,7 +199,8 @@ def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     
     if not comment.can_modify(request.user):
-        return HttpResponseForbidden("You can't edit this comment")
+        messages.error(request,"You can't edit this comment.")
+        return redirect('post_detail', slug=comment.post.slug)
     
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
@@ -220,14 +221,14 @@ def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     
     if not comment.can_modify(request.user):
-        return HttpResponseForbidden("You can't delete this comment")
+        messages.error(request, "You can't delete this comment")
+        return redirect('post_detail', slug=comment.post.slug)
     
     if request.method == 'POST':
         post_slug = comment.post.slug
         comment.delete()
         messages.success(request, 'Your comment has been deleted successfully.')
-    #else:
-        #messages.error(request, "Error deleting your comment.")
+
         return redirect('post_detail', slug=post_slug)
   
 
