@@ -9,36 +9,36 @@
         <div class="col-12 col-lg-10">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title">
-                        {{post.title}}
-                        <br>
-                        <br>
-                        {% if user == post.author %}
-                        <div class="mb-3">
-                            <a href="{% url 'update_kayak_post' post.slug %}" class="btn btn-outline-success"><i
-                                    class="fa-solid fa-file-pen"></i> Edit Post</a>
-                            <a href="{% url 'delete_kayak_post' post.slug %}" class="btn btn-outline-danger">Delete Post
-                                <i class="fa-solid fa-eraser"></i></i></a>
-                        </div>
-                        {% endif %}
-                        {% if "placeholder" in post.blog_image.url %}
-                        <img src="{% static 'images/default.jpg' %}" class="img-fluid mb-3"
-                            alt=" Placeholder kayak image">
-                        {% else %}
-                        <img src="{{ post.blog_image.url }}" class="img-fluid mb-3" alt="{{ post.title }}">
-                        {% endif %}
-                        <div class="post-content mb-4">
-                            {{ post.body|safe }}
-                        </div>
-                        <p class="card-text">{{ post.body }}</p>
-                        <p class="text-muted mt-3">
+                    <h2 class="card-title">{{post.title}}</h2>
+                    
+                    <br>
+                    <br>
+                    {% if user == post.author %}
+                    <div class="mb-3">
+                        <a href="{% url 'update_kayak_post' post.slug %}" class="btn btn-outline-success"><i
+                                class="fa-solid fa-file-pen"></i> Edit Post</a>
+                        <a href="{% url 'delete_kayak_post' post.slug %}" class="btn btn-outline-danger">Delete Post
+                            <i class="fa-solid fa-eraser"></i></i></a>
+                    </div>
+                    {% endif %}
+                    {% if "placeholder" in post.blog_image.url %}
+                    <img src="{% static 'images/default.jpg' %}" class="img-fluid mb-3" alt=" Placeholder kayak image">
+                    {% else %}
+                    <img src="{{ post.blog_image.url }}" class="img-fluid mb-3" alt="{{ post.title }}">
+                    {% endif %}
+                    <div class="post-content scrollable-content mb-4">
+                        {{ post.body|safe }}
+                    </div>
+                    <!--
+                        <p class="card-text">{{ post.body }}</p> -->
+                    <p class="text-muted mt-3">
 
-                            <strong>Created on:</strong> {{ post.created|date:"F j, Y" }}
-                            <strong>Published on:</strong>{{ post.publish|date:"F j, Y" }}
-                            <strong>Author:</strong>{{ post.author.username }}
+                        <strong>Created on:</strong> {{ post.created|date:"F j, Y" }}
+                        <strong>Published on:</strong>{{ post.publish|date:"F j, Y" }}
+                        <strong>Author:</strong>{{ post.author.username }}
 
-                        </p>
-                    </h2>
+                    </p>
+
                     <!--For Favorites-->
                     {% if user.is_authenticated %}
                     {% if is_favorited %}
@@ -74,11 +74,9 @@
                 <p>{{ comment.body }}</p>
                 <small>By {{ comment.author.username }} on {{ comment.created|date:"F d, Y" }}</small>
                 {% if user.is_authenticated %}
-                <button
-                class="btn btn-outline-danger btn-danger"
-                data-comment_id="{{ comment.id }}"
-                data-is_author="{% if comment.author == user %}true{% else %}false{% endif %}" >
-                <i class="fa-solid fa-trash-can"></i>
+                <button class="btn btn-outline-danger btn-danger" data-comment_id="{{ comment.id }}"
+                    data-is_author="{% if comment.author == user %}true{% else %}false{% endif %}">
+                    <i class="fa-solid fa-trash-can"></i>
                 </button>
                 <a href="{% url 'edit_comment' comment.id %}" class="btn btn-outline-warning "><i
                         class="fa-solid fa-pencil"></i>

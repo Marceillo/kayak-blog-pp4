@@ -50,6 +50,17 @@ body {
     
 }
 
+a {
+    color: #2a9d8f ;
+    text-decoration: none; 
+}
+
+a:hover {
+    color: #219ebc;
+    text-decoration: underline;
+    
+}
+
 .card-body {
     color: #000;
 }
@@ -57,8 +68,8 @@ body {
 /* All buttons that is used in the site */
 /* Delete button */
 .btn.btn-outline-danger {
-    background-color: #8ecae6!important;
-    color: white !important;
+    background-color: #e3f2fd!important;
+    color: black !important;
     border: 5px solid  #219ebc!important;
     border-radius: 10px;
     padding: 10px 20px;
@@ -66,6 +77,7 @@ body {
 }
 
 .btn.btn-outline-danger:hover {
+    color: white !important;
     background-color: #ff6347  !important;
 }
 
@@ -87,8 +99,8 @@ body {
 
 /* Submit button */
 .btn.btn-outline-success {
-    background-color: #8ecae6 !important;
-    color: white !important;
+    background-color: #e3f2fd !important;
+    color: black !important;
     border: 5px solid #219ebc !important;
     border-radius: 10px;
     padding: 10px 20px;
@@ -98,6 +110,7 @@ body {
 }
 
 .btn.btn-outline-success:hover {
+    color: white !important;
     background-color: #219ebc !important;
 }
 
@@ -114,5 +127,20 @@ body {
 }
 
 
-
+/* Posts styling */
+.post-content {
+    background-color: #e3f2fd;
+    padding: 20px;
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin-bottom: 20px;
     
+}
+
+.scrollable-content {
+    max-height: 600px;
+    overflow-y: auto;
+    border: 5px solid #FAF9F6;
+    padding: 15px;
+    border-radius: 10px;
+}

@@ -64,7 +64,7 @@ function showMessage(type, message) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('alert', 'alert-custom', `alert-${type}`, 'alert-dismissible', 'fade', 'show', 'text-center');
     messageDiv.innerHTML =`${message} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
-    /*messageDiv.style.display = 'inline-block';*/
+    messageDiv.style.display = 'inline-block';
     
     
     const container = document.querySelector('.container');
