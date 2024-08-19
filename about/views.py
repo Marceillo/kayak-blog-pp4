@@ -18,7 +18,7 @@ def contact_us(request):
             form.save()
             messages.success(request, 'Your message has been received successfully!')
 
-            return redirect('contact_us')
+            return redirect('about_kayaking')
         else:
             form = ContactForm()
                
