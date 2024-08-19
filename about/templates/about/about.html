@@ -4,25 +4,35 @@
 {%block content %}
 
 <div class="container mt-5">
-    <h1 class="text-center">About Our Kayaking Blog</h1>
-    <p class="lead text-center">Welcome to our kayaking blog! We are passionate kayakers dedicated to sharing our adventures and insights.</p>
-    
-    <div class="row">
-      <div class="col-md-8 offset-md-2">
-        <p>Our blog features a variety of content including:</p>
-        <ul>
-          <li><strong>Kayaking Tips:</strong> Learn the best practices for a safe and enjoyable kayaking experience.</li>
-          <li><strong>Gear Reviews:</strong> Find reviews on the latest kayaking equipment and accessories.</li>
-          <li><strong>Trip updates:</strong> Read about our kayaking adventures and get inspired for your next trip.</li>
-        </ul>
-        <p>Join us as we explore the beauty of nature from the water. Whether you're a seasoned kayaker or just starting out, there's something here for everyone!</p>
-        
-        <p class="text-center">Feel free to <a href="{% url 'contact_us' %}">Contact Us</a> with any questions or comments.</p>
-        
-      </div>
-    </div>
+  <div class="row">
+
   </div>
-  
+  <div class="row align-items-center">
+    <div class="col-md-7">
+       <img src="/static/images/about.jpg" alt="Kayaker paddling image" class="img-fluid"
+        style="height: auto; width: 100%;">
+    </div>
+    <div class="col-md-5">
+      
+      <h1 class="text-right"> About Our Kayaking Blog</h1>
+      <p class="text-right">Welcome to our kayaking blog! We are passionate kayakers dedicated to sharing our adventures and insights.</p>
+      
+      <p>Our blog features a variety of content including:</p>
+      <ul>
+        <li><strong>Kayaking Tips:</strong> Learn the best practices for a safe and enjoyable kayaking experience.</li>
+        <li><strong>Gear Reviews:</strong> Find reviews on the latest kayaking equipment and accessories.</li>
+        <li><strong>Trip updates:</strong> Read about our kayaking adventures and get inspired for your next trip.</li>
+      </ul>
+      <p>Join us as we explore the beauty of nature from the water. Whether you're a seasoned kayaker or just starting
+        out, there's something here for everyone!</p>
+
+      <p class="text-right">Feel free to <a href="{% url 'contact_us' %}">Contact Us</a> with any questions or
+        comments.</p>
+    </div>
+
+
+  </div>
+
+</div>
+
 {%endblock content%}
-
-
