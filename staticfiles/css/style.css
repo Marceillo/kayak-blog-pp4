@@ -1,18 +1,48 @@
 
 /* Body */
+/* Background */
 body {
     background-color: #FAF9F6;
     
 }
 
+/* Video background */
+.video-background {
+    position: fixed; 
+    top: 50%;
+    left: 50%; 
+    min-width: 100%; 
+    min-height: 100%; 
+    width: auto; 
+    height: auto;
+    z-index: -1; 
+    transform: translate(-50%, -50%); 
+    overflow: hidden; 
+}
+
+/* Main content styles */
+.main-bg {
+    position: relative; 
+    z-index: 1; 
+    color: white; 
+    padding: 20px; 
+}
+
 /* Navigation bar */
+
+.navbar {
+    background-color: transparent !important;
+}
 
 .nav-link {
     color: initial;
+    background-color: #e3f2fd;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 0;
+    border-radius: 5px;
     transition: all 0.3s ease;
+    border: 5px solid  #219ebc !important;
+    margin-right: 10px;
 }
 
 .nav-link:hover,
@@ -24,6 +54,7 @@ body {
     border-radius: 10px;
     text-decoration: none;
 }
+
 
 /* Authentica pages styles */
 
@@ -51,18 +82,20 @@ body {
 }
 
 a {
-    color: #2a9d8f ;
-    text-decoration: none; 
+    color: white ;
+    text-decoration: underline; 
 }
 
 a:hover {
-    color: #219ebc;
+    color: #ff6347;
     text-decoration: underline;
     
 }
 
 .card-body {
     color: #000;
+    background-color: #FAF9F6;
+    border-radius: 10px;
 }
 
 /* All buttons that is used in the site */
@@ -83,8 +116,8 @@ a:hover {
 
 /*Edit button  */
 .btn.btn-outline-warning {
-    background-color: #e9c46a!important;
-    color: white !important;
+    background-color: #e3f2fd!important;
+    color: black !important;
     border: 5px solid  #e9c46a!important;
     border-radius: 10px;
     padding: 10px 20px;
@@ -92,6 +125,7 @@ a:hover {
 }
 
 .btn.btn-outline-warning:hover {
+    color: white !important;
     background-color: #2a9d8f  !important;
 }
 
@@ -143,4 +177,23 @@ a:hover {
     border: 5px solid #FAF9F6;
     padding: 15px;
     border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: transparent !important;
+    color: white;
+}
+
+.footer i {
+    background-color: white;
+    font-weight: 20px;
+    border: 5px solid #2a9d8f;
+    border-radius: 10px;
+}
+
+.footer i:hover {
+    color: initial;
+    background-color: white;
+    border: 5px solid white;
 }
