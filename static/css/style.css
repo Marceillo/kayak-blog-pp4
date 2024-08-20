@@ -35,7 +35,6 @@ body {
 }
 
 .navbar .navbar-toggler {
-    border: 5px solid  #219ebc !important;
     background-color: #ff6347;
        
 }
@@ -205,4 +204,6 @@ a:hover {
     color: initial;
     background-color: white;
     border: 5px solid white;
+    border-radius: 10px;
 }
+
