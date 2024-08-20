@@ -34,6 +34,13 @@ body {
     background-color: transparent !important;
 }
 
+.navbar .navbar-toggler {
+    border: 5px solid  #219ebc !important;
+    background-color: #ff6347;
+       
+}
+
+
 .nav-link {
     color: initial;
     background-color: #e3f2fd;
@@ -54,6 +61,8 @@ body {
     border-radius: 10px;
     text-decoration: none;
 }
+
+
 
 
 /* Authentica pages styles */
