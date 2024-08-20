@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <img class="img-main img-fluid" src="{% static 'images/pageimg404.jpeg' %}" alt="500 Error Image"  /> 
+    <div class="text-center">
+        <h2 class="mb-5">
+            500 Server Error
+        </h2>
+        <p>
+            Return to home page
+        </p>
+        <a class="btn btn-outline-success" href="{% url 'home' %}">Go Home</a>
+    </div>
+</div>
+{% endblock %}

@@ -27,3 +27,7 @@ urlpatterns = [
     path('',include("blog.urls"), name='blog-urls'),
   
 ]
+
+
+handler404 = 'kayak_blog.views.handler404'
+handler500 = 'kayak_blog.views.handler500'
