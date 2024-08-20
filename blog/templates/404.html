@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <img class="img-main img-fluid" src="{% 'static' /images/pageimg404.jpeg %}"  />
+    <div class="text-center">
+        <h2 class="mb-5">
+            Page doesn't exist...
+        </h2>
+        <p>
+            Return to home page
+        </p>
+        <a class="btn btn-outline-success" href="{% url 'index' %}"></a>
+    </div>
+</div>
+{% endblock %}
