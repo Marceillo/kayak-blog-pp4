@@ -9,7 +9,7 @@ body {
 /* Main content styles */
 .main-bg {
     position: relative;
-    color: black; 
+    color: white; 
     padding: 20px; 
 }
 
@@ -186,7 +186,7 @@ a:hover {
 
 /* POP up message */
 .modal-content {
-    color: blue;
+    color: black;
 }
 
 
