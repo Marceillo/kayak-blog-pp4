@@ -3,7 +3,7 @@ const commentText = document.getElementById("id_body");
 const commentForm = document.getElementById("commentForm");
 const submitButton = document.getElementById("submitButton");
 
-const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
 const deleteButtons = document.getElementsByClassName("btn-danger");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
@@ -27,9 +27,9 @@ for (let button of editButtons) {
         commentForm.setAttribute("action", `edit_comment/${commentId}`);
     });
 
-   /* setTimeout(() => {
-        messageDiv.remove();
-    }, 5000);*/
+    /* setTimeout(() => {
+         messageDiv.remove();
+     }, 5000);*/
 }
 
 /*
@@ -43,40 +43,51 @@ for (let button of editButtons) {
  * the user for confirmation before deletion.
  */
 
-
 document.querySelectorAll('.btn-danger').forEach(button => {
     button.addEventListener('click', function() {
         const commentId = this.getAttribute('data-comment_id');
         const isAuthor = this.getAttribute('data-is_author');
-        if (isAuthor==='false'){
+
+        if (isAuthor === 'false') {
             showMessage('error', "You can't delete this comment.");
             return;
-        } 
-        const deleteForm = document.querySelector(`#deleteModal form`);
+        }
+
+        const deleteForm = document.querySelector('#deleteModal form');
         deleteForm.action = `/comment/${commentId}/delete/`;
-        const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
-        modal.show();
+        deleteModal.show();
     });
 });
 
+// Add event listener to deleteConfirm button
+deleteConfirm.addEventListener('click', function() {
+    const deleteForm = document.querySelector('#deleteModal form');
+    deleteForm.submit();
+});
+
+
 function showMessage(type, message) {
-    
+
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('alert', 'alert-custom', `alert-${type}`, 'alert-dismissible', 'fade', 'show', 'text-center');
-    messageDiv.innerHTML =`${message} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
+    messageDiv.innerHTML = `${message} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
     messageDiv.style.display = 'inline-block';
-    
-    
+
+
     const container = document.querySelector('.container');
-    if(container) {
+    if (container) {
         container.insertAdjacentElement('beforebegin', messageDiv);
     }
 
-     setTimeout(() => {
+    setTimeout(() => {
         messageDiv.remove();
     }, 5000);
 }
-    
 
-
-    
+// for (let button of deleteButtons) {
+//     button.addEventListener("click", (e) => {
+//         let commentId = e.target.getAttribute("comment_id");
+//         deleteConfirm.href = `delete_comment/${commentId}`;
+//         deleteModal.show();
+//     });
+// }

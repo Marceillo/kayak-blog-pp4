@@ -6,6 +6,13 @@ body {
     
 }
 
+/* Main content styles */
+.main-bg {
+    position: relative;
+    color: black; 
+    padding: 20px; 
+}
+
 /* Video background */
 .video-background {
     position: fixed; 
@@ -20,13 +27,8 @@ body {
     overflow: hidden; 
 }
 
-/* Main content styles */
-.main-bg {
-    position: relative; 
-    z-index: 1; 
-    color: white; 
-    padding: 20px; 
-}
+
+
 
 /* Navigation bar */
 
@@ -92,7 +94,7 @@ body {
 }
 
 a {
-    color: white ;
+    color: black;
     text-decoration: underline; 
 }
 
