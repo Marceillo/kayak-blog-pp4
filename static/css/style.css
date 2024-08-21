@@ -184,6 +184,11 @@ a:hover {
     display: inline-block !important;
 }
 
+/* POP up message */
+.modal-content {
+    color: black;
+}
+
 
 /* Posts styling */
 .post-content {
