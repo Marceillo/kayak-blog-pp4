@@ -43,12 +43,12 @@ body {
 
 .nav-link {
     color: initial;
-    background-color: #e3f2fd;
+    background-color: #2a9d8f;
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 5px;
     transition: all 0.3s ease;
-    border: 5px solid  #219ebc !important;
+    border: 5px solid  #2a9d8f !important;
     margin-right: 10px;
 }
 
@@ -80,12 +80,13 @@ body {
 *\
 /* Style for links */
 .card a {
-    color: #2a9d8f ;
+    color: black;
     text-decoration: none;
+    
 }
 
 .card a:hover {
-    color: #219ebc;
+    color: white;
     text-decoration: underline;
     
 }
@@ -103,7 +104,7 @@ a:hover {
 
 .card-body {
     color: #000;
-    background-color: #FAF9F6;
+    background-color: #2a9d8f;
     border-radius: 10px;
 }
 
@@ -157,6 +158,18 @@ a:hover {
     background-color: #219ebc !important;
 }
 
+.btn.btn-outline-secondary {
+    color: grey !important;
+    border-radius: 10px;
+    padding: 10px 20px;
+   
+}
+
+.btn.btn-outline-secondary:hover {
+    color: white !important;
+    text-decoration: underline;
+    
+}
 
 /* Messages*/
 
@@ -194,14 +207,14 @@ a:hover {
     color: white;
 }
 
-.footer i {
+.footer.custom-icon i {
     background-color: white;
     font-weight: 20px;
     border: 5px solid #2a9d8f;
     border-radius: 10px;
 }
 
-.footer i:hover {
+.footer.custom-icon i:hover {
     color: initial;
     background-color: white;
     border: 5px solid white;
