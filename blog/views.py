@@ -69,7 +69,7 @@ class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
             self.object.blog_image = None
         response = super().form_valid(form)
 
-        messages.success(self.request, 'Your blog has been successfully created!')
+        messages.success(self.request, 'Your blog post has been successfully created!')
 
         return response
 
@@ -88,7 +88,11 @@ class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
         if form.cleaned_data.get('delete_image') and self.object.blog_image:
             cloudinary.uploader.destroy(self.object.blog_image.public_id)
             self.object.blog_image = None
-        return super().form_valid(form)
+        response = super().form_valid(form)
+           
+        messages.success(self.request, 'Your blog post has been successfully updated!')
+        
+        return response
 
 
 #Delete posts 
@@ -99,18 +103,26 @@ class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
 
 
     def get_queryset(self):
-        return Post.objects.filter(author=self.request.user) 
+
+        return Post.objects.filter(author=self.request.user)
+        
+
+    def form_valid(self, request, *args, **kwargs):
+        messages.success(self.request, "The blog post has been deleted successfully")
 
 
-#User tobe able to see there posts 
+        return super().form_valid(request, *args, **kwargs)
+        
+
+#User tobel able to see there posts 
 class My_Post_List_View(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'blog/my_post_list.html'
     context_object_name = 'posts'
 
-
     def get_queryset(self):
         return Post.objects.filter(author=self.request.user).order_by('-created')
+
 
 # After login code 
 @login_required
