@@ -72,6 +72,10 @@ class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
         messages.success(self.request, 'Your blog post has been successfully created!')
 
         return response
+    
+    def form_invalid(self, form):
+        messages.error(self.request, 'There was an error creating your blog post.')
+        return super().form_invalid(form)        
 
 
 class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
@@ -91,8 +95,11 @@ class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
         response = super().form_valid(form)
            
         messages.success(self.request, 'Your blog post has been successfully updated!')
-        
         return response
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'There was an error updating your blog post.')
+        return super().form_invalid(form)  
 
 
 #Delete posts 
@@ -110,9 +117,13 @@ class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
     def form_valid(self, request, *args, **kwargs):
         messages.success(self.request, "The blog post has been deleted successfully")
 
-
         return super().form_valid(request, *args, **kwargs)
-        
+    
+    def form_invalid(self, request, *args, **kwargs):
+        messages.error(self.request, 'There was an error deleting this blog post.')
+        return super().form_invalid(form)  
+    
+ 
 
 #User tobel able to see there posts 
 class My_Post_List_View(LoginRequiredMixin, ListView):
