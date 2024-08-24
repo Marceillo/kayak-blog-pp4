@@ -267,23 +267,19 @@ def delete_comment(request, comment_id):
 @login_required
 def kayak_toggle_favorite(request, slug):
     post = get_object_or_404(Post, slug=slug)
+    try:
+        if request.user in post.favorites.all():
+            post.favorites.remove(request.user)
+            messages.success(request, "Blog unfavorited successfully.")
+        else:
+            post.favorites.add(request.user)
+            messages.success(request, "Blog favorited successfully.")
 
-    if request.user in post.favorites.all():
-        post.favorites.remove(request.user)
-        messages.success(request, "Blog unfavorited successfully.")
-    else:
-        post.favorites.add(request.user)
-        messages.success(request, "Blog favorited successfully.")
+    except Exception as e:
+        messages.error(request, 'Error occured while updating your favorite.')    
 
     return redirect('post_detail', slug=post.slug)
 
-
-#@login_required
-#def favorite_kayak_post(request, slug):
-#    post = get_object_or_404(Post, slug=slug)
-#    post.favorites.remove(request.user)
-
-#    return redirect('post_detail', slug=post.slug)
 
     
 def kayak_search_result(request):
@@ -314,12 +310,5 @@ def kayak_search_result(request):
     return render(request, 'blog/kayak_search_result.html', context) 
 
 
-#the below was to for after password change but did not work
-#class BlogPasswordChangeView(PasswordChangeView):
-#    template_name = 'account/password_change.html'
-#    success_url = reverse_lazy('home')
-    
-#    def get_success_url(self):
-#        return self.success_url
-    
+
 
