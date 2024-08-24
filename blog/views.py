@@ -17,16 +17,34 @@ from .models import Post, UserProfile, Comment
 from .forms import UserProfileForm, PostForm, SearchForm, CommentForm 
 
 
-#General views 
+#General views
+
+"""
+List of published blog posts, ordered publish date in decending.
+Displaying the posts on the  homepage.
+posts filtered by status and publish date.
+**Template:**
+blog/index.html
+""" 
 def home(request):
     posts = Post.objects.filter(status=Post.PostStatus.PUBLISHED).order_by('-publish')
     return render(request,'blog/index.html', {'posts': posts})
 
-
+"""
+Return About page, providing information.
+**Template:**
+blog/about.html
+""" 
 def about(request):
     return render(request, 'blog/about.html')
 
+"""
+Retrieves and displays , details of blog post id by its slug.
+Handels comments, favorites linked to posts.
 
+**Template:**
+blog/post_kayak_blog.html
+"""
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     comments = post.comments.all()
@@ -56,6 +74,9 @@ def post_detail(request, slug):
         raise Http404("Post not found")
             
 #post views
+"""
+
+"""
 class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
     model = Post
     form_class=PostForm
@@ -77,7 +98,9 @@ class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
         messages.error(self.request, 'There was an error creating your blog post.')
         return super().form_invalid(form)        
 
+"""
 
+"""
 class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
     model = Post
     form_class=PostForm
@@ -102,7 +125,9 @@ class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
         return super().form_invalid(form)  
 
 
-#Delete posts 
+"""
+
+"""
 class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'blog/delete_kayak_post.html'
@@ -125,7 +150,10 @@ class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
     
  
 
-#User tobel able to see there posts 
+#User tobel able to see there posts
+"""
+
+""" 
 class My_Post_List_View(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'blog/my_post_list.html'
@@ -135,7 +163,10 @@ class My_Post_List_View(LoginRequiredMixin, ListView):
         return Post.objects.filter(author=self.request.user).order_by('-created')
 
 
-# After login code 
+# After login code
+"""
+
+""" 
 @login_required
 def userprofile(request):
     profile,created = UserProfile.objects.get_or_create(user=request.user)
@@ -145,7 +176,9 @@ def userprofile(request):
     }
     return render(request, 'blog/user_profile.html', context)
 
+"""
 
+"""
 @login_required
 def profile_edit(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
@@ -167,7 +200,9 @@ def profile_edit(request):
 
     return render (request, 'blog/profile_edit.html', {'form': form, 'profile':profile})
 
+"""
 
+"""
 @login_required
 def delete_profile(request):
     if request.method == 'POST':
@@ -185,7 +220,9 @@ def delete_profile(request):
             
     return render(request, 'account/delete_profile.html')
 
+"""
 
+"""
 @login_required
 def delete_profile_picture(request):
     
@@ -203,7 +240,9 @@ def delete_profile_picture(request):
             
         return redirect('profile_edit')
 
+"""
 
+"""
 @login_required
 def add_comment(request, slug):
     post = get_object_or_404(Post, slug=slug)
@@ -222,7 +261,9 @@ def add_comment(request, slug):
     return redirect('post_detail', slug=post.slug)
         
 
+"""
 
+"""
 @login_required
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
@@ -244,7 +285,9 @@ def edit_comment(request, comment_id):
         form = CommentForm(instance=comment)
         return render(request, 'blog/edit_comment.html', {'form': form, 'comment': comment })
 
+"""
 
+"""
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
@@ -263,7 +306,9 @@ def delete_comment(request, comment_id):
 
     return render(request, 'blog/delete_comment.html', {'comment': comment})
 
+"""
 
+"""
 @login_required
 def kayak_toggle_favorite(request, slug):
     post = get_object_or_404(Post, slug=slug)
@@ -281,7 +326,9 @@ def kayak_toggle_favorite(request, slug):
     return redirect('post_detail', slug=post.slug)
 
 
-    
+"""
+
+"""    
 def kayak_search_result(request):
     form = SearchForm(request.GET)
     results = Post.objects.none()
