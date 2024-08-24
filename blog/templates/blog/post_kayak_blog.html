@@ -73,7 +73,7 @@
             <div class="comment mb-3" id="comment {{comment.id}}">
                 <p>{{ comment.body }}</p>
                 <small>By {{ comment.author.username }} on {{ comment.created|date:"F d, Y" }}</small>
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and comment.author == user  %}
                 <button class="btn btn-outline-danger btn-danger" data-comment_id="{{ comment.id }}"
                     data-is_author="{% if comment.author == user %}true{% else %}false{% endif %}">
                     <i class="fa-solid fa-trash-can"></i>

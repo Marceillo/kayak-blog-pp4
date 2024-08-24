@@ -39,11 +39,24 @@ def about(request):
     return render(request, 'blog/about.html')
 
 """
-Retrieves and displays , details of blog post id by its slug.
-Handels comments, favorites linked to posts.
+Retrieves and displays a blog post by its slug. Raises a 404 error if not found.
+Handles comments and favorites linked to the post.
 
-**Template:**
-blog/post_kayak_blog.html
+**Context**:
+post: An instance of :model:`blog.Post`.
+comments: A queryset of :model:`blog.Comment` instances.
+comment_form: An instance of :form:`blog.CommentForm`.
+is_favorited: Boolean indicating if the post is favorited by the user.
+comment_count: Total number of comments on the post.
+
+**Template**:
+:template:`blog/post_kayak_blog.html`
+
+**URL Parameters**:
+slug: The slug of the post to display.
+
+**Returns**:
+A rendered HTML page with post details and comments.
 """
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
@@ -75,7 +88,11 @@ def post_detail(request, slug):
             
 #post views
 """
-
+Creates a new post using a form and reverts back to the home page.
+Image is deleted or added to cloudinary.
+message success and error is displayed when successfull or failed.
+**Template:**
+blog/create_kayak_post.html
 """
 class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
     model = Post
@@ -99,7 +116,15 @@ class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
         return super().form_invalid(form)        
 
 """
+This view allows a logged-in user to update their own blog post. 
+It uses the Post model and PostForm form class to render an update form. 
+The form is displayed using the 'blog/update_kayak_post.html' template.
 
+ - The `get_queryset` method restricts the posts that can be updated to those authored by the logged-in user.
+ - The `form_valid` method sets the current user as the author of the post,
+   deletes the image from cloud storage if the user selects to delete it,
+   and shows a success message upon a valid form submission.
+ - The `form_invalid` method displays an error message if the form submission fails.
 """
 class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
     model = Post
@@ -126,6 +151,14 @@ class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
 
 
 """
+This view allows a logged-in user to delete their own blog post. 
+It uses the Post model and displays a confirmation page using the 
+'blog/delete_kayak_post.html' template. After a successful deletion, 
+it redirects to the 'home' page.
+
+- The `get_queryset` method restricts the posts that can be deleted to those authored by the logged-in user.
+- The `form_valid` method shows a success message when a post is successfully deleted.
+- The `form_invalid` method displays an error message if there is an issue with deleting the post.
 
 """
 class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
@@ -152,7 +185,13 @@ class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
 
 #User tobel able to see there posts
 """
+This view allows a logged-in user to see a list of their own blog posts.
+It uses the Post model and renders a list of posts using the 
+blog/my_post_list.html' template. The context object name for the 
+posts in the template is 'posts'.
 
+- The `get_queryset` method restricts the displayed posts to those 
+authored by the logged-in user, ordered by the most recent creation date.
 """ 
 class My_Post_List_View(LoginRequiredMixin, ListView):
     model = Post
@@ -165,7 +204,13 @@ class My_Post_List_View(LoginRequiredMixin, ListView):
 
 # After login code
 """
+This view displays the user profile page for the currently logged-in user.
 
+- The `@login_required` decorator ensures that only authenticated users can access this view.
+- The `UserProfile.objects.get_or_create` method retrieves the user's profile if it exists,
+  or creates a new one if it does not.
+- The `context` dictionary passes the current user and their profile to the template.
+- The `render` function renders the 'blog/user_profile.html' template with the provided context.
 """ 
 @login_required
 def userprofile(request):
