@@ -88,11 +88,17 @@ def post_detail(request, slug):
             
 #post views
 """
-Creates a new post using a form and reverts back to the home page.
-Image is deleted or added to cloudinary.
-message success and error is displayed when successfull or failed.
-**Template:**
-blog/create_kayak_post.html
+Creates a new blog post using a form and redirects to the home page.
+Handles image deletion or addition to Cloudinary. Displays success or error messages.
+
+**Template**:
+template:`blog/create_kayak_post.html`
+
+**Success Message**:
+"Your blog post has been successfully created!"
+
+**Error Message**:
+"There was an error creating your blog post."
 """
 class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
     model = Post
@@ -116,15 +122,22 @@ class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
         return super().form_invalid(form)        
 
 """
-This view allows a logged-in user to update their own blog post. 
-It uses the Post model and PostForm form class to render an update form. 
-The form is displayed using the 'blog/update_kayak_post.html' template.
+Allows a logged-in user to update their own blog post using a form.
 
- - The `get_queryset` method restricts the posts that can be updated to those authored by the logged-in user.
- - The `form_valid` method sets the current user as the author of the post,
-   deletes the image from cloud storage if the user selects to delete it,
-   and shows a success message upon a valid form submission.
- - The `form_invalid` method displays an error message if the form submission fails.
+ **Template**:
+ :template:`blog/update_kayak_post.html`
+
+**Functionality**:
+- The `get_queryset` method restricts updates to posts authored by the logged-in user.
+- The `form_valid` method sets the current user as the author, deletes the image from cloud storage if requested, 
+  and displays a success message upon valid submission.
+- The `form_invalid` method shows an error message if the form submission fails.
+
+**Success Message**:
+"Your blog post has been successfully updated!"
+
+ **Error Message**:
+"There was an error updating your blog post."
 """
 class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
     model = Post
@@ -151,15 +164,21 @@ class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
 
 
 """
-This view allows a logged-in user to delete their own blog post. 
-It uses the Post model and displays a confirmation page using the 
-'blog/delete_kayak_post.html' template. After a successful deletion, 
-it redirects to the 'home' page.
+Allows a logged-in user to delete their own blog post.
 
-- The `get_queryset` method restricts the posts that can be deleted to those authored by the logged-in user.
-- The `form_valid` method shows a success message when a post is successfully deleted.
-- The `form_invalid` method displays an error message if there is an issue with deleting the post.
+**Template**:
+:template:`blog/delete_kayak_post.html`
 
+ **Functionality**:
+- The `get_queryset` method restricts deletions to posts authored by the logged-in user.
+- The `form_valid` method displays a success message upon successful deletion.
+- The `form_invalid` method shows an error message if there is an issue with deletion.
+
+ **Success Message**:
+"The blog post has been deleted successfully."
+
+**Error Message**:
+"There was an error deleting this blog post."
 """
 class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
     model = Post
@@ -183,7 +202,7 @@ class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
     
  
 
-#User tobel able to see there posts
+
 """
 This view allows a logged-in user to see a list of their own blog posts.
 It uses the Post model and renders a list of posts using the 
@@ -202,15 +221,18 @@ class My_Post_List_View(LoginRequiredMixin, ListView):
         return Post.objects.filter(author=self.request.user).order_by('-created')
 
 
-# After login code
-"""
-This view displays the user profile page for the currently logged-in user.
 
-- The `@login_required` decorator ensures that only authenticated users can access this view.
-- The `UserProfile.objects.get_or_create` method retrieves the user's profile if it exists,
-  or creates a new one if it does not.
-- The `context` dictionary passes the current user and their profile to the template.
-- The `render` function renders the 'blog/user_profile.html' template with the provided context.
+"""
+Allows a logged-in user to view a list of their own blog posts.
+
+**Template**:
+template:`blog/my_post_list.html`
+
+**Context**:
+posts: A queryset of the user's blog posts, ordered by the most recent creation date.
+
+**Functionality**:
+The `get_queryset` method restricts displayed posts to those authored by the logged-in user.
 """ 
 @login_required
 def userprofile(request):
@@ -222,7 +244,24 @@ def userprofile(request):
     return render(request, 'blog/user_profile.html', context)
 
 """
+Allows a logged-in user to edit their profile.
 
+**Functionality**:
+ Retrieves or creates a `UserProfile` instance for the logged-in user.
+- Handles both GET and POST requests to display and update the profile.
+
+**POST Request**:
+- Validates the submitted form data.
+- Updates the user's email if provided.
+- Displays a success message upon successful update.
+- Displays an error message if the form is invalid.
+
+ **GET Request**:
+- Renders the profile edit form pre-filled with the user's current profile data.
+
+**Context**:
+form: An instance of `UserProfileForm` for editing the profile.
+profile: The user's `UserProfile` instance.
 """
 @login_required
 def profile_edit(request):
@@ -266,7 +305,22 @@ def delete_profile(request):
     return render(request, 'account/delete_profile.html')
 
 """
+Allows a logged-in user to delete their profile.
 
+ **Functionality**:
+- Handles POST requests to delete the user's account.
+- Logs out the user after successful deletion.
+- Displays a success message upon successful deletion.
+- Displays an error message if an exception occurs during deletion.
+
+ **POST Request**:
+ - Deletes the user account and logs the user out.
+
+**GET Request**:
+ - Renders a confirmation page for profile deletion.
+
+**Context**:
+None (no additional context is passed to the template).
 """
 @login_required
 def delete_profile_picture(request):
@@ -286,7 +340,23 @@ def delete_profile_picture(request):
         return redirect('profile_edit')
 
 """
+Allows a logged-in user to add a comment to a blog post.
 
+ **Functionality**:
+- Retrieves the blog post by its slug.
+- Handles POST requests to submit a new comment.
+- Displays a success message upon successful addition of the comment.
+- Redirects back to the post detail page.
+
+**POST Request**:
+- Validates the submitted comment form.
+- Associates the comment with the post and the logged-in user.
+
+**GET Request**:
+- Redirects to the post detail page without adding a comment.
+
+**Context**:
+None (no additional context is passed to the template).
 """
 @login_required
 def add_comment(request, slug):
@@ -307,7 +377,24 @@ def add_comment(request, slug):
         
 
 """
+Allows a logged-in user to edit their own comment.
 
+**Functionality**:
+ Retrieves the comment by its ID.
+- Checks if the user is allowed to modify the comment.
+- Handles both GET and POST requests for editing the comment.
+- Displays success or error messages based on the form submission.
+
+**POST Request**:
+- Validates the submitted comment form.
+- Updates the comment with the new data.
+- Redirects to the post detail page upon successful update.
+
+ **GET Request**:
+- Renders the edit comment form pre-filled with the current comment data.
+**Context**:
+form: An instance of `CommentForm` for editing the comment.
+comment: The `Comment` instance being edited.
 """
 @login_required
 def edit_comment(request, comment_id):
@@ -330,8 +417,25 @@ def edit_comment(request, comment_id):
         form = CommentForm(instance=comment)
         return render(request, 'blog/edit_comment.html', {'form': form, 'comment': comment })
 
-"""
 
+"""
+Allows a logged-in user to delete their own comment.
+
+ **Functionality**:
+- Retrieves the comment by its ID.
+- Checks if the user is allowed to delete the comment.
+- Handles both GET and POST requests for deleting the comment.
+- Displays a success message upon successful deletion.
+
+**POST Request**:
+- Deletes the comment.
+- Redirects to the post detail page after deletion.
+
+ **GET Request**:
+ - Renders a confirmation page for comment deletion.
+
+**Context**:
+comment: The `Comment` instance being deleted.
 """
 @login_required
 def delete_comment(request, comment_id):
@@ -352,7 +456,20 @@ def delete_comment(request, comment_id):
     return render(request, 'blog/delete_comment.html', {'comment': comment})
 
 """
+Allows a logged-in user to toggle the favorite status of a blog post.
 
+**Functionality**:
+- Retrieves the blog post by its slug.
+- Toggles the favorite status of the post for the logged-in user.
+- Displays a success message upon successful toggling of the favorite status.
+- Displays an error message if an exception occurs during the process.
+
+**POST Request**:
+- Adds or removes the user from the post's favorites list.
+- Redirects to the post detail page after toggling the favorite status.
+
+ **Context**:
+ None (no additional context is passed to the template).
 """
 @login_required
 def kayak_toggle_favorite(request, slug):
@@ -372,7 +489,22 @@ def kayak_toggle_favorite(request, slug):
 
 
 """
+Handles search functionality for blog posts based on user queries.
 
+**Functionality**:
+- Retrieves search queries from the GET request using `SearchForm`.
+- Filters published blog posts based on the search query across multiple fields.
+- Paginates the search results to display a limited number of posts per page.
+
+**GET Request**:
+- Validates the search form and retrieves the search query.
+- Filters posts by title, body, excerpt, or author username.
+ Returns a paginated list of search results.
+
+*Context**:
+form: An instance of `SearchForm` for the search input.
+page_obj: A paginated object containing the search results.
+query: The search query entered by the user.
 """    
 def kayak_search_result(request):
     form = SearchForm(request.GET)
