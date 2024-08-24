@@ -20,7 +20,8 @@ def contact_us(request):
 
             return redirect('about_kayaking')
         else:
-            form = ContactForm()
+            messages.error(request, 'Error submitting your message.')
+            #form = ContactForm()
                
 
     return render(request, 'about/contact_us.html', {'form': form}) 
