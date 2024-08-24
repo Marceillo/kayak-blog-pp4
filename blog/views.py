@@ -217,7 +217,8 @@ def add_comment(request, slug):
             messages.success(request, 'Your comment has been successfully added.')
             return redirect('post_detail', slug=post.slug)
     else:
-        form = CommentForm()
+        messages.error(request, 'Error adding your comment.')
+        # form = CommentForm()
     return redirect('post_detail', slug=post.slug)
         
 
@@ -236,9 +237,9 @@ def edit_comment(request, comment_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your comment has been successfully updated.')
-       # else:
-            #messages.error(request, "Error updating your comment.")
             return redirect('post_detail', slug=comment.post.slug)
+        else:
+            messages.error(request, 'Error editing the your comment.')
     else:
         form = CommentForm(instance=comment)
         return render(request, 'blog/edit_comment.html', {'form': form, 'comment': comment })
@@ -262,23 +263,6 @@ def delete_comment(request, comment_id):
 
     return render(request, 'blog/delete_comment.html', {'comment': comment})
 
-# @login_required
-# def delete_comment(request, slug, comment_id):
-#     """
-#     view to delete comment
-#     """
-#     queryset = Post.objects.filter(status=1)
-#     post = get_object_or_404(queryset, slug=slug)
-#     comment = get_object_or_404(Comment, pk=comment_id)
-
-#     if comment.author == request.user:
-#         comment.delete()
-#         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
-#     else:
-#         messages.add_message(request, messages.ERROR,
-#                              'You can only delete your own comments!')
-
-#     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 @login_required
 def kayak_toggle_favorite(request, slug):
