@@ -53,8 +53,11 @@
 
 ## Overview
 
+This is a kayaking blog site to experience the sport and write about your experiences here is the [live link](https://kayak-blog-pp4-1054055911f7.herokuapp.com/my-posts/) 
+
 ## Project Goal:
 
+The goal is to create a community around kayaking with the aim of sharing information to improve the sport.
 **Project Objectives:**
 
 * Provide people the opportunity to talk about their kayaking experiences.
@@ -67,7 +70,14 @@
 
 # UX
 
-This website was created using the Five Planes Of Website Design<br>
+This website was created using the Five Planes Of Website Design are below.
+<br>
+* Strategy Plane
+* Scope Plane
+* Structure Plane
+* Skeleton Plane
+* Surface Plane
+<br>
 
 **User Stories**
 
@@ -94,8 +104,8 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 |                                     | 5.1 | As an admin, I want to manage users and content through the admin panel. |
 | **EPIC: Mobile Responsiveness and UI/UX**|    |                                                                 |
 |                                     | 6.1 | As a user, I want to view the website on my mobile device.          |
-
-
+|                                     | 6.1 | As a user, I want to view the website on my Focus on testing all implemented features.          |
+|**Focus on testing all implemented features**.| 
 
 
 [Back to Table of Contents](#table-of-contents)
@@ -136,9 +146,28 @@ The wireframes for mobile were created with <br>
 <details>
   <summary>Wire Frames</summary>
   <h4>Home page</h4>
-  <img src="docs/readme-images/wireframe-home.png"><br>
+  <img src="static/readme/images/wireframes/home.png"><br>
+  <h4>Home after signed in page</h4>
+  <img src="static/readme/images/wireframes/home_signin.png"><br>
+  <h4>Create Blog page link only when logged in</h4>
+  <img src="static/readme/images/wireframes/create_blog.png"><br>
+  <h4>My Blog page link only when logged in</h4>
+  <img src="static/readme/images/wireframes/myblog.png"><br>
+  <h4>Profile page link only when logged in</h4>
+  <img src="static/readme/images/wireframes/profile.png"><br>
+  <h4>MY Profile edit page link only when logged in</h4>
+  <img src="static/readme/images/wireframes/profile_edit.png"><br>
   <h4>About page</h4>
-  <img src="docs/readme-images/wireframe-about.png"><br>
+  <img src="static/readme/images/wireframes/about.png"><br>
+  <h4>About contact page</h4>
+  <img src="static/readme/images/wireframes/about_contact.png"><br>
+  <h4>Register page </h4>
+  <img src="static/readme/images/wireframes/register.png"><br>
+  <h4>Login</h4>
+  <img src="static/readme/images/wireframes/login.png"><br>
+  <h4>Signout</h4>
+  <img src="static/readme/images/wireframes/signout.png"><br>
+
 
 </details>
 </details><br>
