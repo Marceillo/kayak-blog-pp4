@@ -1,5 +1,6 @@
 #from django.utils.text import slugify
 from django.db import models
+from django.core.validators import MinLengthValidator
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.db.models.signals import post_save
@@ -24,7 +25,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     blog_image= CloudinaryField('image', default='placeholder')
-    body = models.TextField()
+    body = models.TextField(validators=[MinLengthValidator(100)])
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

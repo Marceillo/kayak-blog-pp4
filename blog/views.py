@@ -86,7 +86,7 @@ def post_detail(request, slug):
     else:
         raise Http404("Post not found")
             
-#post views
+
 """
 Creates a new blog post using a form and redirects to the home page.
 Handles image deletion or addition to Cloudinary. Displays success or error messages.
@@ -143,7 +143,7 @@ class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
     model = Post
     form_class=PostForm
     template_name = 'blog/update_kayak_post.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('my_post_list')
 
     def get_queryset(self):
         return Post.objects.filter(author=self.request.user)
@@ -183,7 +183,7 @@ Allows a logged-in user to delete their own blog post.
 class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'blog/delete_kayak_post.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('my_post_list')
 
 
     def get_queryset(self):
@@ -285,7 +285,22 @@ def profile_edit(request):
     return render (request, 'blog/profile_edit.html', {'form': form, 'profile':profile})
 
 """
+Allows a logged-in user to delete their profile.
 
+ **Functionality**:
+- Handles POST requests to delete the user's account.
+- Logs out the user after successful deletion.
+- Displays a success message upon successful deletion.
+- Displays an error message if an exception occurs during deletion.
+
+ **POST Request**:
+ - Deletes the user account and logs the user out.
+
+**GET Request**:
+ - Renders a confirmation page for profile deletion.
+
+**Context**:
+None (no additional context is passed to the template).
 """
 @login_required
 def delete_profile(request):
@@ -305,22 +320,7 @@ def delete_profile(request):
     return render(request, 'account/delete_profile.html')
 
 """
-Allows a logged-in user to delete their profile.
 
- **Functionality**:
-- Handles POST requests to delete the user's account.
-- Logs out the user after successful deletion.
-- Displays a success message upon successful deletion.
-- Displays an error message if an exception occurs during deletion.
-
- **POST Request**:
- - Deletes the user account and logs the user out.
-
-**GET Request**:
- - Renders a confirmation page for profile deletion.
-
-**Context**:
-None (no additional context is passed to the template).
 """
 @login_required
 def delete_profile_picture(request):

@@ -39,12 +39,10 @@
                     <p class="card-text"><small class="text-muted">Status: {{post.get_status_display}}</small></p>
                     <div class="mt-3">
                         <a href="{%url 'post_detail' post.slug %}" class="btn btn-outline-secondary"><i
-                                class="fa-solid fa-binoculars"></i> View</a>
+                                class="fa-solid fa-binoculars"></i>Detail View</a>
                         <a href="{%url 'update_kayak_post' post.slug %}" class="btn btn-outline-secondary"><i
                                 class="fa-solid fa-file-pen"></i> Edit</a>
-                        <a href="{%url 'create_kayak_post' %}" class="btn btn-outline-secondary"><i
-                                class="fa-solid fa-square-plus"></i> Create Post</a>
-
+                        <a href="{% url 'delete_kayak_post' post.slug %}" class="btn btn-outline-secondary">Delete Post<i class="fa-solid fa-eraser"></i></i></a>
                     </div>
                 </div>
             </div>
