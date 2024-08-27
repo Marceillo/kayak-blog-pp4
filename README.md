@@ -206,12 +206,14 @@ The erd dot file convert to image [Graphviz online](https://dreampuf.github.io/G
 ## Credit below for the above detailed ERD diagram.
 
 [You Tube link](https://www.youtube.com/watch?v=qzrE7cfc_3Q&t=357s)
+
 [django-extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html)
 </details>
 
 ## Visual Effects
 
 * 
+
 ## Features
 
 ### Home Page
@@ -328,6 +330,7 @@ The project design has been adapted to all types of devices using Bootstrap pred
 [PEP8 Validator](http://pep8online.com/) - used for validating the python code<br>
 [HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options) - used for validating the HTML<br>
 [CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) - used for validating the CSS<br>
+[GraphvizOnline](https://dreampuf.github.io/GraphvizOnline/#digraaph%20G%20%7B%0A%0A%20%20subgraph%20cluster_0%20%7B%0A%20%20%20%20style%3Dfilled%3B%0A%20%20%20%20color%3Dlightgrey%3B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%2Ccolor%3Dwhite%5D%3B%0A%20%20%20%20a0%20-%3E%20a1%20-%3E%20a2%20-%3E%20a3%3B%0A%20%20%20%20label%20%3D%20%22process%20%231%22%3B%0A%20%20%7D%0A%0A%20%20subgraph%20cluster_1%20%7B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%5D%3B%0A%20%20%20%20b0%20-%3E%20b1%20-%3E%20b2%20-%3E%20b3%3B%0A%20%20%20%20label%20%3D%20%22process%20%232%22%3B%0A%20%20%20%20color%3Dblue%0A%20%20%7D%0A%20%20start%20-%3E%20a0%3B%0A%20%20start%20-%3E%20b0%3B%0A%20%20a1%20-%3E%20b3%3B%0A%20%20b2%20-%3E%20a3%3B%0A%20%20a3%20-%3E%20a0%3B%0A%20%20a3%20-%3E%20end%3B%0A%20%20b3%20-%3E%20end%3B%0A%0A%20%20start%20%5Bshape%3DMdiamond%5D%3B%0A%20%20end%20%5Bshape%3DMsquare%5D%3B%0A%7D) - To take erd.dot file and convert to a graph<br>
 LightHouse - for testing performance<br>
 
 [Back to Table of Contents](#table-of-contents)
@@ -509,10 +512,13 @@ To clone and set up this project you need to follow the steps below.
 [Back to top](<#table-of-content>)
 
 ## Credits
+* [django-extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html)
+* [Coolors web site](https://coolors.co/palettes/trendin)
 
 ### Content
 
-* [Coolors web site](https://coolors.co/palettes/trendin)
+* [You Tube Graph Models](https://www.youtube.com/watch?v=qzrE7cfc_3Q&t=357s)
+
 
 ## Acknowledgements
 
