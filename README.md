@@ -130,19 +130,19 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 
 #### Typography
 
-* The Roboto font is used as the main font for the whole project.
+* The Roboto font as the main and Lato as the secondary font for the whole project.
 
 [Back to Table of Contents](#table-of-contents)
 
 #### Imagery
 
-* 
+* Used wireframes and lucid at the initial start and updated them as needed when changes where made .
 
 # Skeleton
 
 ## Wireframes
 
-The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com)
+The wireframes for mobile and desktop were created with [Balsamiq](lucidchart.com)
 <br>
 <details>
   <summary>Wire Frames</summary>
@@ -169,13 +169,46 @@ The wireframes for mobile and desktop were created with [Balsamiq](https://balsa
   <h4>Signout</h4>
   <img src="static/readme/images/wireframes/signout.png"><br>
 </details>
-</details>
+
 <br>
 
 [Back to Table of Contents](#table-of-contents)
 
-## Flowchart
- 
+## Intial ERD Diagram
+
+<details>
+<summary>My Intial ERD Diagram</summary>
+The intial ERD diagram plan I used [lucid chart](https://www.lucidchart.com/)
+<br>
+<br>
+<img src="static/readme/images/lucid_erd_diagram.png">
+<br>
+<br>
+</details>
+
+## Django ERD Diagram
+<details>
+<summary>Used Django to create a ERD Diagram</summary>
+Django has built in tool that can show you your ERD diagram .
+
+* steps to using this is to install django-extensions.
+* Step2 would be to add it the installed apps.
+* Step3 would be to add it to the requirements file.
+* Step4 is to run the python manage.py graph_models -a --output erd.dot 
+* Step5 After this it will create erd.dot file with all the applications models data.
+* step6 Put the data in this software to change to a image file much like the one I used below.
+
+The erd dot file convert to image [Graphviz online](https://dreampuf.github.io/GraphvizOnline/#digraph%20G%20%7B%0A%0A%20%20subgraph%20cluster_0%20%7B%0A%20%20%20%20style%3Dfilled%3B%0A%20%20%20%20color%3Dlightgrey%3B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%2Ccolor%3Dwhite%5D%3B%0A%20%20%20%20a0%20-%3E%20a1%20-%3E%20a2%20-%3E%20a3%3B%0A%20%20%20%20label%20%3D%20%22process%20%231%22%3B%0A%20%20%7D%0A%0A%20%20subgraph%20cluster_1%20%7B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%5D%3B%0A%20%20%20%20b0%20-%3E%20b1%20-%3E%20b2%20-%3E%20b3%3B%0A%20%20%20%20label%20%3D%20%22process%20%232%22%3B%0A%20%20%20%20color%3Dblue%0A%20%20%7D%0A%20%20start%20-%3E%20a0%3B%0A%20%20start%20-%3E%20b0%3B%0A%20%20a1%20-%3E%20b3%3B%0A%20%20b2%20-%3E%20a3%3B%0A%20%20a3%20-%3E%20a0%3B%0A%20%20a3%20-%3E%20end%3B%0A%20%20b3%20-%3E%20end%3B%0A%0A%20%20start%20%5Bshape%3DMdiamond%5D%3B%0A%20%20end%20%5Bshape%3DMsquare%5D%3B%0A%7D)
+<br>
+<br>
+<img src="static/readme/images/erd_diagram.png"><br>
+
+## Credit below for the above detailed ERD diagram.
+
+[You Tube link](https://www.youtube.com/watch?v=qzrE7cfc_3Q&t=357s)
+[django-extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html)
+</details>
+
 ## Visual Effects
 
 * 
@@ -479,7 +512,7 @@ To clone and set up this project you need to follow the steps below.
 
 ### Content
 
-* 
+* [Coolors web site](https://coolors.co/palettes/trendin)
 
 ## Acknowledgements
 

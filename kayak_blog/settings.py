@@ -41,6 +41,7 @@ ALLOWED_HOSTS = ['8000-marceillo-kayakblogpp4-7k6a7fjpl13.ws.codeinstitute-ide.n
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django_extensions',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
