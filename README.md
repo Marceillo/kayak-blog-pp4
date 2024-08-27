@@ -12,7 +12,7 @@
 
 - [Overview](#overview)
 - [Project Goal](#project-goal)
-- [User Experience](#ux)
+- [User Experience](#user-experience-ux)
   - [User Stories](#user-stories)
   - [Design](#design)
   - [Colour Scheme](#colour-scheme)
@@ -31,17 +31,20 @@
   - [Register](#register)
   - [Profile](#profile)
   - [Logout](#logout)
+  - [Future Features](#future-features)
 - [Agile Methodology](#agile-methodology)
   - [Responsive Layout and Design](#responsive-layout-and-design)
   - [Database](#database)
 - [Testing](#testing)
+  - [Testing User Stories](#testing-user-stories)
   - [Lighthouse](#lighthouse)
   - [HTML Validation](#html-validation)
   - [CSS Validation](#css-validation)
   - [Manual Testing](#manual-testing)
   - [Frontend](#frontend)
   - [Backend Admin Panel](#backend-admin-panel)
-  - [Fixed Bugs](#fixed-bugs) 
+  - [Fixed Bugs](#fixed-bugs)
+  - [Unfixed Bugs](#unfixed-bugs) 
 - [Creating the Django app](#creating-the-django-app)
   - [Deployment of This Project](#deployment-of-this-project)
   - [Final Deployment](#final-deployment)
@@ -53,31 +56,23 @@
 
 ## Overview
 
-This is a kayaking blog site to experience the sport and write about your experiences here is the [live link](https://kayak-blog-pp4-1054055911f7.herokuapp.com/my-posts/) 
+I love water sports, and kayaking is one of the best ways to immerse yourself in nature and escape from daily life. That's why I decided to create a kayaking blog, where fellow paddlers and I can share our experiences on the water. Check out our latest adventures and stories [live link](https://kayak-blog-pp4-1054055911f7.herokuapp.com/my-posts/) 
 
 ## Project Goal:
 
-The goal is to create a community around kayaking with the aim of sharing information to improve the sport.
+The goal is to build a community around kayaking, where we can share knowledge and insights to enhance everyone's experience of the sport.
+
 **Project Objectives:**
 
-* Provide people the opportunity to talk about their kayaking experiences.
-* Connect kayakers to kayakers is the idea so that we can find more information or just blog about our experiences.
+* Provide people the opportunity to write about their kayaking experiences.
+* Connect kayakers to kayakers is the idea so that we can find more information or just blog about our experiences and safty tips.
 * Share ideas and create a community around kayaking so that the paddling experience can grow. 
 
 
 [Back to Table of Contents](#table-of-contents)
 
 
-# UX
-
-This website was created using the Five Planes Of Website Design are below.
-<br>
-* Strategy Plane
-* Scope Plane
-* Structure Plane
-* Skeleton Plane
-* Surface Plane
-<br>
+# User Experience UX
 
 **User Stories**
 
@@ -86,7 +81,7 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 | EPIC                               | ID | User Story                                                           |
 | :--------------------------------- | -- | :------------------------------------------------------------------- |
 | **User Authentication and Profiles**|    |                                                                      |
-|                                     | 1.1| As a role, I can register and log in so that I can access the website.|             
+|                                     | 1.1| As a user, I can register and log in so that I can access the website.|             
 |                                     | 1.2| As a user, I want to view and edit my profile.                        |
 | **Core Blog Functionality**         |    |                                                                      | 
 |                                     | 2.1| As a user, I want to search for specific kayaking topics.             |
@@ -115,16 +110,21 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 
 ## Colours
 
-* 
+* I used colors to match the background src="static /videos/oceanbgvideo.mp4" type="video/mp4"
+
+
 ### Colour Scheme
-* 
-<img src="docs/readme-images/primary-green.png" width="30%">
 
+* The color was based on the video image below.
 <br>
+<video width="40%" height="200" controls>
+  <source src="static/videos/oceanbgvideo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-* The secondary colour scheme was used for buttons, warnings, errors or for highlighting important information.<br>
-<img src="docs/readme-images/secondary-blue.png" width="30%">
+* Used a [Coolors web site](https://coolors.co/palettes/trendin) to search for colors that match.
 
+* The secondary colour scheme was used for buttons, warnings, errors or for highlighting important information.
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -141,8 +141,9 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 # Skeleton
 
 ## Wireframes
-The wireframes for mobile were created with <br>
 
+The wireframes for mobile and desktop were created with [Balsamiq](https://balsamiq.com)
+<br>
 <details>
   <summary>Wire Frames</summary>
   <h4>Home page</h4>
@@ -167,10 +168,9 @@ The wireframes for mobile were created with <br>
   <img src="static/readme/images/wireframes/login.png"><br>
   <h4>Signout</h4>
   <img src="static/readme/images/wireframes/signout.png"><br>
-
-
 </details>
-</details><br>
+</details>
+<br>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -259,6 +259,12 @@ The wireframes for mobile were created with <br>
 
 [Back to Table of Contents](#table-of-contents)
 
+### Future Features
+
+* 
+
+[Back to Table of Contents](#table-of-contents)
+
 ## Database
 
 The project uses the PostgreSQL relational database for storing the data.
@@ -295,11 +301,16 @@ LightHouse - for testing performance<br>
 
 # Testing
 
-* Testing has taken place continuously throughout the development of the project. Each view was tested regularly. 
+* Testing has taken place continuously throughout the development of the project. Each view 
+  was tested regularly. 
  
+## Testing User Stories
 
-  ### Python Validation - PEP8
-*
+* 
+
+### Python Validation - PEP8
+
+* 
 
 ![Pyhton](docs/readme-images/screen-pyhton.png)
 
@@ -352,6 +363,12 @@ Lighthouse
 
 
 [Back to Table of Contents](#table-of-contents)
+
+## Unfixed Bugs 
+
+| **Bug** | **UNfixed** | **Why**|  
+| ---     | ---         |---     |
+| test    | dsdds       | xcxc   |
 
 ## Creating the Django app hello
 
@@ -429,6 +446,34 @@ to copy the URL
 7. Press 'Enter' and the project is cloned
 
 [Back to Table of Contents](#table-of-contents)
+
+To clone and set up this project you need to follow the steps below.
+
+1. When you are in the repository, find the code tab and click it.
+2. To the left of the green GitPod button, press the 'code' menu. There you will find a link to the repository. Click on the clipboard icon to copy the URL.
+3. Use an IDE and open Git Bash. Change directory to the location where you want the cloned directory to be made.
+4. Type 'git clone', and then paste the URL that you copied from GitHub. Press enter and a local clone will be created.
+
+<details><summary><b>Github Create Local Clone</b></summary>
+
+![Clone](readme/assets/images/github_clone_01.png)
+</details><br />
+
+5. To be able to get the project to work you need to install the requirements. This can be done by using the command below:
+
+* ```pip3 install -r requirements.txt``` - This command downloads and install all required dependencies that is stated in the requirements file.
+
+6. The next step is to set up the environment file so that the project knows what variables that needs to be used for it to work. Environment variables are usually hidden due to sensitive information. It's very important that you don't push the env.py file to Github (this can be secured by adding env.py to the .gitignore-file). The variables that are declared in the env.py file needs to be added to the Heroku config vars. Don't forget to do necessary migrations before trying to run the server.
+
+* ```python3 manage.py migrate``` - This will do the necessary migrations.
+* ```python3 manage.py runserver``` - If everything i setup correctly the project is now live locally.
+
+<details><summary><b>Setup env.py</b></summary>
+
+![Clone](readme/assets/images/github_clone_02.png)
+</details><br />
+
+[Back to top](<#table-of-content>)
 
 ## Credits
 
