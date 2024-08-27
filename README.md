@@ -394,9 +394,8 @@ Lighthouse
 | Bug5: The drop-down list in the Django admin app was showing the ID and not the author's name. | Removed this incorrect code I created raw_id_fields = ['author',] which returned it to its stock feature a drop down list.
 | Bug6: admin.E108 The value of 'list_display[1]' refers to 'first-name', which is not a callable, an attribute of 'UserProfileAdmin', or an attribute or method on 'blog.UserProfile'. | changed the code from first-name to first_name as per my code.
 | Bug7: RelatedObjectDoesNotExist at /accounts/login/User has no userprofile.Exception Type:	RelatedObjectDoesNotExist | Accessed the manage.py shell and imported the UserProfile, testing after with the shell.Reason the model was changed and not synced with the database.
-| Bug: 
-
-
+|Bug8:TemplateSyntaxError at /user_profile/Could not parse the remainder:|I had extra curly braces,changed it to this <img src="{% static 'images/default_profile_picture.jpg' %}"
+|Bug9:NoReverseMatch at /about/ Reverse for 'contact_success' not found.| It needed to include urls path('about/', include('about.urls'))
 
 [Back to Table of Contents](#table-of-contents)
 
