@@ -117,7 +117,7 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 
 * The color was based on the video image below.
 <br>
-<video width="40%" height="200" controls>
+<video controls>
   <source src="static/videos/oceanbgvideo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
