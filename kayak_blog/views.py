@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 """
 **Functionality**:
-Renders a custom 404 error page when resource is not found.
+Return renders a custom 404 error page when link is not found.
 """
 def handler404(request, exception):
     # 404 error handler
@@ -10,7 +10,7 @@ def handler404(request, exception):
 
 """
 **Functionality**:
-Renders a custom 500 error page when an internal server error occurs.
+Return renders a custom 500 server error occurs.
 """
 def handler500(request):
     # 500 error handler
