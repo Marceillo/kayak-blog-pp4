@@ -6,4 +6,3 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactInquiry
         fields = ['name', 'email', 'message']
-    
