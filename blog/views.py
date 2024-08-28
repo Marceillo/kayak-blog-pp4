@@ -30,6 +30,7 @@ def home(request):
     posts = Post.objects.filter(status=Post.PostStatus.PUBLISHED).order_by('-publish')
     return render(request,'blog/index.html', {'posts': posts})
 
+
 """
 Return About page, providing information.
 **Template:**

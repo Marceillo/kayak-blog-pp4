@@ -56,11 +56,11 @@
 
 ## Overview
 
-I love water sports, and kayaking is one of the best ways to immerse yourself in nature and escape from daily life. That's why I decided to create a kayaking blog, where fellow paddlers and I can share our experiences on the water. Check out our latest adventures and stories [live link](https://kayak-blog-pp4-1054055911f7.herokuapp.com/my-posts/) 
+I love water sports, and kayaking is one of the best ways for me to be in nature and escape from daily life. That's why I decided to create a kayaking blog, where my fellow paddlers and I can share our experiences on the water. Please feel free to see the [live link](https://kayak-blog-pp4-1054055911f7.herokuapp.com/my-posts/) 
 
 ## Project Goal:
 
-The goal is to build a community around kayaking, where we can share knowledge and insights to enhance everyone's experience of the sport.
+The goal is to build a community around kayaking, where we can share knowledge and insights to enhance everyone's experience and safty in the sport.
 
 **Project Objectives:**
 
@@ -110,17 +110,11 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 
 ## Colours
 
-* I used colors to match the background src="static /videos/oceanbgvideo.mp4" type="video/mp4"
+* I used colors to match the background that is a moving mp4.
 
+ <img src="static/readme/images/backgroundmp4.png"><br>
 
 ### Colour Scheme
-
-* The color was based on the video image below.
-<br>
-<video width="40%" height="200" controls>
-  <source src="static/videos/oceanbgvideo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
 
 * Used a [Coolors web site](https://coolors.co/palettes/trendin) to search for colors that match.
 
@@ -342,7 +336,27 @@ LightHouse - for testing performance<br>
  
 ## Testing User Stories
 
-* 
+## User Stories Table
+
+| EPIC                               | ID  | User Story                                                           | Check | Test Result |
+| :--------------------------------- | --  | :------------------------------------------------------------------- | :---: | :---------: |
+| **User Authentication and Profiles** |     |                                                                      |       |             |
+|                                     | 1.1 | As a user, I can register and log in so that I can access the website.| [x]   | The btn is there to register and can access the site after login. |             
+|                                     | 1.2 | As a user, I want to view and edit my profile.                        | [x]   | Can access profile and have CRUD Functionality. |
+| **Core Blog Functionality**         |     |                                                                      |       |             | 
+|                                     | 2.1 | As a user, I want to search for specific kayaking topics.             | [x]   | I can search title,body,excerpt and author for kayak topics in the blog. |
+|                                     | 2.2 | As a content creator, I can write blog posts so that it is published. | [x]   | I can write a post as admin and as user and can see it in draft and published and CRUD functionality. |
+|                                     | 2.3 | As a user, I want to read blog posts about kayaking experiences.      | [x]   | I can read blog posts in detail.|
+| **User Interaction and Engagement** |     |                                                                      |       |             |
+|                                     | 3.1 | As a user, I want to comment on blog posts.                          | [x]   | I have CRUD on comments.|
+|                                     | 3.2 | As a user, I want to like blog posts.                                | []   | For future implementation.|
+|                                     | 3.3 | As a user, I want to favorite blog posts to find them later easily.  | [x]   | I can favorite and unfavorite blog posts.|
+| **Admin Functionality**            |     |                                                                      |       |             |
+|                                     | 5.1 | As an admin, I want to manage users and content through the admin panel. | [x]   |             |
+| **EPIC: Mobile Responsiveness and UI/UX** | |                                                                  |       |             |
+|                                     | 6.1 | As a user, I want to view the website on my mobile device.          | [x]   |             |
+|                                     | 6.2 | As a user, I want to view the website on my mobile device.          | [x]   |             |
+| **Focus on testing all implemented features** | |                                                        | [x]   |             |
 
 ### Python Validation - PEP8
 
