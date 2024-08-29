@@ -1,158 +1,207 @@
 {% load static %}
 
-
-
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
 {% url 'user_profile' as user_profile_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
-
+{# djlint:off H006, H021 #}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
-<head>
-  <title>Kayaking Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <title>Kayaking Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Blog for kayakers" />
+    <meta name="keywords" content="kayak, blog, white water kaykaing, sea kayaking" />
 
-  <!--Favicon-->
+    <!--Favicon-->
 
-  <link rel="shortcut icon" href="{% static 'images/kayak-blog-favicon-color.png' %}" type="image/kayak-icon">
+    <link rel="shortcut icon"
+          href="{% static 'images/kayak-blog-favicon-color.png' %}"
+          type="image/kayak-icon">
 
-  <!-- Google Fonts CSS -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap"
+          rel="stylesheet">
 
-  <!-- Updated Bootstrap  CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Updated Bootstrap  CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+          rel="stylesheet">
 
-  <!--CSS for custom style-->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--CSS for custom style-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-</head>
+  </head>
 
-<body class="d-flex flex-column h-100 main-bg">
- <video autoplay loop muted class="video-background"><source src="{% static '/videos/oceanbgvideo.mp4' %}" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <body class="d-flex flex-column h-100 main-bg">
+    <video autoplay loop muted class="video-background">
+      <source src="{% static '/videos/oceanbgvideo.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-  <!-- Navigation used from boostrap 5 -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}"> <img
-          src="{% static 'images/kayak-blog-high-resolution-logo-transparent.png' %}" alt="Kayaking blog logo"
-          style="height: 50px;"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == home_url %}active" aria-current="Home page {% endif %}"
-              href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == about_url %}active" aria-current="About page {% endif %}"
-              href="{% url 'about' %}">About</a>
-          </li>
+    <!-- Navigation used from boostrap 5 -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static 'images/kayak-blog-high-resolution-logo-transparent.png' %}"
+               alt="Kayaking blog logo"
+               style="height: 50px">
+        </a>
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link
+                        {% if request.path == home_url %}
+                          active" aria-current="Home page
+                        {% endif %}"
+                 href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link
+                        {% if request.path == about_url %}
+                          active" aria-current="About page
+                        {% endif %}"
+                 href="{% url 'about' %}">About</a>
+            </li>
 
-          {% if user.is_authenticated%}
+            {% if user.is_authenticated %}
 
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == user_profile_url %}active" aria-current="Profile page{% endif %}"
-              href="{% url 'user_profile' %}"><i class="fa-solid fa-user"></i>{{ user }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == '/post/new/' %}active" aria-current="Create blog page {% endif %}"
-              href="{% url 'create_kayak_post' %}">Create Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == '/my-posts/' %}active" aria-current="My blog page{% endif %}"
-              href="{% url 'my_post_list' %}"> My Blog </a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'account_logout' %}" class="nav-link {% if request.path == logout_url %}active{% endif %}"
-              aria-current="Logout page">Logout</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == signup_url %}active" aria-current="Register page {% endif %}"
-              href="{% url 'account_signup' %}">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}"
-              href="{% url 'account_login' %}">Login</a>
-          </li>
-          {% endif %}
-        </ul>
-        <form class="d-flex" role="search" action="{%url 'kayak_search_result' %}" method="get">
-          {% csrf_token %}
-          <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search"
-            value="{{ query|default:'' }}">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
-  <!-- Django messages -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 offset-md-2">
-        {% for message in messages %}
-        <div class="alert alert-custom {{ message.tags }} alert-dismissible
-                fade show text-center" id="msg" role="alert">
-          {{ message | safe }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              <li class="nav-item">
+                <a class="nav-link
+                          {% if request.path == user_profile_url %}
+                            active" aria-current="Profile page
+                          {% endif %}"
+                   href="{% url 'user_profile' %}"><i class="fa-solid fa-user"></i>{{ user }}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link
+                          {% if request.path == '/post/new/' %}
+                            active" aria-current="Create blog page
+                          {% endif %}"
+                   href="{% url 'create_kayak_post' %}">Create Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link
+                          {% if request.path == '/my-posts/' %}
+                            active" aria-current="My blog page
+                          {% endif %}"
+                   href="{% url 'my_post_list' %}"> My Blog </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'account_logout' %}"
+                   class="nav-link
+                          {% if request.path == logout_url %}
+                            active
+                          {% endif %}"
+                   aria-current="Logout page">Logout</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link
+                          {% if request.path == signup_url %}
+                            active" aria-current="Register page
+                          {% endif %}"
+                   href="{% url 'account_signup' %}">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link
+                          {% if request.path == login_url %}
+                            active" aria-current="page
+                          {% endif %}"
+                   href="{% url 'account_login' %}">Login</a>
+              </li>
+            {% endif %}
+          </ul>
+          <form class="d-flex"
+                role="search"
+                action="{% url 'kayak_search_result' %}"
+                method="get">
+            {% csrf_token %}
+            <input class="form-control me-2"
+                   type="search"
+                   placeholder="Search"
+                   name="q"
+                   aria-label="Search"
+                   value="{{ query|default:'' }}">
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
         </div>
-        {% endfor %}
       </div>
-    </div>
-  </div>
-
-  <main class="flex-shrink-0 main-bg">
-    {% if user.is_authenticated %}
-    <br>
-    {% else %}
-    <p class="text-end m-3">You are not logged in</p>
-    {% endif %}
-
-    {% block content %}
-    <!-- Content Goes here -->
-    {% endblock  %}
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer mt-auto py-3 " style="background-color: #e3f2fd;">
+    </nav>
+    <!-- Django messages -->
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <p class="m-0 text-end">
-            Find more content on:
-            <a href="https://www.facebook.com/" class="text-dark ms-2 "><i class="fab fa-facebook-square "></i></a>
-            <a href="https://x.com/" class="text-dark ms-2 custom-icon"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.youtube.com/" class="text-dark ms-2 custom-icon"><i class="fab fa-youtube-square"></i></a>
-          </p>
+        <div class="col-md-8 offset-md-2">
+          {% for message in messages %}
+            <div class="alert alert-custom {{ message.tags }} alert-dismissible fade show text-center"
+                 id="msg"
+                 role="alert">
+              {{ message | safe }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+              </button>
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-  </script>
-  <!--Fontawsome script -->
-  <script src="https://kit.fontawesome.com/4c3467c6d7.js" crossorigin="anonymous"></script>
+    <main class="flex-shrink-0 main-bg">
+      {% if user.is_authenticated %}
+        <br>
+      {% else %}
+        <p class="text-end m-3">
+          You are not logged in
+        </p>
+      {% endif %}
 
-  {% block extras %}
+      {% block content %}
+        <!-- Content Goes here -->
+      {% endblock %}
 
-  {% endblock %}
+    </main>
 
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 " style="background-color: #e3f2fd;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="m-0 text-end">
+              Find more content on:
+              <a href="https://www.facebook.com/" class="text-dark ms-2 "><i class="fab fa-facebook-square "></i></a>
+              <a href="https://x.com/" class="text-dark ms-2 custom-icon"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://www.youtube.com/" class="text-dark ms-2 custom-icon"><i class="fab fa-youtube-square"></i></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <!--Fontawsome script -->
+    <script src="https://kit.fontawesome.com/4c3467c6d7.js" crossorigin="anonymous"></script>
+
+    {% block extras %}
+
+    {% endblock %}
+
+  </body>
 
 </html>

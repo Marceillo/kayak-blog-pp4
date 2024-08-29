@@ -16,8 +16,8 @@ import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
-from dotenv import load_dotenv    
-   
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,13 +28,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-k^r292g8v7!n0aay&qkle!t+9j89wwt2-7akh271wql5a17d@!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-#DEBUG = 'DEBUG' in os.environ
+# DEBUG = 'DEBUG' in os.environ
 
-ALLOWED_HOSTS = ['8000-marceillo-kayakblogpp4-7k6a7fjpl13.ws.codeinstitute-ide.net','kayak-blog-pp4-1054055911f7.herokuapp.com']
+ALLOWED_HOSTS = [
+    '8000-marceillo-kayakblogpp4-7k6a7fjpl13.ws.codeinstitute-ide.net',
+    'kayak-blog-pp4-1054055911f7.herokuapp.com']
 
 
 # Application definition
@@ -58,8 +59,6 @@ INSTALLED_APPS = [
     'about',
 ]
 
-#Email configuration
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -76,9 +75,6 @@ else:
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
-
-
 
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -117,15 +113,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'kayak_blog.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
@@ -134,7 +121,7 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     'https://*.codeinstitute-ide.net',
     'https://*.herokuapp.com',
-    
+
 ]
 
 
@@ -143,16 +130,21 @@ CSRF_TRUSTED_ORIGINS = [
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+            'django.contrib.auth.password_validation'
+            '.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -164,7 +156,7 @@ AUTHENTICATION_BACKENDS = [
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
-#ACCOUNT_EMAIL_SUBJECT_PREFIX = '[Kayak Blog]'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -175,15 +167,12 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True 
+USE_TZ = True
 
 
 MESSAGE_TAGS = {
-messages.SUCCESS: 'alert-success',
-messages.ERROR: 'alert-danger'
+    messages.SUCCESS: 'alert-success', messages.ERROR: 'alert-danger'
 }
-
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -191,11 +180,11 @@ messages.ERROR: 'alert-danger'
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = (
+    'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-

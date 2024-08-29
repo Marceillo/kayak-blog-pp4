@@ -1,17 +1,19 @@
 {% load static %}
 
 {% block content %}
-
-<div class="container-fluid d-flex flex-column justify-content-center align-items-center h-100">
-    <div class="text-center">
-        <img class="img-main img-fluid " src="{% static 'images/pageimg404.jpeg' %}" alt="404 Error Image"  /> 
-        <h2 class="mb-5">
-            Page doesn't exist...
-        </h2>
-        <p>
-            Return to home page
-        </p>
-        <a class="btn btn-outline-success" href="{% url 'home' %}">Go Home</a>
+    {# djlint:off H006, H021 #}
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center h-100">
+        <div class="text-center">
+            <img class="img-main img-fluid"
+                 src="{% static 'images/pageimg404.jpeg' %}"
+                 alt="404 Error Image" />
+            <h2 class="mb-5">
+                Page doesn't exist...
+            </h2>
+            <p>
+                Return to home page
+            </p>
+            <a class="btn btn-outline-success" href="{% url 'home' %}">Go Home</a>
+        </div>
     </div>
-</div>
 {% endblock %}
