@@ -5,6 +5,12 @@ body {
 
 }
 
+/*Inline html for class="card bg-w"
+ code in bootstrap */
+.bg-w {
+    background-color: #e3f2fd;
+}
+
 /* Main content styles */
 .main-bg {
     position: relative;
@@ -25,8 +31,6 @@ body {
     transform: translate(-50%, -50%);
     overflow: hidden;
 }
-
-
 
 
 /* Navigation bar */
@@ -70,7 +74,6 @@ body {
 
 .card {
     border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0, 1);
     background-color: #e3f2fd;
 }
 
@@ -79,6 +82,7 @@ body {
     border-color: green;
 }
 *\
+
 /* Style for links */
 .card a {
     color: black;
@@ -108,6 +112,14 @@ a:hover {
     background-color: #2a9d8f;
     border: 10px solid #2a9d8f !important;
     border-radius: 5px;
+}
+
+/* Comments */
+.comment.mb-3 {
+    color: black;
+    background-color: #2a9d8f;
+    border: 10px solid #2a9d8f !important;
+    border-radius: 10px;
 }
 
 /* All buttons that is used in the site */
@@ -226,3 +238,4 @@ a:hover {
     border: 5px solid white;
 
 }
+
