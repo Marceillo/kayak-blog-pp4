@@ -60,13 +60,13 @@ I love water sports, and kayaking is one of the best ways for me to be in nature
 
 ## Project Goal:
 
-The goal is to build a community around kayaking, where we can share knowledge and insights to enhance everyone's experience and safty in the sport.
+The goal is to build a community around kayaking, where we can share knowledge and insights to enhance everyone's experience in the sport.
 
 **Project Objectives:**
 
 * Provide people the opportunity to write about their kayaking experiences.
 * Connect kayakers to kayakers is the idea so that we can find more information or just blog about our experiences and safty tips.
-* Share ideas and create a community around kayaking so that the paddling experience can grow. 
+* Share ideas and create a community around kayaking so that the paddling experience is shared. 
 
 
 [Back to Table of Contents](#table-of-contents)
@@ -182,7 +182,7 @@ The intial ERD diagram plan I used [lucid chart](https://www.lucidchart.com/)
 
 ## Django ERD Diagram
 <details>
-<summary>Used Django to create a ERD Diagram</summary>
+<summary>Used code Django to get a erd.dot file and convert to ERD Diagram</summary>
 Django has built in tool that can show you your ERD diagram .
 
 * steps to using this is to install django-extensions.
