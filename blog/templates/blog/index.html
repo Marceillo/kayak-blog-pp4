@@ -19,16 +19,22 @@
                 <img class="card-img-top" src="{{ post.blog_image.url }}" alt="{{ post.title }}">
                 {% endif %}
                 <div class="card-body">
-                    <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
+                    <h2>
+                        <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+                    </h2>
                     {% if post in user.favorite_posts.all %}
-                    <a href="{% url 'kayak_toggle_favorite' post.slug  %}"><i class="fa-solid fa-star"
-                            style="color: #ff6347;"></i></a>
+                    <a href="{% url 'kayak_toggle_favorite' post.slug  %}">
+                        <i class="fa-solid fa-star" style="color: #ff6347;"></i>
+                    </a>
                     {% else %}
-                    <a href="{% url 'kayak_toggle_favorite' post.slug %}"></a><i class="fa-regular fa-star"
-                        style="color: #ff6347;"></i></a>
+                    <a href="{% url 'kayak_toggle_favorite' post.slug %}">
+                        <i class="fa-regular fa-star" style="color: #ff6347;"></i>
+                    </a>
                     {% endif %}
-                    <a href="{% url 'post_detail' post.slug %}#comments">{% if post.comments.count > 0 %}<i
-                            class="fa-solid fa-comments" style="color: #ff6347;"></i> {{ post.comments.count }}
+                    <a href="{% url 'post_detail' post.slug %}#comments">
+                        {% if post.comments.count > 0 %}
+                        <i class="fa-solid fa-comments" style="color: #ff6347;"></i>
+                        {{ post.comments.count }}
                         {% else %}
                         <i class="fa-regular fa-comments" style="color: #ff6347;"></i>
                         {% endif %}

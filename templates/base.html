@@ -6,7 +6,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
-{# djlint:off H006, H021 #}
+
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -65,11 +65,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link
-                        {% if request.path == home_url %}
-                          active" aria-current="Home page
-                        {% endif %}"
-                 href="{% url 'home' %}">Home</a>
+              <a class="nav-link {% if request.path == home_url %}active{% endif %}" 
+              href="{% url 'home' %}" 
+              aria-current="{% if request.path == home_url %}page{% else %}false{% endif %}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link

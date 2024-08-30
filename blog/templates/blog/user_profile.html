@@ -3,71 +3,72 @@
 {% load static %}
 
 {% block content %}
-    {# djlint:off H006, H014 #}
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card bg-w">
-                    <div class="card-body">
-                        <h2 class="card-title text-center mb-4">
-                            {% trans "Profile Edit" %}
-                        </h2>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card bg-w">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">
+                        {% trans "Profile Edit" %}
+                    </h2>
 
-                        <div class="text-center mb-4">
-                            <img src="{{ user.userprofile.get_profile_picture_url }}"
-                                 alt="Profile Picture"
-                                 class="img-thumbnail"
-                                 width="200">
-                        </div>
-
-                        <div class="row mb-3 ">
-                            <div class="col-6 ">
-                                <a href="{% url 'account_change_password' %}" class="btn btn-outline-success">{% trans 'Password Change' %}</a>
-                            </div>
-                            <div class="col-6 text-end">
-                                <a href="{% url 'delete_profile' %}" class="btn btn-outline-danger">{% trans 'Delete Profile' %}</a>
-                            </div>
-
-                        </div>
-
-                        <p class="card-text">
-                            <strong>{% trans "Username:" %}</strong> {{ user.username }}
-                        </p>
-                        <p class="card-text">
-                            <strong>{% trans "Email:" %}</strong> {{ user.email }}
-                        </p>
-
-                        {% if user.userprofile %}
-                            <p class="card-text">
-                                <strong>{% trans "First Name:" %}</strong> {{ user.userprofile.first_name }}
-                            </p>
-                            <p class="card-text">
-                                <strong>{% trans "Last Name:" %}</strong> {{ user.userprofile.last_name }}
-                            </p>
-                            <p class="card-text">
-                                <strong>{% trans "Location:" %}</strong> {{ user.userprofile.location }}
-                            </p>
-                            <p class="card-text">
-                                <strong>{% trans "Experience Level:" %}</strong>
-                                {{ user.userprofile.experience_level }}
-                            </p>
-                            <p class="card-text">
-                                <strong>{% trans "Favorite Gear:" %}</strong>
-                                {{ user.userprofile.favorite_gear }}
-                            </p>
-                            <p class="card-text">
-                                <strong>{% trans "Bio:" %}</strong> {{ user.userprofile.bio }}
-                            </p>
-                            <a href="{% url 'profile_edit' %}" class="btn btn-outline-success mt-3">{% trans "Profile Edit" %}</a>
-                        {% else %}
-                            <p>
-                                {% trans "No profile information available." %}
-                            </p>
-                            <a href="{% url 'profile_edit' %}" class="btn btn-outline-success mt-3">{% trans "Create Profile" %}</a>
-                        {% endif %}
+                    <div class="text-center mb-4">
+                        <img src="{{ user.userprofile.get_profile_picture_url }}" alt="Profile Picture"
+                            class="img-thumbnail" width="200">
                     </div>
+
+                    <div class="row mb-3 ">
+                        <div class="col-6 ">
+                            <a href="{% url 'account_change_password' %}"
+                                class="btn btn-outline-success">{% trans 'Password Change' %}</a>
+                        </div>
+                        <div class="col-6 text-end">
+                            <a href="{% url 'delete_profile' %}"
+                                class="btn btn-outline-danger">{% trans 'Delete Profile' %}</a>
+                        </div>
+
+                    </div>
+
+                    <p class="card-text">
+                        <strong>{% trans "Username:" %}</strong> {{ user.username }}
+                    </p>
+                    <p class="card-text">
+                        <strong>{% trans "Email:" %}</strong> {{ user.email }}
+                    </p>
+
+                    {% if user.userprofile %}
+                    <p class="card-text">
+                        <strong>{% trans "First Name:" %}</strong> {{ user.userprofile.first_name }}
+                    </p>
+                    <p class="card-text">
+                        <strong>{% trans "Last Name:" %}</strong> {{ user.userprofile.last_name }}
+                    </p>
+                    <p class="card-text">
+                        <strong>{% trans "Location:" %}</strong> {{ user.userprofile.location }}
+                    </p>
+                    <p class="card-text">
+                        <strong>{% trans "Experience Level:" %}</strong>
+                        {{ user.userprofile.experience_level }}
+                    </p>
+                    <p class="card-text">
+                        <strong>{% trans "Favorite Gear:" %}</strong>
+                        {{ user.userprofile.favorite_gear }}
+                    </p>
+                    <p class="card-text">
+                        <strong>{% trans "Bio:" %}</strong> {{ user.userprofile.bio }}
+                    </p>
+                    <a href="{% url 'profile_edit' %}"
+                        class="btn btn-outline-success mt-3">{% trans "Profile Edit" %}</a>
+                    {% else %}
+                    <p>
+                        {% trans "No profile information available." %}
+                    </p>
+                    <a href="{% url 'profile_edit' %}"
+                        class="btn btn-outline-success mt-3">{% trans "Create Profile" %}</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

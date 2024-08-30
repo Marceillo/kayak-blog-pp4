@@ -10,56 +10,57 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="card-title">{{post.title}}</h2>
-                    
+
                     <br>
                     <br>
                     {% if user == post.author %}
                     <div class="mb-3">
                         <a href="{% url 'update_kayak_post' post.slug %}" class="btn btn-outline-success"><i
                                 class="fa-solid fa-file-pen"></i> Edit Post</a>
-                        <a href="{% url 'delete_kayak_post' post.slug %}" class="btn btn-outline-danger">Delete Post
-                            <i class="fa-solid fa-eraser"></i></i></a>
+                        <a href="{% url 'delete_kayak_post' post.slug %}" class="btn btn-outline-danger">
+                            Delete Post<i class="fa-solid fa-eraser"></i></a>
                     </div>
                     {% endif %}
                     {% if "placeholder" in post.blog_image.url %}
-                    <img src="{% static 'images/default.jpg' %}" class="img-fluid mb-3" alt=" Placeholder kayak image">
+                    <img src="{% static 'images/default.jpg' %}" class="img-fluid mb-3" alt="Placeholder kayak image">
                     {% else %}
                     <img src="{{ post.blog_image.url }}" class="img-fluid mb-3" alt="{{ post.title }}">
                     {% endif %}
                     <div class="post-content scrollable-content mb-4">
                         {{ post.body|safe }}
                     </div>
-                    <!--
-                        <p class="card-text">{{ post.body }}</p> -->
-                    <p class="text-muted mt-3">
 
+                    <p class="text-muted mt-3">
                         <strong>Created on:</strong> {{ post.created|date:"F j, Y" }}
                         <strong>Published on:</strong>{{ post.publish|date:"F j, Y" }}
                         <strong>Author:</strong>{{ post.author.username }}
-
                     </p>
 
                     <!--For Favorites-->
                     {% if user.is_authenticated %}
                     {% if is_favorited %}
-                    <a href="{% url 'kayak_toggle_favorite' post.slug  %}"><i class="fa-solid fa-star"
-                            style="color: #ff6347;"></i></a>
-
+                    <a href="{% url 'kayak_toggle_favorite' post.slug %}">
+                        <i class="fa-solid fa-star" style="color: #ff6347;"></i>
+                    </a>
                     {% else %}
-                    <a href="{% url 'kayak_toggle_favorite' post.slug  %}"><i class="fa-regular fa-star"
-                            style="color: #ff6347;"></i></a>
+                    <a href="{% url 'kayak_toggle_favorite' post.slug %}">
+                        <i class="fa-regular fa-star" style="color: #ff6347;"></i>
+                        {% endif %}
+                    </a>
 
-                    {% endif %}
-                    <a href="#comments">{% if comment_count > 0 %}<i class="fa-solid fa-comments"
-                            style="color: #ff6347;"></i>{{ comment_count }}
+                    <a href="#comments">
+                        {% if comment_count > 0 %}
+                        <i class="fa-solid fa-comments" style="color: #ff6347;"></i>
+                        {{ comment_count }}
                         {% else %}
                         <i class="fa-regular fa-comments" style="color: #ff6347;"></i>
                         {% endif %}
                     </a>
-
+                    {% endif %}
 
 
                 </div>
+
             </div>
         </div>
     </div>
@@ -70,11 +71,11 @@
             <h3>Comments</h3>
 
             {% for comment in comments %}
-            <div class="comment mb-3" id="comment {{comment.id}}">
+            <div class="comment mb-3" id="comment{{comment.id}}">
                 <p>{{ comment.body }}</p>
                 <small>By {{ comment.author.username }} on {{ comment.created|date:"F d, Y" }}</small>
                 {% if user.is_authenticated and comment.author == user  %}
-                <button class="btn btn-outline-danger btn-danger" data-comment_id="{{ comment.id }}"
+                <button class="btn btn-outline-danger btn-danger" data-comment_id="{{comment.id}}"
                     data-is_author="{% if comment.author == user %}true{% else %}false{% endif %}">
                     <i class="fa-solid fa-trash-can"></i>
                 </button>
@@ -88,9 +89,10 @@
             {% endfor %}
 
             <h4>Add a comment</h4>
+            {% if user.is_authenticated %}
             <form method="post" action="{% url 'add_comment' post.slug %}">
                 {% csrf_token %}
-                {{ comment_form|crispy}}
+                {{ comment_form|crispy }}
                 <button type="submit" class="btn btn-outline-success">Submit</button>
             </form>
             {% else %}
@@ -125,6 +127,5 @@
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
 </script>
 <script src="{% static 'js/comments.js' %}"></script>
-
 
 {% endblock %}
