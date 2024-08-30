@@ -71,7 +71,6 @@ body {
 
 .card {
     border: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0,1);
     background-color: #e3f2fd;
 }
 
@@ -208,6 +207,8 @@ a:hover {
     padding: 15px;
     border-radius: 10px;
 }
+
+
 
 /* Footer */
 .footer {

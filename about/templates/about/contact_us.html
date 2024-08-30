@@ -15,18 +15,18 @@
   </div>
   {% endif %}
 
-  <form method="post">
+  <form method="post" class="kayak_contact_form">
     {% csrf_token %}
     <div class="mb-3">
-      <label for="name" class="form-label"></label>
+      <label for="id_name" class="form-label"><i class="fa-solid fa-circle-user"></i></label>
       {{ form.name|as_crispy_field}}
     </div>
     <div class="mb-3">
-      <label for="email" class="form-label"></label>
+      <label for="id_email" class="form-label"><i class="fa-solid fa-envelope-open"></i></label>
       {{ form.email|as_crispy_field }}
     </div>
     <div class="mb-3">
-      <label for="message" class="form-label"></label>
+      <label for="id_message" class="form-label"><i class="fa-regular fa-comment-dots"></i></label>
       {{ form.message|as_crispy_field }}
     </div>
     <button type="submit" class="btn btn-outline-success">Send Message</button>
@@ -34,4 +34,3 @@
 </div>
 
 {%endblock content%}
-
