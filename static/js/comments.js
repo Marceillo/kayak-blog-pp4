@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 const editButtons = document.getElementsByClassName("btn-edit");
 const commentText = document.getElementById("id_body");
 const commentForm = document.getElementById("commentForm");
@@ -9,7 +10,6 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 
 /*
  * Initializes edit functionality for the provided edit buttons.
- * 
  * For each button in the `editButtons` collection:
  * - Retrieves the associated comment's ID upon click.
  * - Fetches the content of the corresponding comment.
@@ -27,20 +27,23 @@ for (let button of editButtons) {
         commentForm.setAttribute("action", `edit_comment/${commentId}`);
     });
 
-    /* setTimeout(() => {
-         messageDiv.remove();
-     }, 5000);*/
+
 }
 
 /*
- * Initializes deletion functionality for the provided delete buttons.
- * 
- * For each button in the `deleteButtons` collection:
- * - Retrieves the associated comment's ID upon click.
- * - Updates the `deleteConfirm` link's href to point to the 
- * deletion endpoint for the specific comment.
- * - Displays a confirmation modal (`deleteModal`) to prompt 
- * the user for confirmation before deletion.
+ * This is a delete feature for comments.
+ * Before the comment delet and edit buttons,
+ * where not hidden, even if you where not a author.
+ * You could see the buttons I have since updated 
+ * the template to hide the buttons and show only when
+ * you are a author. 
+ * So this code also can now check when the btn-danger is clicked.
+ * Checks the comment ID and checks if user is author.
+ * if not error message "You can't delete this comment.
+ * If this is the user a delet form is started and the modal is shown.
+ * When a confirmation button is clicked, the deleteForm is submitted.
+ * The show message styles the alert error message for user feedback.
+ * Then disappears after 5 seconds.  
  */
 
 document.querySelectorAll('.btn-danger').forEach(button => {
@@ -59,7 +62,7 @@ document.querySelectorAll('.btn-danger').forEach(button => {
     });
 });
 
-// Add event listener to deleteConfirm button
+
 deleteConfirm.addEventListener('click', function() {
     const deleteForm = document.querySelector('#deleteModal form');
     deleteForm.submit();
@@ -84,10 +87,3 @@ function showMessage(type, message) {
     }, 5000);
 }
 
-// for (let button of deleteButtons) {
-//     button.addEventListener("click", (e) => {
-//         let commentId = e.target.getAttribute("comment_id");
-//         deleteConfirm.href = `delete_comment/${commentId}`;
-//         deleteModal.show();
-//     });
-// }
