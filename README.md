@@ -305,10 +305,47 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 <br>
 
 ![Login](/static/readme/images/login-page.png)
+
+#### Forgot Password
+
 <br>
+
+* When you click on the forgot password you will be promted for your email address.
+<br>
+
+![Login](/static/readme/images/forgot-password.png)
+
+<br>
+
+* If you did not add a email address as it is optional you can use the about contact form.
+* Once you enter your e-mail address you will see this screen as a user.
+
+<br>
+
+![Login](/static/readme/images/passwordresetmessage.png)
+
+
+##### NOTE
+
+* The link will be sent to the IDE terminal and only to certain email service providers.
+* Reason for this is that certain service providers block django messages on the server side such as gmail.
+* This is not a live site and not incontrol of the SMTP server I have to accept this result.
+
+###### Terminal link view 
+<br>
+
+![Login](/static/readme/images/passchangeterminal.png)
+
+<br>
+
+###### Temporary email address view 
+
+* The only way to test it from the deployed site in Heruko I used a temporary e-mail service provider.
+
+
 </details>
 
-* Note:
+
 
 [Back to Table of Contents](#table-of-contents)
 
