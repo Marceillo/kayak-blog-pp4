@@ -1,57 +1,47 @@
-#
-
-![Mockup](docs/readme-images/mockup.p)
-
-![GitHub last commit](https://img.shields.io/github/last-commit/marceillo/kayak-blog-pp4?color=red)
-![GitHub contributors](https://img.shields.io/github/contributors/marceillo/kayak-blog-pp4?color=orange)
-![GitHub language count](https://img.shields.io/github/languages/count/marceillo/kayak-blog-pp4?color=yellow)
-![GitHub top language](https://img.shields.io/github/languages/top/marceillo/kayak-blog-pp4?color=green)
-<hr>
-
 ## Table of Contents 
 
 - [Overview](#overview)
 - [Project Goal](#project-goal)
 - [User Experience](#user-experience-ux)
-  - [User Stories](#user-stories)
-  - [Design](#design)
-  - [Colour Scheme](#colour-scheme)
-  - [Skeleton](#skeleton)
-  - [Wireframes](#wireframes)
-  - [Flowchart](#flowchart)
-  - [Visual Effects](#visual-effects)
+  - [User Stories](#user-stories)
+  - [Design](#design)
+  - [Colour Scheme](#colour-scheme)
+  - [Skeleton](#skeleton)
+  - [Wireframes](#wireframes)
+  - [Flowchart](#flowchart)
+  - [Visual Effects](#visual-effects)
 - [Features](#features)
-  - [Visual Effects](#visual-effects)
-  - [Home Page](#home-page)
-  - [About Us Page](#about-us-page)
-  - [Blogs Page](#blogs-page)
-  - [Comments Page](#comments-page)
-  - [Contact Page](#contact-page)
-  - [Account Login](#account-login)
-  - [Register](#register)
-  - [Profile](#profile)
-  - [Logout](#logout)
-  - [Future Features](#future-features)
+  - [Visual Effects](#visual-effects)
+  - [Home Page](#home-page)
+  - [About Us Page](#about-us-page)
+  - [Blogs Page](#blogs-page)
+  - [Comments Page](#comments-page)
+  - [Contact Page](#contact-page)
+  - [Account Login](#account-login)
+  - [Register](#register)
+  - [Profile](#profile)
+  - [Logout](#logout)
+  - [Future Features](#future-features)
 - [Agile Methodology](#agile-methodology)
-  - [Responsive Layout and Design](#responsive-layout-and-design)
-  - [Database](#database)
+  - [Responsive Layout and Design](#responsive-layout-and-design)
+  - [Database](#database)
 - [Testing](#testing)
-  - [Testing User Stories](#testing-user-stories)
-  - [Lighthouse](#lighthouse)
-  - [HTML Validation](#html-validation)
-  - [CSS Validation](#css-validation)
-  - [Manual Testing](#manual-testing)
-  - [Frontend](#frontend)
-  - [Backend Admin Panel](#backend-admin-panel)
-  - [Fixed Bugs](#fixed-bugs)
-  - [Unfixed Bugs](#unfixed-bugs) 
+  - [Testing User Stories](#testing-user-stories)
+  - [Lighthouse](#lighthouse)
+  - [HTML Validation](#html-validation)
+  - [CSS Validation](#css-validation)
+  - [Manual Testing](#manual-testing)
+  - [Frontend](#frontend)
+  - [Backend Admin Panel](#backend-admin-panel)
+  - [Fixed Bugs](#fixed-bugs)
+  - [Unfixed Bugs](#unfixed-bugs) 
 - [Creating the Django app](#creating-the-django-app)
-  - [Deployment of This Project](#deployment-of-this-project)
-  - [Final Deployment](#final-deployment)
-  - [Forking This Project](#forking-this-project)
-  - [Cloning This Project](#cloning-this-project)
+  - [Deployment of This Project](#deployment-of-this-project)
+  - [Final Deployment](#final-deployment)
+  - [Forking This Project](#forking-this-project)
+  - [Cloning This Project](#cloning-this-project)
 - [Credits](#credits)
-  - [Acknowledgements](#acknowledgements)
+  - [Acknowledgements](#acknowledgements)
 
 
 ## Overview
@@ -65,7 +55,7 @@ The goal is to build a community around kayaking, where we can share knowledge a
 **Project Objectives:**
 
 * Provide people the opportunity to write about their kayaking experiences.
-* Connect kayakers to kayakers is the idea so that we can find more information or just blog about our experiences and safty tips.
+* Connect kayakers to kayakers is the idea so that we can find more information or just blog about our experiences and safety tips.
 * Share ideas and create a community around kayaking so that the paddling experience is shared. 
 
 
@@ -78,28 +68,28 @@ The goal is to build a community around kayaking, where we can share knowledge a
 
 User stories can be viewed here on the project [kanban board ](https://github.com/users/Marceillo/projects/8/views/1)
 
-| EPIC                               | ID | User Story                                                           |
+| EPIC                               | ID | User Story                                                           |
 | :--------------------------------- | -- | :------------------------------------------------------------------- |
-| **User Authentication and Profiles**|    |                                                                      |
-|                                     | 1.1| As a user, I can register and log in so that I can access the website.|             
-|                                     | 1.2| As a user, I want to view and edit my profile.                        |
-| **Core Blog Functionality**         |    |                                                                      | 
-|                                     | 2.1| As a user, I want to search for specific kayaking topics.             |
-|                                     | 2.2| As a content creator, I can write blog posts so that it is published. |
-|                                     | 2.3| As a user, I want to read blog posts about kayaking experiences.      |
-| **User Interaction and Engagement**                           |    |                                            |
-|                                     | 3.1 |As a user, I want to comment on blog posts. |
-|                                     | 3.2 | As a user, I want to like blog posts. |
-|                                     | 3.3 |As a user, I want to favorite blog posts to find them later easily.  |
-| **Core Blog Functionality**                        |    |                                                       |
-|                                     | 4.1 | As a content creator, I want to upload for **images for my blog posts.|
-|                                     | 4.2 | As a user, I want to search for specific kayaking topics.           |
-|                                     | 4.3 | As a content creator, I can write blog posts so that it is published.|
-| **Admin Functionality**             |     |                                                                     |
-|                                     | 5.1 | As an admin, I want to manage users and content through the admin panel. |
-| **EPIC: Mobile Responsiveness and UI/UX**|    |                                                                 |
-|                                     | 6.1 | As a user, I want to view the website on my mobile device.          |
-|                                     | 6.1 | As a user, I want to view the website on my Focus on testing all implemented features.          |
+| **User Authentication and Profiles**|    |                                                                      |
+|                                     | 1.1| As a user, I can register and log in so that I can access the website.|             
+|                                     | 1.2| As a user, I want to view and edit my profile.                        |
+| **Core Blog Functionality** |    |                                                                      | 
+|                                     | 2.1| As a user, I want to search for specific kayaking topics.             |
+|                                     | 2.2| As a content creator, I can write blog posts so that it is published. |
+|                                     | 2.3| As a user, I want to read blog posts about kayaking experiences.      |
+| **User Interaction and Engagement** |    |                                            |
+|                                     | 3.1 |As a user, I want to comment on blog posts. |
+|                                     | 3.2 | As a user, I want to like blog posts. |
+|                                     | 3.3 |As a user, I want to favorite blog posts to find them later easily.  |
+| **Core Blog Functionality** |    |                                                       |
+|                                     | 4.1 | As a content creator, I want to upload for **images for my blog posts.|
+|                                     | 4.2 | As a user, I want to search for specific kayaking topics.           |
+|                                     | 4.3 | As a content creator, I can write blog posts so that it is published.|
+| **Admin Functionality** |     |                                                                     |
+|                                     | 5.1 | As an admin, I want to manage users and content through the admin panel. |
+| **EPIC: Mobile Responsiveness and UI/UX**|    |                                                                 |
+|                                     | 6.1 | As a user, I want to view the website on my mobile device.          |
+|                                     | 6.1 | As a user, I want to view the website on my Focus on testing all implemented features.          |
 |**Focus on testing all implemented features**.| 
 
 
@@ -110,27 +100,25 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 
 ## Colours
 
-* I used colors to match the background that is a moving mp4.
+* I used colors to match the background which is a moving mp4, more about that below in visual experience.
 
- <img src="static/readme/images/backgroundmp4.png"><br>
+ <img src="static/readme/images/backgroundmp4.png"><br>
 
 ### Colour Scheme
 
 * Used a [Coolors web site](https://coolors.co/palettes/trendin) to search for colors that match.
 
-* The secondary colour scheme was used for buttons, warnings, errors or for highlighting important information.
-
 [Back to Table of Contents](#table-of-contents)
 
 #### Typography
 
-* The Roboto font as the main and Lato as the secondary font for the whole project.
+* The Roboto font is the main and Lato is the secondary font for the whole project.
 
 [Back to Table of Contents](#table-of-contents)
 
 #### Imagery
 
-* Used wireframes and lucid at the initial start and updated them as needed when changes where made .
+* Used wireframes and lucid at the initial start and updated them as needed when changes were made.
 
 # Skeleton
 
@@ -139,40 +127,40 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 The wireframes for mobile and desktop were created with [Balsamiq](lucidchart.com)
 <br>
 <details>
-  <summary>Wire Frames</summary>
-  <h4>Home page</h4>
-  <img src="static/readme/images/wireframes/home.png"><br>
-  <h4>Home after signed in page</h4>
-  <img src="static/readme/images/wireframes/home_signin.png"><br>
-  <h4>Create Blog page link only when logged in</h4>
-  <img src="static/readme/images/wireframes/create_blog.png"><br>
-  <h4>My Blog page link only when logged in</h4>
-  <img src="static/readme/images/wireframes/myblog.png"><br>
-  <h4>Profile page link only when logged in</h4>
-  <img src="static/readme/images/wireframes/profile.png"><br>
-  <h4>MY Profile edit page link only when logged in</h4>
-  <img src="static/readme/images/wireframes/profile_edit.png"><br>
-  <h4>About page</h4>
-  <img src="static/readme/images/wireframes/about.png"><br>
-  <h4>About contact page</h4>
-  <img src="static/readme/images/wireframes/about_contact.png"><br>
-  <h4>Register page </h4>
-  <img src="static/readme/images/wireframes/register.png"><br>
-  <h4>Login</h4>
-  <img src="static/readme/images/wireframes/login.png"><br>
-  <h4>Signout</h4>
-  <img src="static/readme/images/wireframes/signout.png"><br>
+  <summary>Wire Frames</summary>
+  <h4>Home page</h4>
+  <img src="static/readme/images/wireframes/home.png"><br>
+  <h4>Home after signed in page</h4>
+  <img src="static/readme/images/wireframes/home_signin.png"><br>
+  <h4>Create Blog page link only when logged in</h4>
+  <img src="static/readme/images/wireframes/create_blog.png"><br>
+  <h4>My Blog page link only when logged in</h4>
+  <img src="static/readme/images/wireframes/myblog.png"><br>
+  <h4>Profile page link only when logged in</h4>
+  <img src="static/readme/images/wireframes/profile.png"><br>
+  <h4>MY Profile edit page link only when logged in</h4>
+  <img src="static/readme/images/wireframes/profile_edit.png"><br>
+  <h4>About page</h4>
+  <img src="static/readme/images/wireframes/about.png"><br>
+  <h4>About contact page</h4>
+  <img src="static/readme/images/wireframes/about_contact.png"><br>
+  <h4>Register page </h4>
+  <img src="static/readme/images/wireframes/register.png"><br>
+  <h4>Login</h4>
+  <img src="static/readme/images/wireframes/login.png"><br>
+  <h4>Signout</h4>
+  <img src="static/readme/images/wireframes/signout.png"><br>
 </details>
 
 <br>
 
 [Back to Table of Contents](#table-of-contents)
 
-## Intial ERD Diagram
+## Initial ERD Diagram
 
 <details>
 <summary>My Intial ERD Diagram</summary>
-The intial ERD diagram plan I used [lucid chart](https://www.lucidchart.com/)
+For the initial ERD diagram plan, I used [lucid chart](https://www.lucidchart.com/)
 <br>
 <br>
 <img src="static/readme/images/lucid_erd_diagram.png">
@@ -182,60 +170,143 @@ The intial ERD diagram plan I used [lucid chart](https://www.lucidchart.com/)
 
 ## Django ERD Diagram
 <details>
-<summary>Used code Django to get a erd.dot file and convert to ERD Diagram</summary>
-Django has built in tool that can show you your ERD diagram .
+<summary>Used code Django to get an ERD.dot file and convert it to ERD Diagram</summary>
+Django has a built-in tool that can show you your ERD diagram.
 
-* steps to using this is to install django-extensions.
-* Step2 would be to add it the installed apps.
-* Step3 would be to add it to the requirements file.
+### Reason 
+
+* It is not always possible to start a project from scratch sometimes it may be the case that you need to work on someone else project.
+* So this will give me as a developer an overview of the project from an ERD standpoint.
+
+### Steps used
+* Step 1 to using this is to install django-extensions.
+* Step 2 would be to add the installed apps.
+* Step 3 would be to add it to the requirements file.
 * Step4 is to run the python manage.py graph_models -a --output erd.dot 
-* Step5 After this it will create erd.dot file with all the applications models data.
-* step6 Put the data in this software to change to a image file much like the one I used below.
+* Step5 After this it will create an erd. dot file with all the application model data.
+* Step 6 Put the data in this software to change to an image file much like the one I used below.
 
-The erd dot file convert to image [Graphviz online](https://dreampuf.github.io/GraphvizOnline/#digraph%20G%20%7B%0A%0A%20%20subgraph%20cluster_0%20%7B%0A%20%20%20%20style%3Dfilled%3B%0A%20%20%20%20color%3Dlightgrey%3B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%2Ccolor%3Dwhite%5D%3B%0A%20%20%20%20a0%20-%3E%20a1%20-%3E%20a2%20-%3E%20a3%3B%0A%20%20%20%20label%20%3D%20%22process%20%231%22%3B%0A%20%20%7D%0A%0A%20%20subgraph%20cluster_1%20%7B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%5D%3B%0A%20%20%20%20b0%20-%3E%20b1%20-%3E%20b2%20-%3E%20b3%3B%0A%20%20%20%20label%20%3D%20%22process%20%232%22%3B%0A%20%20%20%20color%3Dblue%0A%20%20%7D%0A%20%20start%20-%3E%20a0%3B%0A%20%20start%20-%3E%20b0%3B%0A%20%20a1%20-%3E%20b3%3B%0A%20%20b2%20-%3E%20a3%3B%0A%20%20a3%20-%3E%20a0%3B%0A%20%20a3%20-%3E%20end%3B%0A%20%20b3%20-%3E%20end%3B%0A%0A%20%20start%20%5Bshape%3DMdiamond%5D%3B%0A%20%20end%20%5Bshape%3DMsquare%5D%3B%0A%7D)
+The red dot file converted to image [Graphviz online](https://dreampuf.github.io/GraphvizOnline/#digraph%20G%20%7B%0A%0A%20%20subgraph%20cluster_0%20%7B%0A%20%20%20%20style%3Dfilled%3B%0A%20%20%20%20color%3Dlightgrey%3B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%2Ccolor%3Dwhite%5D%3B%0A%20%20%20%20a0%20-%3E%20a1%20-%3E%20a2%20-%3E%20a3%3B%0A%20%20%20%20label%20%3D%20%22process%20%231%22%3B%0A%20%20%7D%0A%0A%20%20subgraph%20cluster_1%20%7B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%5D%3B%0A%20%20%20%20b0%20-%3E%20b1%20-%3E%20b2%20-%3E%20b3%3B%0A%20%20%20%20label%20%3D%20%22process%20%232%22%3B%0A%20%20%20%20color%3Dblue%0A%20%20%7D%0A%20%20start%20-%3E%20a0%3B%0A%20%20start%20-%3E%20b0%3B%0A%20%20a1%20-%3E%20b3%3B%0A%20%20b2%20-%3E%20a3%3B%0A%20%20a3%20-%3E%20a0%3B%0A%20%20a3%20-%3E%20end%3B%0A%20%20b3%20-%3E%20end%3B%0A%0A%20%20start%20%5Bshape%3DMdiamond%5D%3B%0A%20%20end%20%5Bshape%3DMsquare%5D%3B%0A%7D)
 <br>
 <br>
 <img src="static/readme/images/erd_diagram.png"><br>
 
-## Credit below for the above detailed ERD diagram.
+## Credit below for the above-detailed ERD diagram.
 
-[You Tube link](https://www.youtube.com/watch?v=qzrE7cfc_3Q&t=357s)
+[YouTube link](https://www.youtube.com/watch?v=qzrE7cfc_3Q&t=357s)
 
 [django-extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html)
 </details>
 
-## Visual Effects
+## Visual Experience
 
-* 
+* The goal was to bring in a feel of water so you feel as if you are there in the water with other paddlers.
+* It is a moving image in a dark green and this has positives and negatives to the design.
+* If I decided to deploy it to the public I would make some small changes to the color scheme but mostly I am happy with it.
+
+#### Positives
+
+* It compliments the the idea and the sport nicely.
+* Large number of my kayak friends and family have liked the moving background.
+* It's different and fresh from what I have done before this kept my motivation high in the really tough times of this project.
+
+#### Negatives 
+
+* It might not suit well with all people as some did not like the moving image.
+* People with visual problems might have difficulty viewing some features.
+* I tested this with my Father who is color blind and he was able to find his way around the site so I am happy with that result.
 
 ## Features
 
 ### Home Page
 
-![Home Page](docs/readme-images/screen-home.png)
+<details>
 
-* The hero image
+<summary>Home Page summary</summary>
 
-### About Us Page
+<br>
 
-![About Us](docs/readme-images/screen-aboutus.png)
+#### Before login 
 
+* Before login The user will see a home page with the  blog posts .
+* They will be able to read blog posts comments and use the search feature and access the footer links.
+* If they wish to have more features they will need to login or Register if they do not have an account. 
+* On the right is a message that displays that you are not logged in.
+* There is a search option part of the nav bar that will display before and after login.
+
+ <br>
+
+![Home Page](/static/readme/images/home-screen.png)
+
+<br>
+
+#### After login  
+
+* Note: After login the nav bar will change a bit it will include extra links for more features explained later.
+* The first link will be the Profile Page that will display the login users name.
+* The second Link will be a Create Blog link.
+* Also the login button will change its text to logout. 
+
+
+<br>
+
+![Home Page](/static/readme/images/after-login-page.png)
+
+### Footer
+
+* Has social website links to facebook, X and You Tube.
+
+<br>
+
+![Home Page](/static/readme/images/footer.png)
+
+<br>
+
+</details>
+
+### About Page
+
+<details>
+<summary>About Page summary</summary>
+<br>
 
 * Note:
 
-[Back to Table of Contents](#table-of-contents)
+<br>
 
-### Blogs Page
+![About](/static/readme/images/about-page.png)
 
-![Blogs](docs/readme-images/screen-blogs.png)
+</details> 
+
+### Register Page
+
+<details>
+
+<summary>Register Page summary</summary>
+<br>
 
 * Note:
 
-[Back to Table of Contents](#table-of-contents)
+<br>
 
-### Comments Page
+![Register](/static/readme/images/register-page.png)
 
-![Comments](docs/readme-images/screen-comments.png)
+</details>
+
+### Login page
+
+<details>
+
+<summary>Login and Logout Page summary</summary>
+<br>
+
+* Note:
+
+<br>
+
+![Login](/static/readme/images/login-page.png)
+<br>
+</details>
 
 * Note:
 
