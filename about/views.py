@@ -12,7 +12,7 @@ def about_kayaking(request):
     return render(request, 'about/about.html')
 
 
-def contact_us(request):
+def contact_kayaker(request):
     """
     Contact form submissions allow a user to send a message.
     -if the request method is POST process the sunmit data.
@@ -20,7 +20,7 @@ def contact_us(request):
      or error message if the submission failed or successful.
     - Redirecting to the kayak page.
     **Template:**
-    about/contact_us.html
+    about/contact_kayaker.html
     about/contact_success.html
     """
     form = ContactForm()
@@ -39,7 +39,7 @@ def contact_us(request):
             messages.error(request, 'Error submitting your message.')
             # form = ContactForm()
 
-    return render(request, 'about/contact_us.html', {'form': form})
+    return render(request, 'about/contact_kayaker.html', {'form': form})
 
 
 def contact_success(request):

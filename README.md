@@ -1,47 +1,47 @@
-## Table of Contents 
+## Table of Contents
 
 - [Overview](#overview)
 - [Project Goal](#project-goal)
-- [User Experience](#user-experience-ux)
-  - [User Stories](#user-stories)
-  - [Design](#design)
-  - [Colour Scheme](#colour-scheme)
-  - [Skeleton](#skeleton)
-  - [Wireframes](#wireframes)
-  - [Flowchart](#flowchart)
-  - [Visual Effects](#visual-effects)
+- [User Experience (UX)](#user-experience-ux)
+  - [User Stories](#user-stories)
+  - [Design](#design)
+  - [Colour Scheme](#colour-scheme)
+  - [Skeleton](#skeleton)
+  - [Wireframes](#wireframes)
+  - [Flowchart](#flowchart)
+  - [Visual Effects](#visual-effects)
 - [Features](#features)
-  - [Visual Effects](#visual-effects)
-  - [Home Page](#home-page)
-  - [About Us Page](#about-us-page)
-  - [Blogs Page](#blogs-page)
-  - [Comments Page](#comments-page)
-  - [Contact Page](#contact-page)
-  - [Account Login](#account-login)
-  - [Register](#register)
-  - [Profile](#profile)
-  - [Logout](#logout)
-  - [Future Features](#future-features)
+  - [Visual Effects](#visual-effects)
+  - [Home Page](#home-page)
+  - [About Us Page](#about-us-page)
+  - [Blogs Page](#blogs-page)
+  - [Comments Page](#comments-page)
+  - [Contact Page](#contact-page)
+  - [Account Login](#account-login)
+  - [Register](#register)
+  - [Profile](#profile)
+  - [Logout](#logout)
+  - [Future Features](#future-features)
 - [Agile Methodology](#agile-methodology)
-  - [Responsive Layout and Design](#responsive-layout-and-design)
-  - [Database](#database)
+  - [Responsive Layout and Design](#responsive-layout-and-design)
+  - [Database](#database)
 - [Testing](#testing)
-  - [Testing User Stories](#testing-user-stories)
-  - [Lighthouse](#lighthouse)
-  - [HTML Validation](#html-validation)
-  - [CSS Validation](#css-validation)
-  - [Manual Testing](#manual-testing)
-  - [Frontend](#frontend)
-  - [Backend Admin Panel](#backend-admin-panel)
-  - [Fixed Bugs](#fixed-bugs)
-  - [Unfixed Bugs](#unfixed-bugs) 
+  - [Testing User Stories](#testing-user-stories)
+  - [Lighthouse](#lighthouse)
+  - [HTML Validation](#html-validation)
+  - [CSS Validation](#css-validation)
+  - [Manual Testing](#manual-testing)
+  - [Frontend](#frontend)
+  - [Backend Admin Panel](#backend-admin-panel)
+  - [Fixed Bugs](#fixed-bugs)
+  - [Unfixed Bugs](#unfixed-bugs)
 - [Creating the Django app](#creating-the-django-app)
-  - [Deployment of This Project](#deployment-of-this-project)
-  - [Final Deployment](#final-deployment)
-  - [Forking This Project](#forking-this-project)
-  - [Cloning This Project](#cloning-this-project)
+  - [Deployment of This Project](#deployment-of-this-project)
+  - [Final Deployment](#final-deployment)
+  - [Forking This Project](#forking-this-project)
+  - [Cloning This Project](#cloning-this-project)
 - [Credits](#credits)
-  - [Acknowledgements](#acknowledgements)
+  - [Acknowledgements](#acknowledgements)
 
 
 ## Overview
@@ -222,7 +222,7 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 <details>
 
-<summary>Home Page summary</summary>
+<summary>Home Page Summary</summary>
 
 <br>
 
@@ -254,7 +254,7 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 ### Footer
 
-* Has social website links to facebook, X and You Tube.
+* Has social website links to Facebook, X, and YouTube.
 
 <br>
 
@@ -270,11 +270,25 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 <summary>About Page summary</summary>
 <br>
 
-* Note:
+* Note: This is a basic page with a contact form for users to get in contact.
+* While developing I noticed that most kayak sites do not have this as a landing page as most just want to see the pictures and content including me.
+* Since it's not a live site, we don't have an exchange to set it up, to make it more functional so that we can send a message to the email service provider.
 
 <br>
 
 ![About](/static/readme/images/about-page.png)
+
+<br>
+
+#### Contact form 
+
+* Note: This is a basic page with a contact form for users to get in contact.
+
+<br>
+
+![About](/static/readme/images/contactform.png)
+
+<br>
 
 </details> 
 
@@ -283,9 +297,12 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 <details>
 
 <summary>Register Page summary</summary>
+
 <br>
 
-* Note:
+* Note: Here the user can register a account for more features on order to have some CRUD functionality.
+* The email address is optional for now as this is not yet live to the general public and some might not like that.
+* If a user decides not to enter aemail address and forget there password they will need to use the contact form so that the admin can reset this.
 
 <br>
 
@@ -298,9 +315,12 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 <details>
 
 <summary>Login and Logout Page summary</summary>
+
 <br>
 
-* Note:
+* Note: Here you can log in using the allauth tool in Django.
+* Note: I added the forgot password feature here to give the users the ability to be independent. 
+* However it is not 100 percent as certain mail servers block Django messages. 
 
 <br>
 
@@ -310,14 +330,15 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 <br>
 
-* When you click on the forgot password you will be promted for your email address.
+* When you click on the forgot password you will be prompted for your email address.
+
 <br>
 
 ![Login](/static/readme/images/forgot-password.png)
 
 <br>
 
-* If you did not add a email address as it is optional you can use the about contact form.
+* If you did not add an email address as it is optional you can use the About contact form.
 * Once you enter your e-mail address you will see this screen as a user.
 
 <br>
@@ -325,11 +346,11 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 ![Login](/static/readme/images/passwordresetmessage.png)
 
 
-##### NOTE
+##### NOTE:
 
 * The link will be sent to the IDE terminal and only to certain email service providers.
-* Reason for this is that certain service providers block django messages on the server side such as gmail.
-* This is not a live site and not incontrol of the SMTP server I have to accept this result.
+* The reason for this is that certain service providers block Django messages on the server side such as Gmail.
+* This is not a live site and not in control of the SMTP server I have to accept this result.
 
 ###### Terminal link view 
 <br>
@@ -338,31 +359,109 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 <br>
 
-###### Temporary email address view 
+###### Temporary email address view test from Heruko
 
-* The only way to test it from the deployed site in Heruko I used a temporary e-mail service provider.
+* The way I tested this was to use a temporary [ temporary e-mail service provider](https://temp-mail.org/).
+* Created a user account with the temp email service provider and tested this.
 
+<br>
+
+![Login](/static/readme/images/passtempforgotpasswordlink.png)
+
+<br>
 
 </details>
 
 
+[Back to Table of Contents](#table-of-contents)
+
+### After login : Profile Page CRUD 
+
+<details>
+
+<summary>Profile Page summary</summary>
+
+#### Profile page view 
+
+* When you click on the Profile icon with your registered name it will show you your profile data.
+* Here you will have CRUD functionality.
+* You will be able to change your password.
+* Delete Your profile.
+* Edit your Profile Image as there is a default image,also personal details including kayaking skills.     
+
+<br>
+
+![Profile](/static/readme/images/profile-edit-page.png)
+
+<br>
+
+#### Profile Edit 
+
+<br>
+
+![Profile edit](/static/readme/images/profile-edit-form.png)
+
+<br>
+
+#### Profile password Change 
+
+![Password Change](/static/readme/images/profile_passwordchange.png)
+
+<br>
+
+#### Profile Delete
+
+<br>
+
+![Profile Delete](/static/readme/images/delet_profile.png)
+
+<br>
+
+</details>
 
 [Back to Table of Contents](#table-of-contents)
 
-* 
+### Blog Post CRUD 
 
-[Back to Table of Contents](#table-of-contents)
+<details>
+
+<summary>blog Post summary</summary>
+
+#### Create Blog page link 
+
+* The user can create a blog Using this form.
+* A default picture has been setup if the user decides not to select one.
+* The user can set the post to Draft or Published state.
+* In Draft the user will need to go to My Blog to see there drafts.
+* If in published state it will go strait to the blog page for everyone to see.
+
+<br>
+
+![Create Blog](/static/readme/images/create-blog.png)
+
+<br>
+
+#### My Blog view
+
+* Here is you can see the CRUD buttons and the post you created.
+* YOUR draft Posts will be here and the Published posts.
+* As a user you will be able to read,edit, and delete Posts. 
+ 
+<br>
+
+![Create Blog](/static/readme/images/mb-blog.png)
+
+<br>
+
+<br>
+
+![Create Blog](/static/readme/images/)
+
+<br>
 
 
-* 
+</details>
 
-[Back to Table of Contents](#table-of-contents)
-
-### Contact Page
-
-![Contact](docs/readme-images/screen-contact.png)
-
-* 
 [Back to Table of Contents](#table-of-contents)
 
 ### Account login
@@ -398,7 +497,7 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 ### Future Features
 
-* 
+* Since its not live site don't have a exchange to set it up on and make it more functional where it actually send a message to email service provider.
 
 [Back to Table of Contents](#table-of-contents)
 
