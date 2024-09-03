@@ -795,12 +795,13 @@ LightHouse - for testing performance<br>
 
 </details>                                      
 
-#### About PeP8 errors
 
 <details>
+
 <summary>About PeP8 errors</summary>
 
 #### About View
+
 | Error Code | Description                    | Error Code | Description                        |
 |------------|--------------------------------|------------|-------------------------------------|
 | W291       | trailing whitespace            | E302       | expected 2 blank lines, found 0   |
@@ -829,6 +830,57 @@ LightHouse - for testing performance<br>
 |            |                                |            |                                    |
 
 </details>
+
+<details>
+<summary>Main App PeP8 errors</summary>
+
+## Main View
+
+| Error Code | Message                                                                 | Error Code | Message                                                                 |
+|------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
+| 7          | E302 expected 2 blank lines, found 0                                    | 11         | E305 expected 2 blank lines after class or function definition, found 1 |
+| 15         | E302 expected 2 blank lines, found 0                                    | 17         | W292 no newline at end of file                                          |
+
+## Main Urls
+
+| Error Code | Message                                                                 | Error Code | Message                                                                 |
+|------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
+| 27         | E231 missing whitespace after ','                                        | 28         | W293 blank line contains whitespace                                       |
+
+## Main Settings
+
+| Error Code | Message                                                                 | Error Code | Message                                                                 |
+|------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
+| 19         | W291 trailing whitespace                                                 | 20         | W293 blank line contains whitespace                                       |
+| 31         | E265 block comment should start with '# '                               | 31         | E501 line too long (82 > 79 characters)                                 |
+| 35         | E265 block comment should start with '# '                               | 37         | E501 line too long (128 > 79 characters)                                |
+| 37         | E231 missing whitespace after ','                                        | 61         | E265 block comment should start with '# '                               |
+| 62         | E265 block comment should start with '# '                               | 84         | E303 too many blank lines (5)                                          |
+| 123        | E265 block comment should start with '# '                               | 128        | E265 block comment should start with '# '                               |
+| 137        | W293 blank line contains whitespace                                       | 146        | E501 line too long (91 > 79 characters)                                 |
+| 149        | E501 line too long (81 > 79 characters)                                 | 152        | E501 line too long (82 > 79 characters)                                 |
+| 155        | E501 line too long (83 > 79 characters)                                 | 167        | E265 block comment should start with '# '                               |
+| 178        | W291 trailing whitespace                                                 | 182        | E122 continuation line missing indentation or outdented                 |
+| 183        | E122 continuation line missing indentation or outdented                 | 188        | E303 too many blank lines (3)                                          |
+| 194        | E501 line too long (80 > 79 characters)                                 | 201        | W391 blank line at end of file                                           |
+
+</details>
+
+<details>
+<summary>ENV file PEP8 errors</summary>
+
+#### ENV File
+
+| Error Code | Message                                                                 | Error Code | Message                                                                 |
+|------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
+| 1          | E501 line too long (158 > 79 characters)                               | 6          | E501 line too long (161 > 79 characters)                               |
+| 9          | E501 line too long (103 > 79 characters)                               | 11         | E501 line too long (109 > 79 characters)                               |
+| 19         | E265 block comment should start with '# '                               | 19         | E501 line too long (91 > 79 characters)                                |
+| 20         | E265 block comment should start with '# '                               | 20         | E501 line too long (80 > 79 characters)                                |
+| 22         | E265 block comment should start with '# '                               | 23         | E265 block comment should start with '# '                               |
+| 24         | W391 blank line at end of file                                          |            |                                                                         |
+</details> 
+
 
 ## Lighthouse
 Lighthouse 
