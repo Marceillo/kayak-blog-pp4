@@ -89,7 +89,7 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 |                                     | 5.1 | As an admin, I want to manage users and content through the admin panel. |
 | **EPIC: Mobile Responsiveness and UI/UX**|    |                                                                 |
 |                                     | 6.1 | As a user, I want to view the website on my mobile device.          |
-|                                     | 6.1 | As a user, I want to view the website on my Focus on testing all implemented features.          |
+|                                     | 6.2 | As a user, I want to view the website on my Focus on testing all implemented features.          |
 |**Focus on testing all implemented features**.| 
 
 
@@ -427,7 +427,7 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 <details>
 
-<summary>blog Post summary</summary>
+<summary>Blog Post Summary</summary>
 
 #### Create Blog page link 
 
@@ -448,7 +448,8 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 * Here you can see the CRUD buttons and the post you created.
 * Your draft Posts will be here and the Published posts.
 * As a user you will be able to Read,edit(UPdate), and Delete Posts.
-* should you wish to create you will need to go to the create blog link. 
+* should you wish to create you will need to go to the create blog link.
+* Orginally I had the create link in the view as well but did not want to overpopulate the view with buttons so took it out. 
  
 <br>
 
@@ -456,51 +457,137 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 <br>
 
+#### Edit Post 
+
+* The user can update the title and body and the status is also incontrol of the user .
+* You can choose a image for your post if you dont have one a default image is shown.
+* In the input field when selecting a image and you decide you want the field blank there is script that clears the input.
+* Once you have chosen a image and dont like it you can change the image.
+
 <br>
 
-![Create Blog](/static/readme/images/)
+![Edit Post](/static/readme/images/edit-post.png)
 
 <br>
 
+#### Delete Post 
+
+* If you click on the delet post you will recieve a confirmation pop up.
+* The after a success message or error message.
+
+<br>
+
+![Delet Post](/static/readme/images/delet-post.png)
+
+<br>
+
+#### Detail view 
+
+* This view will when you click on a post and want to read the post.
+* It will check that you are the suthor if so you will see extra buttons (edit_post,delet_post)
+* If not it will not show an buttons you also will see the favorites and comments in a later section more info.
+* Here you can read more about the post the author and created date a details are also present.
+
+<br>
+
+![Detail View](/static/readme/images/detail-view.png)
+
+<br>
 
 </details>
 
 [Back to Table of Contents](#table-of-contents)
 
-### Account login
+#### Comments CRUD
 
-![Login](docs/readme-images/screen-login.png)
+<details>
 
-* 
-[Back to Table of Contents](#table-of-contents)
+<summary>Comment Page summary</summary>
 
-### Register
+* In this blog post a logged inuser will have the opertunity to write a comment on a blog post.
+* You can create,read,update,delet comments .
+* So when things go write you get a success message or a message.error in the unlucky case.
 
-![Register](docs/readme-images/screen-register.png)
+<br>
 
-* 
+![Comment View](/static/readme/images/comments.png)
 
-[Back to Table of Contents](#table-of-contents)
+<br>
 
-### Profile
+##### Update comment 
 
-![Profile](docs/readme-images/screen-profile.png)
+* When you update a comment the comment icon turns res and there is a count that shows how many comments.
+* When there is no comment there is no count and the icon is not fully red.
 
-* The profile page allows the user to add an image as well as edit their profile picture, username or email address.
+<br>
 
-[Back to Table of Contents](#table-of-contents)
+![Update Comment](/static/readme/images/comment_update%20.png)
 
-### Logout
+<br>
 
-![Logout](docs/readme-images/screen-signout.footer.png)
+##### Edit Comment 
 
-* 
+* You can update the comment and recive a success message with the displayed update on the post.
+* Of course when unsuccessfull you will also recieve a error message.
+
+<br>
+
+![Edit Comment](/static/readme/images/edit-comment.png)
+
+<br>
+
+##### Delete Comment 
+
+* You will get a confirmation message and then a success message or error message if not.
+
+<br>
+
+![Delete Comment](/static/readme/images/delet-comment.png)
+
+<br>
+
+</details>
+
+#### Favorites 
+
+<details>
+
+<summary>Favorite summary</summary>
+
+* Here you can favorite or unfavorite a Post 
+* When you do so the star goes red and you recieve a success message or error message when  not.
+
+##### Favorited 
+
+<br>
+
+![Favorited](/static/readme/images/favorited.png)
+
+<br>
+
+###### Unfavorited
+
+<br>
+
+![Unfavorites](/static/readme/images/unfavorited%20.png)
+
+<br>
+
+</details>
 
 [Back to Table of Contents](#table-of-contents)
 
 ### Future Features
 
-* Since its not live site don't have a exchange to set it up on and make it more functional where it actually send a message to email service provider.
+* Orginally I planned the like feature to include in the project but due to time constraints and have met the MPV criteria, I would like to come back to this project and include it at a later stage.I have since moved it to a won't have status on the Kanban Board.  
+* For the contact form it would be great at a later stage setup an api with java script and implement a feature when a user sends there details that it goes to an email address of the admin.
+* The Favorite feature is working as planned but if the site should grow I will need to change it into a seperate link on the page as this method makes it easier for users to keep track of their project favorites.
+* The moment the colors are my favorite but there is always room for improvment also for the design and flow for the blog posts. Due to time this was  the biggest issue for me in this reguard.
+* As a kaykaker we often have meetups and would like to include a feature that will assist with the logistics and dates of there meet ups.
+* A feature to join in on classes or book a instructor for period of time.
+* A online training programe with video guides and information.
+* In the far future for people to be able to sell there euipment and buy from others on the platform. 
+
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -562,10 +649,10 @@ LightHouse - for testing performance<br>
 |                                     | 3.2 | As a user, I want to like blog posts.                                | []   | For future implementation.|
 |                                     | 3.3 | As a user, I want to favorite blog posts to find them later easily.  | [x]   | I can favorite and unfavorite blog posts.|
 | **Admin Functionality**            |     |                                                                      |       |             |
-|                                     | 5.1 | As an admin, I want to manage users and content through the admin panel. | [x]   |             |
+|                                     | 5.1 | As an admin, I want to manage users and content through the admin panel. | [x]   | The Admin has CRUD and can manage the content |
 | **EPIC: Mobile Responsiveness and UI/UX** | |                                                                  |       |             |
-|                                     | 6.1 | As a user, I want to view the website on my mobile device.          | [x]   |             |
-|                                     | 6.2 | As a user, I want to view the website on my mobile device.          | [x]   |             |
+|                                     | 6.1 | As a user, I want to view the website on my mobile device.          | [x]   | Yes I can view the website on a mobile device and other forms. |
+|                                     | 6.2 | I want to view the website on my Focus on testing all implemented features. | [x]   | I have tested the features on a mo             |
 | **Focus on testing all implemented features** | |                                                        | [x]   |             |
 
 ### Python Validation - PEP8
