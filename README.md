@@ -633,7 +633,6 @@ LightHouse - for testing performance<br>
 ## Testing User Stories
 
 <details>
-
 <summary>User stories testing</summary>
 
 ## User Stories Table
@@ -657,8 +656,7 @@ LightHouse - for testing performance<br>
 |                                     | 6.1 | As a user, I want to view the website on my mobile device.          | [x]   | Yes I can view the website on a mobile device and other forms. |
 |                                     | 6.2 | I want to view the website on my Focus on testing all implemented features. | [x]   | I have tested the features on a mobile device  |
 | **Focus on testing all implemented features** | |                                                        | [x]   |  All focused features has been tested on a ongoing bassis |
-
-</detail>
+</details>
 
 ### Python Validation - PEP8
 
@@ -672,7 +670,6 @@ LightHouse - for testing performance<br>
 <br>
 
 <details>
-
 <summary>Blog PeP8 errors</summary>
 
 ## Blog View
