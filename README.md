@@ -203,6 +203,8 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 * The goal was to bring in a feel of water so you feel as if you are there in the water with other paddlers.
 * It is a moving image in a dark green and this has positives and negatives to the design.
 * If I decided to deploy it to the public I would make some small changes to the color scheme but mostly I am happy with it.
+* I used some bootstrap code for the html and implemented this in my templates.
+* I got insperation from the LMS project and used the base template modifying it to my needs then replicating this in to other smaller templates. 
 
 #### Positives
 
@@ -302,7 +304,7 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 * Note: Here the user can register a account for more features on order to have some CRUD functionality.
 * The email address is optional for now as this is not yet live to the general public and some might not like that.
-* If a user decides not to enter aemail address and forget there password they will need to use the contact form so that the admin can reset this.
+* If a user decides not to enter email address and forget there password they will need to use the contact form so that the admin can reset this.
 
 <br>
 
@@ -443,9 +445,10 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 #### My Blog view
 
-* Here is you can see the CRUD buttons and the post you created.
-* YOUR draft Posts will be here and the Published posts.
-* As a user you will be able to read,edit, and delete Posts. 
+* Here you can see the CRUD buttons and the post you created.
+* Your draft Posts will be here and the Published posts.
+* As a user you will be able to Read,edit(UPdate), and Delete Posts.
+* should you wish to create you will need to go to the create blog link. 
  
 <br>
 
