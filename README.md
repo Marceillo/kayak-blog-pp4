@@ -662,8 +662,6 @@ LightHouse - for testing performance<br>
 
 ### Python Validation - PEP8
 
-<summary>Python Validation Summary</summary>
-
 * I had a alote of errors found but none that could not be fixed, used this tool [pep8ci](https://pep8ci.herokuapp.com/)
 * Cleared all until I recieved the below result. 
 
@@ -672,7 +670,6 @@ LightHouse - for testing performance<br>
 ![Pyhton](/static/readme/test-image/blogviewpepnoerror.png)
 
 <br>
-
 
 <details>
 
@@ -725,7 +722,7 @@ LightHouse - for testing performance<br>
 | 311        | W293 blank line contains whitespace                                       | 313        | E231 missing whitespace after ','                                        |
 | 315        | W293 blank line contains whitespace                                       | 318        | W293 blank line contains whitespace                                       |
 | 321        | E501 line too long (84 > 79 characters)                                 | 327        | E501 line too long (93 > 79 characters)                                 |
-| 327        | E202 whitespace before '}'                                               | 332        | W291 trailing whitespace                                                 |
+| 327        | E202 whitespace before ''                                               | 332        | W291 trailing whitespace                                                 |
 | 336        | E302 expected 2 blank lines, found 0                                    | 339        | W293 blank line contains whitespace                                       |
 | 343        | W293 blank line contains whitespace                                       | 347        | E501 line too long (80 > 79 characters)                                 |
 | 350        | W293 blank line contains whitespace                                       | 352        | E303 too many blank lines (2)                                          |
@@ -772,7 +769,7 @@ LightHouse - for testing performance<br>
 | 1          | W291 trailing whitespace                                                 | 2          | W291 trailing whitespace                                                 |
 | 5          | E201 whitespace after '('                                               | 5          | E202 whitespace before ')'                                              |
 | 7          | E501 line too long (122 > 79 characters)                               | 9          | E301 expected 1 blank line, found 0                                     |
-| 10         | W291 trailing whitespace                                                 | 11         | E201 whitespace after '['                                                |
+| 10         | W291 trailing whitespace                                                 | 11         | E201 whitespace after ''                                                |
 | 11         | E231 missing whitespace after ','                                        | 11         | E231 missing whitespace after ','                                        |
 | 11         | E501 line too long (127 > 79 characters)                                | 12         | E301 expected 1 blank line, found 0                                     |
 | 18         | E302 expected 2 blank lines, found 1                                    | 20         | E225 missing whitespace around operator                                   |
@@ -790,7 +787,7 @@ LightHouse - for testing performance<br>
 |------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
 |  E231      | missing whitespace after ','                                             | 11         | E231 missing whitespace after ','                                        |
 | 11         | E231 missing whitespace after ','                                        | 12         | E231 missing whitespace after '                                          |
-| 17         | E302 expected 2 blank lines, found 1                                    | 20         | E201 whitespace after '['                                                |
+| 17         | E302 expected 2 blank lines, found 1                                    | 20         | E201 whitespace after ''                                                |
 | 22         | E265 block comment should start with '# '                               | 23         | E265 block comment should start with '# '                               |
 | 25         | E265 block comment should start with '# '                               | 27         | E302 expected 2 blank lines, found 1                                    |
 | 29         | E501 line too long (106 > 79 characters)                               | 29         | E231 missing whitespace after ','                                        |
@@ -799,7 +796,7 @@ LightHouse - for testing performance<br>
 | 32         | E231 missing whitespace after ','                                        | 33         | W293 blank line contains whitespace                                       |
 | 37         | W391 blank line at end of file                                          |            |                                                                         |
 
-</details>                                       
+</details>                                      
 
 
 
