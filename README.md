@@ -719,7 +719,7 @@ LightHouse - for testing performance<br>
 | 311        | W293 blank line contains whitespace                                       | 313        | E231 missing whitespace after ','                                        |
 | 315        | W293 blank line contains whitespace                                       | 318        | W293 blank line contains whitespace                                       |
 | 321        | E501 line too long (84 > 79 characters)                                 | 327        | E501 line too long (93 > 79 characters)                                 |
-| 327        | E202 whitespace before '}'                                               | 332        | W291 trailing whitespace                                                 |
+| 327        | E202 whitespace before ''                                               | 332        | W291 trailing whitespace                                                 |
 | 336        | E302 expected 2 blank lines, found 0                                    | 339        | W293 blank line contains whitespace                                       |
 | 343        | W293 blank line contains whitespace                                       | 347        | E501 line too long (80 > 79 characters)                                 |
 | 350        | W293 blank line contains whitespace                                       | 352        | E303 too many blank lines (2)                                          |
@@ -766,7 +766,7 @@ LightHouse - for testing performance<br>
 | 1          | W291 trailing whitespace                                                 | 2          | W291 trailing whitespace                                                 |
 | 5          | E201 whitespace after '('                                               | 5          | E202 whitespace before ')'                                              |
 | 7          | E501 line too long (122 > 79 characters)                               | 9          | E301 expected 1 blank line, found 0                                     |
-| 10         | W291 trailing whitespace                                                 | 11         | E201 whitespace after '['                                                |
+| 10         | W291 trailing whitespace                                                 | 11         | E201 whitespace after ''                                                |
 | 11         | E231 missing whitespace after ','                                        | 11         | E231 missing whitespace after ','                                        |
 | 11         | E501 line too long (127 > 79 characters)                                | 12         | E301 expected 1 blank line, found 0                                     |
 | 18         | E302 expected 2 blank lines, found 1                                    | 20         | E225 missing whitespace around operator                                   |
@@ -784,7 +784,7 @@ LightHouse - for testing performance<br>
 |------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
 |  E231      | missing whitespace after ','                                             | 11         | E231 missing whitespace after ','                                        |
 | 11         | E231 missing whitespace after ','                                        | 12         | E231 missing whitespace after '                                          |
-| 17         | E302 expected 2 blank lines, found 1                                    | 20         | E201 whitespace after '['                                                |
+| 17         | E302 expected 2 blank lines, found 1                                    | 20         | E201 whitespace after ''                                                |
 | 22         | E265 block comment should start with '# '                               | 23         | E265 block comment should start with '# '                               |
 | 25         | E265 block comment should start with '# '                               | 27         | E302 expected 2 blank lines, found 1                                    |
 | 29         | E501 line too long (106 > 79 characters)                               | 29         | E231 missing whitespace after ','                                        |
@@ -891,12 +891,36 @@ Lighthouse
 
 ## HTML Validation
 
-![HTML](docs/readme-images/screen-w3c.png)
+* I used the [W3C Validator](https://validator.w3.org/)
+* There managed to clear the errors I found from the validator on all the links.
+
+![HTML](/static/readme/test-image/html-test/validator-w3-success.png)
+
+<details>
+<summary>links validated success </summary>
+
+* [Profile](/static/readme/test-image/html-test/userprofilesuccess.png)
+* [Profile Edit](/static/readme/test-image/html-test/profile_edit.png)
+* [Delete Profile](/static/readme/test-image/html-test/deleteprofile.png)
+* [Password Change](/static/readme/test-image/html-test/profilepasswordchange.png)
+* [Password Reset](/static/readme/test-image/html-test/password-reset.png)
+* [Home Page](/static/readme/test-image/html-test/homepage.png)
+* [MY Post](/static/readme/test-image/html-test/my-post.png)
+* [Post Edit](/static/readme/test-image/html-test/postedit.png)
+* [Post Delete](/static/readme/test-image/html-test/deletpostvalidation.png)
+* [Post Detail](/static/readme/test-image/html-test/postdetail.png)
+* [Comment Edit](/static/readme/test-image/html-test/comment_editsuccess.png)
+* [Contact_Kayaker](/static/readme/test-image/html-test/about-contact.png)
+* [HTML About Page](/static/readme/test-image/html-test/aboutpagesuccess.png)
+
+</details>
+
 
 ## CSS Validation
-* Custom CSS was validated using W3C Jigsaw validation service. No were displayed.
 
-![CSS](docs/readme-images/screen-css.png)
+* MY custom CSS was validated using [W3C Jigsaw validation](https://jigsaw.w3.org/css-validator/)  service. No were displayed.
+
+![CSS](/static/readme/test-image/success-css.png)
 
 [Back to Table of Contents](#table-of-contents)
 
