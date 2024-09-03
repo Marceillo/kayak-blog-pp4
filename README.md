@@ -672,7 +672,7 @@ LightHouse - for testing performance<br>
 <details>
 <summary>Blog PeP8 errors</summary>
 
-## Blog View
+#### Blog View
 
 | Error Code | Message                                                                 | Error Code | Message                                                                 |
 |------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
@@ -719,7 +719,7 @@ LightHouse - for testing performance<br>
 | 311        | W293 blank line contains whitespace                                       | 313        | E231 missing whitespace after ','                                        |
 | 315        | W293 blank line contains whitespace                                       | 318        | W293 blank line contains whitespace                                       |
 | 321        | E501 line too long (84 > 79 characters)                                 | 327        | E501 line too long (93 > 79 characters)                                 |
-| 327        | E202 whitespace before ''                                               | 332        | W291 trailing whitespace                                                 |
+| 327        | E202 whitespace before '}'                                               | 332        | W291 trailing whitespace                                                 |
 | 336        | E302 expected 2 blank lines, found 0                                    | 339        | W293 blank line contains whitespace                                       |
 | 343        | W293 blank line contains whitespace                                       | 347        | E501 line too long (80 > 79 characters)                                 |
 | 350        | W293 blank line contains whitespace                                       | 352        | E303 too many blank lines (2)                                          |
@@ -731,7 +731,7 @@ LightHouse - for testing performance<br>
 | 398        | E303 too many blank lines (2)                                          | 398        | E202 whitespace before ')'                                               |
 | 407        | W291 trailing whitespace                                                 | 411        | W391 blank line at end of file                                           |
 
-## Blog Urls
+#### Blog Urls
 
 | Error Code | Message                                                                 | Error Code | Message                                                                 |
 |------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
@@ -744,7 +744,7 @@ LightHouse - for testing performance<br>
 | 24         | E501 line too long (95 > 79 characters)                                 | 25         | E231 missing whitespace after ','                                       |
 | 25         | E501 line too long (87 > 79 characters)                                 | 28         | W391 blank line at end of file                                          |
 
-## Blog Models
+#### Blog Models
 
 | Error Code | Message                                                                 | Error Code | Message                                                                 |
 |------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
@@ -759,14 +759,14 @@ LightHouse - for testing performance<br>
 | 90         | E222 multiple spaces after operator                                       | 90         | E231 missing whitespace after ','                                        |
 | 90         | E501 line too long (83 > 79 characters)                                 | 114        | W291 trailing whitespace                                                 |
 
-## Blog Forms
+#### Blog Forms
 
 | Error Code | Message                                                                 | Error Code | Message                                                                 |
 |------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
 | 1          | W291 trailing whitespace                                                 | 2          | W291 trailing whitespace                                                 |
 | 5          | E201 whitespace after '('                                               | 5          | E202 whitespace before ')'                                              |
 | 7          | E501 line too long (122 > 79 characters)                               | 9          | E301 expected 1 blank line, found 0                                     |
-| 10         | W291 trailing whitespace                                                 | 11         | E201 whitespace after ''                                                |
+| 10         | W291 trailing whitespace                                                 | 11         | E201 whitespace after '['                                                |
 | 11         | E231 missing whitespace after ','                                        | 11         | E231 missing whitespace after ','                                        |
 | 11         | E501 line too long (127 > 79 characters)                                | 12         | E301 expected 1 blank line, found 0                                     |
 | 18         | E302 expected 2 blank lines, found 1                                    | 20         | E225 missing whitespace around operator                                   |
@@ -778,13 +778,13 @@ LightHouse - for testing performance<br>
 | 52         | E501 line too long (91 > 79 characters)                                 | 55         | W293 blank line contains whitespace                                       |
 | 55         | W292 no newline at end of file                                          |            |                                                                         |
 
-## Blog Admin
+#### Blog Admin
 
 | Error Code | Message                                                                 | Error Code | Message                                                                 |
 |------------|-------------------------------------------------------------------------|------------|-------------------------------------------------------------------------|
 |  E231      | missing whitespace after ','                                             | 11         | E231 missing whitespace after ','                                        |
 | 11         | E231 missing whitespace after ','                                        | 12         | E231 missing whitespace after '                                          |
-| 17         | E302 expected 2 blank lines, found 1                                    | 20         | E201 whitespace after ''                                                |
+| 17         | E302 expected 2 blank lines, found 1                                    | 20         | E201 whitespace after '['                                                |
 | 22         | E265 block comment should start with '# '                               | 23         | E265 block comment should start with '# '                               |
 | 25         | E265 block comment should start with '# '                               | 27         | E302 expected 2 blank lines, found 1                                    |
 | 29         | E501 line too long (106 > 79 characters)                               | 29         | E231 missing whitespace after ','                                        |
@@ -795,7 +795,40 @@ LightHouse - for testing performance<br>
 
 </details>                                      
 
+#### About PeP8 errors
 
+<details>
+<summary>About PeP8 errors</summary>
+
+#### About View
+| Error Code | Description                    | Error Code | Description                        |
+|------------|--------------------------------|------------|-------------------------------------|
+| W291       | trailing whitespace            | E302       | expected 2 blank lines, found 0   |
+| E231       | missing whitespace after ','   | W293       | blank line contains whitespace     |
+| E305       | expected 2 blank lines after class or function definition, found 1 | W291 | trailing whitespace |
+| E302       | expected 2 blank lines, found 0 | W293       | blank line contains whitespace     |
+| E501       | line too long (85 > 79 characters) | E265   | block comment should start with '# ' |
+| W293       | blank line contains whitespace | E303       | too many blank lines (2)           |
+| W291       | trailing whitespace            | E302       | expected 2 blank lines, found 1   |
+| W292       | no newline at end of file      |            |                                    |
+
+#### About Models
+| Error Code | Description                    | Error Code | Description                        |
+|------------|--------------------------------|------------|-------------------------------------|
+| E302       | expected 2 blank lines, found 1 | E303       | too many blank lines (2)           |
+| W292       | no newline at end of file      |            |                                    |
+|            |                                |            |                                    |
+|            |                                |            |                                    |
+
+#### About Forms
+| Error Code | Description                    | Error Code | Description                        |
+|------------|--------------------------------|------------|-------------------------------------|
+| W293       | blank line contains whitespace | W293       | blank line contains whitespace     |
+| W292       | no newline at end of file      |            |                                    |
+|            |                                |            |                                    |
+|            |                                |            |                                    |
+
+</details>
 
 ## Lighthouse
 Lighthouse 
