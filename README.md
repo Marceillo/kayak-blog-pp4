@@ -1005,6 +1005,8 @@ LightHouse - for testing performance<br>
 ## Manual Testing
 
 In addition to tests stated above I have performed a series of manual tests. Below the list of tests that has been conducted can be found.
+<details>
+<summary>Manual Testing results </summary>
 
 | Status | **Main Website - User Logged Out**
 |:-------:|:--------|
@@ -1012,15 +1014,18 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | &check; | Pasting page that needs authentication loads the log in page
 | &check; | Clicking the nav logo loads the home page
 | &check; | Clicking the Home button on the nav bar loads the home page and lists all posts
+| &check; | Clicking the About button on the nav bar loads the About page.
+| &check; | Clicking While in the About page clicking on the contac us link loads the contact page.
 | &check; | Clicking the Register link loads the Register page
 | &check; | Clicking the Log In link loads the Log In page 
-| &check; | 12 posts are rendered for the user on home page before pagination kicks in 
-| &check; | Clicking the area underneath the author on the a post card loads the review detail page
-| &check; | In the details view or the home page, clicking any username will redirect to the Log In page
-| &check; | In the details view the user cannot create a comment
-| &check; | Clicking the Facebook link in the footer area opens Facebook in a new window 
-| &check; | Clicking the Instagram link in the footer area opens Instagram in a new window 
-| &check; | Clicking the LinkedInlink in the footer area opens LinkedIN in a new window 
+| &check; | Clicking In the Log In link clicking on the forget password link loads password reset.  
+| &check; | Clicking on the Post title loads the review detail page
+| &check; | In Post details view the user has no access to update post.
+| &check; | In the details view the user cannot create a comment or delet.
+| &check; | Clicking the Facebook link in the footer area opens Facebook link. 
+| &check; | Clicking the X link in the footer area opens X link . 
+| &check; | Clicking the You Tube in the footer area opens You Tube link.
+| &check; | Clicking the search field and serching for Author,Body,Excerpt,Title works. 
 
 | Status | **Main Website - User Logged In**
 |:-------:|:--------|
@@ -1028,38 +1033,40 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | &check; | User cannot access Admin Panel without being staff member
 | &check; | Clicking the nav logo loads the home page
 | &check; | Clicking the Home button on the nav bar loads the home page and lists all posts
-| &check; | 12 posts are rendered for the user on home page before pagination kicks in 
-| &check; | Clicking the area underneath the author on the a post card loads the review detail page
-| &check; | In the details view or the home page, clicking any username will redirect to their page
-| &check; | In the detail view the logged in user can comment underneath a post
+| &check; | Clicking the About button on the nav bar loads the About page.
+| &check; | Clicking While in the About page clicking on the contac us link loads the contact page.
+| &check; | Clicking in the Profile page loads the Profile page.
+| &check; | While in the Profile page clicking on the button Password change loads the page to change password.
+| &check; | While in the Profile page clicking on the button Profile Edit loads the page to edit profile.
+| &check; | While in the Profile Edit page clicking on the button delete Profile Picture deletes profile picture.
+| &check; | While in the Profile page clicking on the button Profile Delete loads confirm page and then when confirmed deletes profile.
+| &check; | After it  deletes profile a success message is displayed or error message if not.
+| &check; | In the detail post view or the home page will show buttons if user is the author of post.
+| &check; | In the detail post view the logged in user can comment underneath a post.
 | &check; | When user submits a comment a confirmation message is being shown on the page
-| &check; | In the detail view the logged in user can update/delete the comments written by themselves
-| &check; | Clicking the update button the comment text will show in the comment box
-| &check; | Clicking the delete button loads the delete comment page
-| &check; | In the detail view the logged in user can like/unlike posts
-| &check; | In the detail view the logged in user can update/delete the post written by themselves
-| &check; | Clicking the edit button in the detail view loads the edit post page
-| &check; | Clicking the like button will like the post and the button will change to unlike
-| &check; | Clicking the delete button in the detail view loads the delete post page
-| &check; | Clicking the Show Posts button in the logged in user menu lists the logged in users posts
-| &check; | Clicking the Show Drafts button in Show posts lists the logged in users drafts
+| &check; | In the detail view the logged in user can update/delete the comments written by themselves.
+| &check; | Clicking the update button the comment text will show in the comment box.
+| &check; | Clicking the delete button loads the delete comment confirm message page.
+| &check; | In the detail view the logged in user can Favorite/unfavorite posts.
+| &check; | In the detail view the logged in user has full CRUD for the post written by themselves.
+| &check; | Clicking the edit button in My Blog nav link view loads the edit btn and page.
+| &check; | Clicking the delete button in the detail view loads the delete post confirmation page
+| &check; | Clicking the My Blog nav link in the logged in user nav bar shows the logged in users posts
+| &check; | While in the My Blog link the logged in user can see there drafts and published posts.
 | &check; | In the logged in user menu the Admin Area is not visible
-| &check; | Clicking the Profile Page button in the logged in user menu loads the Profile page
-| &check; | Clicking the PROject GOLFacademy link anywhere opens the page in a new window 
-| &check; | Clicking the Instagram link in the footer area opens Instagram in a new window
-| &check; | Clicking the Facebook link in the footer area opens Facebook in a new window 
-| &check; | Clicking the LinkedInlink in the footer area opens LinkedIN in a new window 
+| &check; | Clicking the X link in the footer area opens X link . 
+| &check; | Clicking the You Tube in the footer area opens You Tube link.
+| &check; | Clicking the search field and serching for Author,Body,Excerpt,Title works. 
 
 | Status | **Main Website - Admin Logged In**
 |:-------:|:--------|
-| &check; | Clicking the Admin Panel button in the Nav-bar loads the Admin Panel Page
-| &check; | Pinning a post works on frontend
+| &check; | The Admin Panel is access b typing /admin
 | &check; | Deleting a Profile works on the Admin Panel
 | &check; | Deleting a Post works on the Admin Panel
 | &check; | Deleting a Comment works on the Admin Panel
 | &check; | Changing an email of any user works in the admin bar
 | &check; | Changing a password of any user works in the admin bar
-| &check; | Deleting a Profile will delete their posts, comments and email
+| &check; | Deleting a Profile will delete their posts, comments and email and logout the user before delet.
 
  Status | **Create A Post - User Logged In**
 |:-------:|:--------|
@@ -1067,11 +1074,14 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | &check; | Title field does not accept empty field
 | &check; | Title field does not accept just spaces
 | &check; | Featured Image is not required
-| &check; | Content field is required
-| &check; | Content field does not accept empty field
+| &check; | Body field is required
+| &check; | Body field does not accept empty field
+| &check; | Body field has to have 100 characters.
 | &check; | Excerpt is not required
+| &check; | Excerpt auto summorises the text.
 | &check; | Status field defaults to Draft
 | &check; | Posting as shows name of author
+| &check; | If no image is selected a default is provided.
 | &check; | **Home** page with a success message is displayed when the user submits the post
 
 Status | **Create A New User - User Logged Out**
@@ -1079,28 +1089,23 @@ Status | **Create A New User - User Logged Out**
 | &check; | Username field is required
 | &check; | Username field does not accept empty field
 | &check; | Email field does not accept just spaces
-| &check; | Email field is required
-| &check; | Password field does not accept empty field
+| &check; | Email field is optional
+| &check; | Password field is required does not accept empty field
 | &check; | Success message is displayed when the user creates a new user
 | &check; | Error message with corresponding info when wrong input is submitted
-| &check; | Default biography is visible in about page
 
-Status | **Create A Profile Page - User Logged In**
+
+Status | **Profile Page - User Logged In**
 |:-------:|:--------|
-| &check; | The default profile info is seen on the profile page (Field not provided)
-| &check; | The profile success message is displayed when the user submits the profile form
-| &check; | A new user has all rights and can post, like and comment after registering
-| &check; | Accessing the Show Posts and Schow drafts section works
+| &check; | The default profile info is seen on the profile page (Field not provided).
+| &check; | The profile success message or error is displayed when the user submits the profile form.
+| &check; | A new user has CRUD on there profile and posts, like and crud on comment after registering.
 
+</details>
  
 [Back to Table of Contents](#table-of-contents)
 
-### Backend Admin Panel
-* 
-
-[Back to Table of Contents](#table-of-contents)
-
-- All manual testing was done with DEBUG = False in the settings.py file. g
+- All manual testing was done with DEBUG = False in the settings.py file.
 
 
 * **All known bugs have been fixed**
