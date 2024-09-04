@@ -1,3 +1,6 @@
+
+<img src="static/readme/images/mockup.png">
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -118,7 +121,7 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 
 #### Imagery
 
-* Used wireframes and lucid charts tool at the initial start and updated them as needed when changes were made.
+* I sourced images and the moving background from [pixabay](https://pixabay.com/).
 
 # Skeleton
 
@@ -573,7 +576,7 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 <br>
 
-![Unfavorites](/static/readme/images/unfavorited%20.png)
+![Unfavorites](/static/readme/images/unfavorited.png)
 
 <br>
 
@@ -605,7 +608,7 @@ The project uses the PostgreSQL database for storing the data.
 This project was developed using the Agile methodology.<br>
 All epics and user stories implementation progress was registered using [Github](https://github.com/users/Marceillo/projects/8). As the user stories were accomplished, they were moved in the Kanban Board from **Epic**,**User stories**, **No Status**, **To Do**, to **In-progress**, and **Done** lists.
 
-I added sprints to help with organizing the project and MoSCoW prioritization Labels were also included in each issue. Additionally, I included tasks for the issues for some guidance as to what needs to be done. 
+I added sprints to help with organizing the project and MoSCoW prioritization Labels were also included in each issue. Additionally, I included tasks for some guidance as to what needs to be done. 
 
 
 ## Responsive Layout and Design
@@ -627,7 +630,8 @@ The project design was adapted to different devices and Bootstrap helped with mo
 [HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options) - used for validating the HTML<br>
 [CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) - used for validating the CSS<br>
 [GraphvizOnline](https://dreampuf.github.io/GraphvizOnline/#digraaph%20G%20%7B%0A%0A%20%20subgraph%20cluster_0%20%7B%0A%20%20%20%20style%3Dfilled%3B%0A%20%20%20%20color%3Dlightgrey%3B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%2Ccolor%3Dwhite%5D%3B%0A%20%20%20%20a0%20-%3E%20a1%20-%3E%20a2%20-%3E%20a3%3B%0A%20%20%20%20label%20%3D%20%22process%20%231%22%3B%0A%20%20%7D%0A%0A%20%20subgraph%20cluster_1%20%7B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%5D%3B%0A%20%20%20%20b0%20-%3E%20b1%20-%3E%20b2%20-%3E%20b3%3B%0A%20%20%20%20label%20%3D%20%22process%20%232%22%3B%0A%20%20%20%20color%3Dblue%0A%20%20%7D%0A%20%20start%20-%3E%20a0%3B%0A%20%20start%20-%3E%20b0%3B%0A%20%20a1%20-%3E%20b3%3B%0A%20%20b2%20-%3E%20a3%3B%0A%20%20a3%20-%3E%20a0%3B%0A%20%20a3%20-%3E%20end%3B%0A%20%20b3%20-%3E%20end%3B%0A%0A%20%20start%20%5Bshape%3DMdiamond%5D%3B%0A%20%20end%20%5Bshape%3DMsquare%5D%3B%0A%7D) - To take erd. dot file and convert to a graph<br>
-LightHouse - for testing performance<br>
+LightHouse in the browser- for testing performance<br>
+[Cloudinary](https://cloudinary.com/users/login) - to handel the image storage.<br>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -642,25 +646,25 @@ LightHouse - for testing performance<br>
 
 ## User Stories Table
 
-| EPIC                               | ID  | User Story                                                           | Check | Test Result |
-| :--------------------------------- | --  | :------------------------------------------------------------------- | :---: | :---------: |
-| **User Authentication and Profiles** |     |                                                                      |       |             |
-|                                     | 1.1 | As a user, I can register and log in so that I can access the website.| [x]   | The btn is there to register and can access the site after login. |             
-|                                     | 1.2 | As a user, I want to view and edit my profile.                        | [x]   | Can access profile and have CRUD Functionality. |
-| **Core Blog Functionality** |     |                                                                      |       |             | 
-|                                     | 2.1 | As a user, I want to search for specific kayaking topics.             | [x]   | I can search title, body, excerpt, and author for kayak topics in the blog. |
-|                                     | 2.2 | As a content creator, I can write blog posts so that it is published. | [x]   | I can write a post as admin and as a user and can see it in draft and published and CRUD functionality. |
-|                                     | 2.3 | As a user, I want to read blog posts about kayaking experiences.      | [x]   | I can read blog posts in detail.|
-| **User Interaction and Engagement** |     |                                                                      |       |             |
-|                                     | 3.1 | As a user, I want to comment on blog posts.                          | [x]   | I have CRUD on comments.|
-|                                     | 3.2 | As a user, I want to like blog posts.                                | []   | For future implementation.|
-|                                     | 3.3 | As a user, I want to favorite blog posts to find them later easily.  | [x]   | I can favorite and unfavorite blog posts.|
-| **Admin Functionality** |     |                                                                      |       |             |
-|                                     | 5.1 | As an admin, I want to manage users and content through the admin panel. | [x]   | The Admin has CRUD and can manage the content |
-| **EPIC: Mobile Responsiveness and UI/UX** | |                                                                  |       |             |
-|                                     | 6.1 | As a user, I want to view the website on my mobile device.          | [x]   | Yes I can view the website on a mobile device and other forms. |
-|                                     | 6.2 | I want to view the website on my Focus on testing all implemented features. | [x]   | I have tested the features on a mobile device  |
-| **Focus on testing all implemented features** | |                                                        | [x]   |  All focused features has been tested on a ongoing basis |
+| EPIC                                 | ID   | User Story                                                                 | Check | Test Result                                                                                      |
+| :----------------------------------- | ---- | :------------------------------------------------------------------------- | :---: | :----------------------------------------------------------------------------------------------- |
+| **User Authentication and Profiles** |      |                                                                           |       |                                                                                                 |
+|                                     | 1.1  | As a user, I can register and log in so that I can access the website.   | [x]   | The button is there to register and I can access the site after login.                         |
+|                                     | 1.2  | As a user, I want to view and edit my profile.                            | [x]   | I can access my profile and have CRUD functionality.                                           |
+| **Core Blog Functionality**         |      |                                                                           |       |                                                                                                 |
+|                                     | 2.1  | As a user, I want to search for specific kayaking topics.                 | [x]   | I can search by title, body, excerpt, and author for kayaking topics in the blog.              |
+|                                     | 2.2  | As a content creator, I can write blog posts so that they are published.  | [x]   | I can write a post as an admin and as a user, and I can see it in draft and published with CRUD functionality. |
+|                                     | 2.3  | As a user, I want to read blog posts about kayaking experiences.          | [x]   | I can read blog posts in detail.                                                                |
+| **User Interaction and Engagement** |      |                                                                           |       |                                                                                                 |
+|                                     | 3.1  | As a user, I want to comment on blog posts.                               | [x]   | I have CRUD functionality on comments.                                                          |
+|                                     | 3.2  | As a user, I want to like blog posts.                                     | [ ]   | For future implementation.                                                                       |
+|                                     | 3.3  | As a user, I want to favorite blog posts to find them later easily.      | [x]   | I can favorite and unfavorite blog posts.                                                      |
+| **Admin Functionality**             |      |                                                                           |       |                                                                                                 |
+|                                     | 5.1  | As an admin, I want to manage users and content through the admin panel.  | [x]   | The admin has CRUD functionality and can manage the content.                                   |
+| **EPIC: Mobile Responsiveness and UI/UX** |  |                                                                           |       |                                                                                                 |
+|                                     | 6.1  | As a user, I want to view the website on my mobile device.               | [x]   | Yes, I can view the website on a mobile device and other formats.                              |
+|                                     | 6.2  | I want to view the website on my mobile device.                           | [x]   | I have tested the features on a mobile device.                                                 |
+| **Focus on Testing All Implemented Features** | |                                                                           | [x]   | All focused features have been tested on an ongoing basis.
 </details>
 
 ### Python Validation - PEP8
