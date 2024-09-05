@@ -25,6 +25,7 @@
   - [Profile](#profile)
   - [Logout](#logout)
   - [Future Features](#future-features)
+  - [Dependencies](#dependencies)
 - [Agile Methodology](#agile-methodology)
   - [Responsive Layout and Design](#responsive-layout-and-design)
   - [Database](#database)
@@ -503,7 +504,7 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 [Back to Table of Contents](#table-of-contents)
 
-#### Comments CRUD
+### Comments CRUD
 
 <details>
 
@@ -553,7 +554,7 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 </details>
 
-#### Favorites 
+### Favorites 
 
 * Here you can favorite or unfavorite a Post 
 * When you do so the star goes red and you receive a success message or error message when not.
@@ -564,7 +565,7 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 
 
-##### Favorited 
+#### Favorited 
 
 <br>
 
@@ -572,13 +573,31 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 <br>
 
-###### Unfavorited
+#### Unfavorited
 
 <br>
 
 ![Unfavorites](/static/readme/images/unfavorited.png)
 
 <br>
+
+</details>
+
+### Confirmation Messages 
+<details>
+<summary>Confirmation messages</summary>
+
+* There are success confirmation message and error messages 
+* There is Java Script and mondal code inspired by the LMS.
+
+* Logging in and out
+* In the Comments features
+* In the post features
+* When registering a new account
+* In the Profile features  
+* Favorite or unfavorite
+
+![Style of the Message](/static/readme/images/message-style.png)
 
 </details>
 
@@ -599,6 +618,69 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 
 [Back to Table of Contents](#table-of-contents)
+
+## Dependencies
+<details>
+<summary>Dependencied brief summary</summary>
+This document provides a brief description of the key dependencies used in the app.
+
+- **asgiref==3.8.1**: A library that provides utilities for ASGI (Asynchronous Server Gateway Interface) applications.
+
+- **click==8.1.7**: A package for creating command-line interfaces (CLI) in Python.
+
+- **cloudinary==1.40.0**: A library for integrating Cloudinary's image and video management services in the application.
+
+- **colorama==0.4.6**: A library that allows for cross-platform colored terminal text in Python.
+
+- **crispy-bootstrap5==2024.2**: A Django application that provides Bootstrap 5 support for crispy forms.
+
+- **cssbeautifier==1.15.1**: A tool for formatting and beautifying CSS code.
+
+- **dj-database-url==0.5.0**: A utility for parsing database URLs and configuring Django's database settings from environment variables.
+
+- **dj3-cloudinary-storage==0.0.6**: A Django storage backend for Cloudinary.
+
+- **Django==4.2.13**: The primary web framework for building web applications in Python.
+
+- **django-allauth==0.57.2**: A comprehensive authentication package for Django that supports authentication and account management.
+
+- **django-crispy-forms==2.2**: A Django application that helps to manage and render forms with a clean and customizable layout.
+
+- **django-extensions==3.2.3**: A collection of custom extensions for Django.
+
+- **EditorConfig==0.12.4**: A plugin that helps maintain consistent coding styles across different editors and IDEs by using a `.editorconfig` file.
+
+- **gunicorn==20.1.0**: A Python WSGI HTTP server for UNIX, used to serve your Django application in a production environment.
+
+- **html-tag-names==0.1.2**: A library that provides a list of HTML tag names.
+
+- **html-void-elements==0.1.0**: A utility that defines void elements in HTML.
+
+- **jsbeautifier==1.15.1**: A JavaScript beautifier that formats and beautifies JavaScript code for improved readability.
+
+- **oauthlib==3.2.2**: A generic, spec-compliant implementation of the OAuth request-signing logic for Python, facilitating OAuth 1 and OAuth 2 support.
+
+- **pathspec==0.12.1**: A library that provides a way to specify file patterns for matching files in a directory.
+
+- **psycopg2==2.9.9**: A PostgreSQL adapter for Python, allowing Django to interact with PostgreSQL databases.
+
+- **PyJWT==2.8.0**: A Python library for encoding and decoding JSON Web Tokens (JWT), used for secure authentication and information exchange.
+
+- **python-dotenv==1.0.1**: A library that reads key-value pairs from a `.env` file and adds them to the environment variables.
+
+- **python3-openid==3.2.0**: A library for OpenID authentication in Python, enabling users to log in using their OpenID credentials.
+
+- **regex==2024.7.24**: An alternative to Python's built-in `re` module, providing additional functionality for regular expressions.
+
+- **requests-oauthlib==2.0.0**: A library that provides OAuth support for the popular `requests` library, making it easier to work with OAuth-protected APIs.
+
+- **sqlparse==0.5.0**: A non-validating SQL parser for Python, useful for formatting and analyzing SQL queries.
+
+- **tqdm==4.66.5**: A library for creating progress bars in Python.
+
+- **whitenoise==6.5.0**: A middleware for serving static files in Django applications, simplifying static file management in production environments.
+
+</details>
 
 ## Database
 
@@ -1179,12 +1261,153 @@ App
 
 [Back to Table of Contents](#table-of-contents)
 
+# Deployment
+<details>
+<summary>Deployment from terminal to Heroku</summary>
+
+### Helpfull guide links 
+
+[Django](https://docs.djangoproject.com/en/5.1/topics/install/)
+[Django Central](https://djangocentral.com/building-a-blog-application-with-django/#pre-requirements)
+
+* A small note: This is a simple guide of how to get the app up and running.
+* Should certain section not seem clear there is a large number of recources that can clarify the below steps if not clear.
+
+The project was deployed to [Heroku](https://www.heroku.com). To deploy a project, these are the steps:
+
+1. Begin by creating a GitHub repository I used this template [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template). Navigate to template and select use. THis was the step I used you can create this in a differant way.
+
+2. 'Create Repository From the Template.
+
+3. After the repository is created, click on 'Gitpod'.
+
+4. Install Django by entering this command in the terminal:
+
+* ```pip3 install Django~=4.2.1``` 
+* Best is to see what is the latest verstion and if compatible with the software you plan to install.
+
+5. Generate a requirements file using the following command:
+
+* ```pip3 freeze --local > requirements.txt``` - This will create the requirements.txt file and adds required libraries to it. This command needs to exectuted every time a new libary gets added to the project.
+
+6. Create your project:
+
+* ```django-admin startproject YOUR_PROJECT_NAME .``` - "YOUR_PROJECT_NAME" is the name you choose for your project.
+
+7. Create your application using:
+
+* ```python3 manage.py startapp APP_NAME``` - This will create your application with the name "APP-NAME"
+
+8. Add your local server to "ALLOWED_HOSTS" in the settings.py file. For this you need to run the command
+
+* ```python3 manage.py runserver``` - This runs the server. This will give you an error message "DisallowedHost at /", following the link of your local server. Copy this link and add it in your settings.py file.
+* While in the settings.py file, also add your newly created app in the "INSTALLED_APPS" section at the bottom of the list. In the picture, the first app is called "APP".
+
+9. To get the code ready for deployment, gunicorn needs to be installed and added to the requirements with the following commands:
+
+* ```pip3 install gunicorn~=20.1``` - This installs gunicorn
+* ```pip3 freeze --local > requirements.txt``` - This will add gunicorn to the requirements.txt file
+
+10. Create a file in the root directory named "Procfile" and add the nessesary lines to the settings.py file:
+
+- Procfile:
+* ```web: gunicorn "proejec_name".wsgi``` - "project_name" stands for the name of your project
+- settings.py:
+* ```DEBUG = False``` - This is the debug line in the settings.py file. It is very important that debug is never set to "True" on a deployed webpage for security reasons. While in development, DEBUG should be set to "True"
+* ```,'.herokuapp.com'``` needs to be added to the "ALLOWED_HOSTS" section in the settings.py file, so that heroku has the permission to access the project.
+
+11. Now it is time to create the application on Heroku:
+
+* Head on to [Heroku](https://www.heroku.com/) and sign in (or create an account if needed).
+
+* In the top right corner there is a button that is labeled 'New'. Click that and then select 'Create new app'.
+
+12. On Heroku, enter a unique application name, choose your region, and click 'Create app':
+
+13. I used thePostgres database provided by Code Institute, [PostgresSQL](https://dbs.ci-dbs.net/) in the LMS course material.
+
+* Press "Reveal Config Vars" and add "DATABASE_URL" as key and enter the postgres URL, which has been sent by email, as the value.
+* Addistionally, add the "DISABLE_COLLECTSTATIC" key with a value of "1" as a second config var. This is nessesary for the later implementation of the Cloudinary API.
+
+14. In GitPod, create an env.py file in the top-level directory with the following content:
+
+* ```import os``` - This imports the os library
+* ```os.environ("DATABASE_URL", "postgres://*********************")``` - This sets database variable to your PostgresSQL database.
+* ```os.environ("SECRET_KEY", "actual_secret_key")``` - You can create your own key with a webpage like [RandomKeyGen](https://randomkeygen.com/).
+* if using the Code Institute template, the env.py file should already be in the "gitignore" file, if not, it has to be added manually.
+
+15. Add your secret key to Heroku's Config Vars and your env variables used: Look at step 13
+
+16. In settings.py, add the following code:
+
+```import os```
+
+```import dj_database_url```
+
+```if os.path.isfile("env.py"):```
+
+```import env```
+
+17. Replace the insecure secret key in settings.py with:
+```SECRET_KEY = os.environ.get('SECRET_KEY')```
+
+18. Comment out the old database settings and add the link to DATABASE_URL since the project does not use the standart sqlite3 database. 
+
+```DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}```
+
+18. Save all your fields and migrate the changes with the following commands:
+
+```python3 manage.py migrate```
+
+19. Set up Cloudinary for static file storage: After creating a Cloudinary account, you can copy the API Environment Variable from the Cloudinary dashboard.
+
+20. In the env.py file, add the Cloudinary url (it's very important that the url is unaltered):
+
+```os.environ.setdefault("CLOUDINARY_URL", "cloudinary://*********************************")```
+
+21. In the Config Vars of heroku, add the Cloudinary url (CLOUDINARY_URL as the key, the actual url as the value). 
+
+22. In the settings.py file, the Cloudinary Libraries have to be added to the installed apps. The correct order is very important.
+
+23. In the bottom of settings.py, add additional settings for static file management:
+
+24. The next step is to link the file to the Heroku templates directory:
+
+25. Now edit the templates directory to "TEMPLATES_DIR" in the teamplates array.
+
+26. Some more files are needed before deploying:
+
+* Create 2 folders in the top level directory: **static** and **templates**
+* The **static** folder will include all CSS and JS files as well as images.
+* The **templates** folder will include the "base.html" file, as well as all django related templates.
+
+27. Make sure that all the files are saved, then enter the following lines in the console for the first commit and push to Github:
+
+* ```python3 manage.py collectstatic ``` 
+* ```git add .```
+* ```git commit -m "Deployment commit"```
+* ```git push```
+
+
+30. Now it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
+
+31. Scroll down to the manual deployment section and click 'Deploy Branch'.
+
+The live link to the site on Heroku an be found [Kayak Blog](https://kayak-blog-pp4-1054055911f7.herokuapp.com/). And the Github repository can be found [github](https://github.com/Marceillo/kayak-blog-pp4).
+
+#### Extra variables added to the env file.
+
+* The below variables where added after the intial deploment 
+* ```os.environ.setdefault("EMAIL_HOST_PASS", "your_email_password")``` sets the default values for the email host user and password environment variables. Which are used to configure the email sending functionality for the forgot password feature when deploying your application to Heroku.
+
 ## Final Deployment 
 
 1. Create a runtime.txt `python-3.8.13`
 2. Create a Profile `web: gunicorn your_project_name.wsgi`
 3. When development is complete change the debug setting to: `DEBUG = False` in settings.py
 4. In Heroku settings, delete the config vars for `DISABLE_COLLECTSTATIC = 1`
+
+</details>
 
 [Back to Table of Contents](#table-of-contents)
 
