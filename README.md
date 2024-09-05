@@ -25,11 +25,11 @@
   - [Profile](#profile)
   - [Logout](#logout)
   - [Future Features](#future-features)
-  - [Dependencies](#dependencies)
+  - [Technolgies used](#technolgies-used)
 - [Agile Methodology](#agile-methodology)
-  - [Responsive Layout and Design](#responsive-layout-and-design)
   - [Database](#database)
 - [Testing](#testing)
+  - [Responsive Layout and Design](#responsive-layout-and-design)
   - [Testing User Stories](#testing-user-stories)
   - [Lighthouse](#lighthouse)
   - [HTML Validation](#html-validation)
@@ -61,10 +61,6 @@ The goal is to build a community around kayaking, where we can share knowledge a
 * Provide people the opportunity to write about their kayaking experiences.
 * Connect kayakers to kayakers is the idea so that we can find more information or just blog about our experiences and safety tips.
 * Share ideas and create a community around kayaking so that the paddling experience is shared. 
-
-
-[Back to Table of Contents](#table-of-contents)
-
 
 # User Experience UX
 
@@ -159,8 +155,6 @@ User stories can be viewed here on the project [kanban board ](https://github.co
 
 <br>
 
-[Back to Table of Contents](#table-of-contents)
-
 ## Initial ERD Diagram
 
 <details>
@@ -200,8 +194,8 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 ## Credit below for the above-detailed ERD diagram.
 
 [YouTube link](https://www.youtube.com/watch?v=qzrE7cfc_3Q&t=357s)
-
 [django-extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html)
+
 </details>
 
 ## Visual Experience
@@ -223,6 +217,9 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 * It might not suit well with all people as some did not like the moving image.
 * People with visual problems might have difficulty viewing some features.
 * I tested this with my Father who is color blind and he was able to find his way around the site so I am happy with that result.
+* The load time of the site could be a problem when you have a very old laptop or slow internet I have tested and worked in my enviroment. 
+
+[Back to Table of Contents](#table-of-contents)
 
 ## Features
 
@@ -380,9 +377,6 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 </details>
 
-
-[Back to Table of Contents](#table-of-contents)
-
 ### After login: Profile Page CRUD 
 
 <details>
@@ -426,8 +420,6 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 <br>
 
 </details>
-
-[Back to Table of Contents](#table-of-contents)
 
 ### Blog Post CRUD 
 
@@ -501,8 +493,6 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 <br>
 
 </details>
-
-[Back to Table of Contents](#table-of-contents)
 
 ### Comments CRUD
 
@@ -601,12 +591,9 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 </details>
 
-[Back to Table of Contents](#table-of-contents)
-
 ### Future Features
 
-* Originally I planned the like feature to include in the project but due to time constraints and having met the MPV criteria, I would like to come back to this project and include it at a later stage.
-* I have since moved it to a won't have status on the Kanban Board.  
+* Originally I planned the like feature to include in the project but due to time constraints and having met the MPV criteria, I would like to come back to this project and include it at a later stage.I have since moved it to a won't have status on the Kanban Board.  
 * For the contact form it would be great at a later stage to set up an API with Javascript and implement a feature when a user sends their details that it goes to an email address of the admin.
 * The Favorite feature is working as planned but if the site should grow I will need to change it into a separate link on the page as this method makes it easier for users to keep track of their project favorites.
 * At The moment the colors are my favorite but there is always room for improvement also for the design and flow of the blog posts. Due to time, this was the biggest issue for me in this regard.
@@ -616,13 +603,15 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 * In the far future people to be able to sell their equipment and buy from others on the platform.
 * I did not inlcude Pagination for the amount of blog posts this would be great to come back to and update at later date.  
 
-
 [Back to Table of Contents](#table-of-contents)
 
-## Dependencies
+## Technolgies Used
+
+### Dependencies
 <details>
-<summary>Dependencied brief summary</summary>
-This document provides a brief description of the key dependencies used in the app.
+<summary>Dependencies used summary</summary>
+
+This is simple description of the key dependencies used in the app.
 
 - **asgiref==3.8.1**: A library that provides utilities for ASGI (Asynchronous Server Gateway Interface) applications.
 
@@ -682,24 +671,7 @@ This document provides a brief description of the key dependencies used in the a
 
 </details>
 
-## Database
-
-The project uses the PostgreSQL database for storing the data.
-
-## Agile Methodology
-This project was developed using the Agile methodology.<br>
-All epics and user stories implementation progress was registered using [Github](https://github.com/users/Marceillo/projects/8). As the user stories were accomplished, they were moved in the Kanban Board from **Epic**,**User stories**, **No Status**, **To Do**, to **In-progress**, and **Done** lists.
-
-I added sprints to help with organizing the project and MoSCoW prioritization Labels were also included in each issue. Additionally, I included tasks for some guidance as to what needs to be done. 
-
-
-## Responsive Layout and Design
-
-The project design was adapted to different devices and Bootstrap helped with most of this. My focus was really to have a working Django APP and as I have said before time was an issue for me to really do a design with all the bells and whistles this will be my future focus for this project.
-
-[Back to Table of Contents](#table-of-contents)
-
-## Tools Used
+### Tools Used
 
 [GitHub](https://github.com/) - used for hosting the source code of the program<br>
 [Heroku](https://dashboard.heroku.com/) - used for deploying the project<br>
@@ -715,10 +687,28 @@ The project design was adapted to different devices and Bootstrap helped with mo
 LightHouse in the browser- for testing performance<br>
 [Cloudinary](https://cloudinary.com/users/login) - to handel the image storage.<br>
 [CI database](https://dbs.ci-dbs.net/)
+[temp-mail](https://temp-mail.org/en/)
+
+[Back to Table of Contents](#table-of-contents)
+
+
+## Database
+
+The project uses the PostgreSQL database for storing the data.
+
+## Agile Methodology
+This project was developed using the Agile methodology.<br>
+All epics and user stories implementation progress was registered using [Github](https://github.com/users/Marceillo/projects/8). As the user stories were accomplished, they were moved in the Kanban Board from **Epic**,**User stories**, **No Status**, **To Do**, to **In-progress**, and **Done** lists.
+
+I added sprints to help with organizing the project and MoSCoW prioritization Labels were also included in each issue. Additionally, I included tasks for some guidance as to what needs to be done. 
 
 [Back to Table of Contents](#table-of-contents)
 
 # Testing
+
+## Responsive Layout and Design
+
+The project design was adapted to different devices and Bootstrap helped with most of this. My focus was really to have a working Django APP and as I have said before time was an issue for me to really do a design with all the bells and whistles this will be my future focus for this project.
 
 * Testing was ongoing during this project from one feature to the next even so I left some of the final testing for last.
  
@@ -886,7 +876,6 @@ LightHouse in the browser- for testing performance<br>
 | 37         | W391 blank line at end of file                                          |            |                                                                         |
 
 </details>                                      
-
 
 <details>
 
@@ -1245,50 +1234,7 @@ The responsive design tests were carried out manually with [Google Chrome DevToo
 | CSRF verification failed | Unfixed     | This is a known problem ; all resources, including tutor support, acknowledge that this is a known Django issue. |
 * This bug is when you login somtimes but when you press the backspace yit shows you are logged in.
 
-## Creating the Django app hello
-
-1. Go to the Code Institute Gitpod Full Template [Template](https://github.com/Code-Institute-Org/gitpod-full-template)
-2. Click on Use This Template
-3. Once the template is available in your repository click on Gitpod
-4. When the image for the template and the Gitpod are ready open a new terminal to start a new Django App
-5. Install Django and unicorn: `pip3 install django gunicorn`
-6. Install supporting database libraries dj_database_url and psycopg2 library: `pip3 install dj_database_url psycopg2`
-7. Create a file for requirements: in the terminal window type `pip freeze --local > requirements.txt`
-8. Create a project: in the terminal window type django-admin start project your_project_name
-9. Create app: in the terminal window type python3 manage.py start app your_app_name
-10. Add the app to the list of installed apps in the settings.py file: you_app_name
-11. Migrate changes: in the terminal window type python3 manage.py migrate
-12. Run the server to test if the app is installed, in the terminal window type python3 manage.py and run the server
-13. If the app has been installed correctly the window will display The install worked successfully! Congratulations!
-
-[Back to Table of Contents](#table-of-contents)
-
-## Deployment of This Project
-
-* This site was deployed by completing the following steps:
-
-1. Log in to [Heroku](https://id.heroku.com) or create an account
-2. On the main page click the button labeled New in the top right corner and from the drop-down menu select Create New
-App
-3. You must enter a unique app name
-4. Next select your region
-5. Click on the Create App button
-6. Click on resources and select Heroku Postgres database
-7. Click Reveal Config Vars and add a new record with SECRET_KEY
-8. Click Reveal Config Vars and add a new record with the `CLOUDINARY_URL`
-9. Click Reveal Config Vars and add a new record with the `DISABLE_COLLECTSTATIC = 1`
-10. The next page is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars
-11. Next, scroll down to the Buildpack section click Add Buildpack select Python, and click Save Changes
-12. Scroll to the top of the page and choose the Deploy tab
-13. Select Github as the deployment method
-14. Confirm you want to connect to GitHub
-15. Search for the repository name and click the connect button
-16. Scroll to the bottom of the deploy page and select the preferred deployment type
-17. Click either Enable Automatic Deploys for automatic deployment when you push updates to GitHub
-
-[Back to Table of Contents](#table-of-contents)
-
-# Deployment
+# Deployment of this project
 <details>
 <summary>Deployment from terminal to Heroku</summary>
 
@@ -1475,8 +1421,13 @@ To clone and set up this project, follow these steps:
 
 * ```python3 manage.py migrate``` - This will do the necessary migrations.
 * ```python3 manage.py runserver``` - If everything i setup correctly the project is now live locally.
-
-
+* ```python3 manage.py createsuperuser ``` - Create super user as you will need this to access the admin panel.
+7. In GitPod, create an env.py file in the top-level directory with the following content:
+* ```import os``` - This imports the os library
+* ```os.environ("DATABASE_URL", "postgres://*********************")``` - This sets database variable to your PostgresSQL database.
+* ```os.environ("SECRET_KEY", "actual_secret_key")``` - You can create your own key with a webpage like [RandomKeyGen](https://randomkeygen.com/).
+* ```os.environ.setdefault("EMAIL_HOST_PASS", "your_email_password","DEVELOPMENT", "1")```sets the default values for the email host user and password environment variables
+ 
 ## Credits
 
 * I have used differant  website and content during this process I found that dajango documentation was the best and the more common sites like stack overflow.
@@ -1507,8 +1458,7 @@ To clone and set up this project, follow these steps:
 * [Django Q objects](https://docs.djangoproject.com/en/stable/topics/db/queries/#complex-lookups-with-q-objects)
 
 
-temp email 
-https://temp-mail.org/en/
+
 
 ### Content
 
@@ -1519,7 +1469,12 @@ https://temp-mail.org/en/
 
 ## Acknowledgements
 
-* I used at first the the structure layout of the lms readme and added more to it.
- 
+* I woulld like code institute for the good LMS they have written that really helped pave the way forward.
+
+* I would like to thank my mentor [Precious Ijege](https://code-institute-room.slack.com/team/USMD0GEAD) for relevant feedback and bug hunting during our meetings.
+
+* I would like to thank student [Sebastian](https://github.com/Mienjung97/PROject-GOLFblog/tree/main) and [Linus](https://github.com/j0hanz), who I worked closely together, and who helped me with questions, gave their input and in times of question.
+
+* A big thank you goes out to the Tutors who have helped me along my fourth protfolio project
 
 [Back to Table of Contents](#table-of-contents)
