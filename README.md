@@ -714,6 +714,7 @@ The project design was adapted to different devices and Bootstrap helped with mo
 [GraphvizOnline](https://dreampuf.github.io/GraphvizOnline/#digraaph%20G%20%7B%0A%0A%20%20subgraph%20cluster_0%20%7B%0A%20%20%20%20style%3Dfilled%3B%0A%20%20%20%20color%3Dlightgrey%3B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%2Ccolor%3Dwhite%5D%3B%0A%20%20%20%20a0%20-%3E%20a1%20-%3E%20a2%20-%3E%20a3%3B%0A%20%20%20%20label%20%3D%20%22process%20%231%22%3B%0A%20%20%7D%0A%0A%20%20subgraph%20cluster_1%20%7B%0A%20%20%20%20node%20%5Bstyle%3Dfilled%5D%3B%0A%20%20%20%20b0%20-%3E%20b1%20-%3E%20b2%20-%3E%20b3%3B%0A%20%20%20%20label%20%3D%20%22process%20%232%22%3B%0A%20%20%20%20color%3Dblue%0A%20%20%7D%0A%20%20start%20-%3E%20a0%3B%0A%20%20start%20-%3E%20b0%3B%0A%20%20a1%20-%3E%20b3%3B%0A%20%20b2%20-%3E%20a3%3B%0A%20%20a3%20-%3E%20a0%3B%0A%20%20a3%20-%3E%20end%3B%0A%20%20b3%20-%3E%20end%3B%0A%0A%20%20start%20%5Bshape%3DMdiamond%5D%3B%0A%20%20end%20%5Bshape%3DMsquare%5D%3B%0A%7D) - To take erd. dot file and convert to a graph<br>
 LightHouse in the browser- for testing performance<br>
 [Cloudinary](https://cloudinary.com/users/login) - to handel the image storage.<br>
+[CI database](https://dbs.ci-dbs.net/)
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -749,7 +750,7 @@ LightHouse in the browser- for testing performance<br>
 | **Focus on Testing All Implemented Features** | |                                                                           | [x]   | All focused features have been tested on an ongoing basis.
 </details>
 
-### Python Validation - PEP8
+## Python Validation - PEP8
 
 * I had a lot of errors found but none that could not be fixed, use this tool [pep8ci](https://pep8ci.herokuapp.com/)
 * Cleared all until I received the below result. 
@@ -761,7 +762,7 @@ LightHouse in the browser- for testing performance<br>
 <br>
 
 <details>
-<summary>Blog PeP8 errors</summary>
+<summary>Blog PeP8 errors/warnings fixed</summary>
 
 #### Blog View
 
@@ -1187,6 +1188,31 @@ Status | **Profile Page - User Logged In**
 | &check; | The profile success message or error is displayed when the user submits the profile form.
 | &check; | A new user has CRUD on there profile and posts, like and crud on comment after registering.
 
+### Responsiveness Test
+The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Multi Device Mockup Generator](https://techsini.com/multi-mockup/).
+
+| Desktop    | Display <1200px       | Display >1200px    |
+|------------|-----------------------|--------------------|
+| Render     | pass                  | pass               |
+| Images     | pass                  | pass               |
+| Links      | pass                  | pass               |
+
+| Tablet     | iPad Air              | Asus Zenbook Fold  | iPad Mini | iPad Pro |
+|------------|-----------------------|--------------------|-----------|----------|
+| Render     | pass                  | pass               | pass      | pass     |
+| Images     | pass                  | pass               | pass      | pass     |
+| Links      | pass                  | pass               | pass      | pass     |
+
+| Phone      | Galaxy S8+/S20 Ultra  | iPhone XR/12Pro/14 Pro Max | Pixel 7 / 7 Pro      |
+|------------|-----------------------|----------------------------|----------------------|
+| Render     | pass                  | pass                       | pass      | pass     |
+| Images     | pass                  | pass                       | pass      | pass     |
+| Links      | pass                  | pass                       | pass      | pass     |
+
+### Browser Compatibility
+* Google Chrome Version 
+* Mozilla Firefox 
+* Microsoft Edge 
 </details>
  
 [Back to Table of Contents](#table-of-contents)
@@ -1214,9 +1240,10 @@ Status | **Profile Page - User Logged In**
 
 ## Unfixed Bugs 
 
-| **Bug** | **UNfixed** | **Why**|  
-| ---     | ---         |---     |
-| test    | dsdds       | xcxc   |
+| Bug                     | Status      | Why                                                                 |
+|------------------------|-------------|---------------------------------------------------------------------|
+| CSRF verification failed | Unfixed     | This is a known problem ; all resources, including tutor support, acknowledge that this is a known Django issue. |
+* This bug is when you login somtimes but when you press the backspace yit shows you are logged in.
 
 ## Creating the Django app hello
 
@@ -1451,16 +1478,47 @@ To clone and set up this project, follow these steps:
 
 
 ## Credits
+
+* I have used differant  website and content during this process I found that dajango documentation was the best and the more common sites like stack overflow.
+* I took insperation with the readme structure from the LMS readme and added more to the readme.
+* Took some inspiration from this readme [Marcus Erikssons PP4](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md#existing-features) and adjusted  
+  it to meet my project. 
+
 * [django-extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html)
 * [Coolors web site](https://coolors.co/palettes/trendin)
+* [Book on django](https://www.amazon.de/-/en/Antonio-Mel%C3%A9-ebook/dp/B0CPN3H5YW#:~:text=Django%205%20By%20Example%20is,step%2Dby%2Dstep%20approach)
+* [examples of projects](https://codeinstitute.net/de/student-projects/https://github.com/hogbergmarkus/golfers-dream)  
+* [guide to the Github Agile Tool](https://www.youtube.com/watch?v=U_dMihBgUNY&list=PL_7334VduOHsrWzhu5Ta2lrkp016kcBWY&index=34)
+* [ERD youtube](https://www.youtube.com/watch?v=xsg9BDiwiJE)
+* [User account create Django](https://youtu.be/Ev5xgwndmf)
+* [Website for django blog](https://djangocentral.com/building-a-blog-application-with-django/#database-models)
+* [Website stackoverflow](https://stackoverflow.com)
+* [Forms stackoverflow](https://stackoverflow.com/questions/1727564/how-to-create-a-userprofile-form-in-django-with-first-name-last-name-modificati)
+* [Forgot Password](https://stackoverflow.com/questions/67545932/how-can-i-send-a-reset-password-email-on-django)
+* [Logo design](https://logo.com/dashboard/your-logo-files)
+* [Images and mp4 video used pexels](https://www.pexels.com)
+* [Images used unsplash](https://unsplash.com/)
+* [widgets in djano used in forms blog ](https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/)
+* [search function](https://blog.csdn.net/bbwangj/article/details/98026817)
+* [Django documentation](https://docs.djangoproject.com/)
+* [Django Queryset API](https://docs.djangoproject.com/en/stable/ref/models/querysets/)
+* [Django Pagination](https://docs.djangoproject.com/en/stable/topics/pagination/)
+* [Django Q objects](https://docs.djangoproject.com/en/stable/topics/db/queries/#complex-lookups-with-q-objects)
+
+
+temp email 
+https://temp-mail.org/en/
 
 ### Content
 
 * [YouTube Graph Models](https://www.youtube.com/watch?v=qzrE7cfc_3Q&t=357s)
+* [You Tube link](https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy)
+* [Youtube Bootstrap](https://www.youtube.com/watch?v=-qfEOE4vtxE)
 
 
 ## Acknowledgements
 
-* 
+* I used at first the the structure layout of the lms readme and added more to it.
+ 
 
 [Back to Table of Contents](#table-of-contents)
