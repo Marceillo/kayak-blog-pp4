@@ -1481,8 +1481,9 @@ To clone and set up this project, follow these steps:
 
 * I have used differant  website and content during this process I found that dajango documentation was the best and the more common sites like stack overflow.
 * I took insperation with the readme structure from the LMS readme and added more to the readme.
-* Took some inspiration from this readme [Marcus Erikssons PP4](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md#existing-features) and adjusted  
-  it to meet my project. 
+* Took some inspiration from the readme files below and adjusted it to meet my project.
+  [Marcus Erikssons PP4](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md#existing-features) 
+* I started the project with the help of the LMS as a starting point and one base template then changed it to meet the project needs. 
 
 * [django-extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html)
 * [Coolors web site](https://coolors.co/palettes/trendin)
