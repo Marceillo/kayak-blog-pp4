@@ -1442,7 +1442,7 @@ To clone and set up this project, follow these steps:
 * I took insperation from the from the LMS *I think therefore I blog* project and used a start code then custimized and changed to match my project.
 * I also took some inspiration from the readme files below and adjusted it to meet my project.
 * AI [perplexity](https://www.perplexity.ai/) helped with writing the blog kayak stories on the home page. Also as learning tool to explain and help with bug errors found.     
-* Took is inspiration from this readme[Marcus Erikssons PP4](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md#existing-features) 
+* Took is inspiration from this readme[Marcus Erikssons PP4](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md#existing-features) and made changes.  
 * [django-extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html)
 * [Coolors web site](https://coolors.co/palettes/trendin)
 * [Book on django](https://www.amazon.de/-/en/Antonio-Mel%C3%A9-ebook/dp/B0CPN3H5YW#:~:text=Django%205%20By%20Example%20is,step%2Dby%2Dstep%20approach)
