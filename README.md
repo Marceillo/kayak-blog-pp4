@@ -1214,26 +1214,32 @@ The responsive design tests were carried out manually with [Google Chrome DevToo
 
 ## Fixed bugs
 
-| **Bug** | **Fix** |
-| --- | --- |
-| Bug1: Heroku log= Mis-cased procfile detected; ignoring. to Heruko | Rename it to Procfile to have it honored as it is case sensitive |
-| Bug2: deployment was an error on the Heroku app =Bad Request (400). | I forgot to add the Heruko site to the allowed hosts.
-| Bug3: Forbidden (403)CSRF verification failed. Request aborted. | Added Heroku to the  CSRF_TRUSTED_ORIGINS in settings 
-| Bug4: The model Post is already registered in the app blog. |  Removed the duplicate admin.register(post)
-| Bug5: The drop-down list in the Django admin app was showing the ID and not the author's name. | Removed this incorrect code I created raw_id_fields = ['author',] which returned it to its stock feature a drop-down list.
-| Bug6: admin.E108 The value of 'list_display[1]' refers to 'first-name', which is not a callable, an attribute of 'UserProfileAdmin', or an attribute or method on 'blog.UserProfile'. | changed the code from first-name to first_name as per my code.
-| Bug7: RelatedObjectDoesNotExist at /accounts/login/User has no user profile.Exception Type:  RelatedObjectDoesNotExist | Accessed the manage.py shell and imported the UserProfile, testing after with the shell. Reason the model was changed and not synced with the database.
-|Bug8:TemplateSyntaxError at /user_profile/Could not parse the remainder:|I had extra curly braces,changed it to this <img src="{% static 'images/default_profile_picture.jpg' %}"
-|Bug9:NoReverseMatch at /about/ Reverse for 'contact_success' not found.| It needed to include URLs path('about/', include('about.URLs))
+* I had quite a few bugs during this project some of them I have manged to document.
+* There are probibly more bugs I fixed but can not remmeber as during troubleshooting I often forgot to document the process.
+
+| **Bug**                                                                 | **Fix**                                                                                                          |
+|-------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| Bug1: Heroku log = Mis-cased Procfile detected; ignoring. to Heroku    | Rename it to `Procfile` to have it honored as it is case sensitive.                                            |
+| Bug2: Deployment was an error on the Heroku app = Bad Request (400).   | I forgot to add the Heroku site to the allowed hosts.                                                          |
+| Bug3: Forbidden (403) CSRF verification failed. Request aborted.        | Added Heroku to the `CSRF_TRUSTED_ORIGINS` in settings.                                                       |
+| Bug4: The model Post is already registered in the app blog.            | Removed the duplicate `admin.register(Post)` entry.                                                             |
+| Bug5: The drop-down list in the Django admin app was showing the ID and not the author's name. | Removed the incorrect code `raw_id_fields = ['author',]`, which returned it to its stock feature: a drop-down list. |
+| Bug6: admin.E108 The value of 'list_display' refers to 'first-name', which is not a callable, an attribute of 'UserProfileAdmin', or an attribute or method on 'blog.UserProfile'. | Changed the code from `first-name` to `first_name` as per my code.                                            |
+| Bug7: RelatedObjectDoesNotExist at /accounts/login/ User has no user profile. Exception Type: RelatedObjectDoesNotExist | Accessed the `manage.py` shell and imported the `UserProfile`, testing after with the shell. Reason: the model was changed and not synced with the database. |
+| Bug8: TemplateSyntaxError at /user_profile/ Could not parse the remainder: | I had extra curly braces; changed it to `<img src="{% static 'images/default_profile_picture.jpg' %}">`. |
+| Bug9: NoReverseMatch at /about/ Reverse for 'contact_success' not found. | It needed to include URLs: `path('about/', include('about.urls'))`.                                           |
+| Bug10: Mixed Content: The page at 'https://8000-......net/' was loaded over HTTPS, but requested an insecure element 'http://res.cloudinary....'. | To add `STATICFILES_STORAGE` for Cloudinary in settings because (Heroku) Django can't serve static files (images, CSS, etc.), |
 
 [Back to Table of Contents](#table-of-contents)
 
 ## Unfixed Bugs 
 
+* I do not know of any other unfixed bugs .
+
 | Bug                     | Status      | Why                                                                 |
 |------------------------|-------------|---------------------------------------------------------------------|
-| CSRF verification failed | Unfixed     | This is a known problem ; all resources, including tutor support, acknowledge that this is a known Django issue. |
-* This bug is when you login somtimes but when you press the backspace yit shows you are logged in.
+| CSRF verification failed | Unfixed     | This is a known problem that happens intermitendly on login ; all resources, including tutor support, acknowledge that this is a known Django issue. |
+
 
 # Deployment of this project
 <details>
