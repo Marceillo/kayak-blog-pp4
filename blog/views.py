@@ -21,11 +21,8 @@ from .forms import UserProfileForm, PostForm, SearchForm, CommentForm
 
 def home(request):
     """
-    List of published blog posts, ordered publish date in descending.
     Displaying the posts on the homepage.
-    Posts filtered by status and publish date.
-    **Template:**
-    blog/index.html
+    blog/index.html template used
     """
     posts = (Post.objects
              .filter(status=Post.PostStatus.PUBLISHED)
@@ -35,21 +32,18 @@ def home(request):
 
 def about(request):
     """
-    Return About page, providing information.
-    **Template:**
-    blog/about.html
+    About page display.
+    blog/about.htm template used
     """
     return render(request, 'blog/about.html')
 
 
 def post_detail(request, slug):
     """
-    Retrieves and displays a blog post with a slug URL.
-    If not found, a 404 error is generated.
-    Has comments and favorites that are linked to the post.
-
-    **Template:**
-    blog/post_kayak_blog.html
+    To read the posts in detail and
+    creates a url for each post link.
+    Comments and favorites feature are linked to the post.
+    blog/post_kayak_blog.html template used.
     """
     post = get_object_or_404(Post, slug=slug)
     comments = post.comments.all()
@@ -83,13 +77,8 @@ def post_detail(request, slug):
 
 class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
     """
-    Creates a new blog post using a form (PostForm)
-    and redirects to the home page once created.
-    It can delete an image or add an image to Cloudinary.
-    Message success or error messages are displayed when needed.
-
-    **Template:**
-    blog/create_kayak_post.html
+    User are able to create new post using a form.
+    blog/create_kayak_post.html used template
     """
     model = Post
     form_class = PostForm
@@ -115,17 +104,7 @@ class Create_Kayak_Post_View(LoginRequiredMixin, CreateView):
 class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
     """
     Logged in user can update their own blog post using a form.
-
-    **Template:**
-    blog/update_kayak_post.html
-
-    **Functionality:**
-    - The get_queryset method restricts updates
-      to the posts if not logged in user.
-    - The form_valid method, if the user is the author,
-      can delete the image and displays a success message.
-    - The form_invalid method generates an error message if
-      update fails.
+    blog/update_kayak_post.html template used.
     """
     model = Post
     form_class = PostForm
@@ -154,17 +133,8 @@ class Update_Kayak_Post_View(LoginRequiredMixin, UpdateView):
 class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
     """
     Enables logged in user to delete their own blog post.
+    blog/delete_kayak_post.html template used
 
-    **Template:**
-    blog/delete_kayak_post.html
-
-    **Functionality:**
-    - The get_queryset method checks
-      to see if posts authored by the logged-in user.
-    - The form_valid method displays
-    a success message when successfully deleted.
-    - The form_invalid method shows
-      an error message if there was a problem with deletion.
     """
     model = Post
     template_name = 'blog/delete_kayak_post.html'
@@ -186,12 +156,9 @@ class Delete_Kayak_Post_View(LoginRequiredMixin, DeleteView):
 
 class My_Post_List_View(LoginRequiredMixin, ListView):
     """
-    This view allows a logged in user to see a list of their own blog posts.
-
-    **Template:**
-    blog/my_post_list.html
-
-    - The get_queryset shows the author's blog posts in descending format.
+    This view allows a logged in user to see a
+    list of their created blog posts.
+    blog/my_post_list.html template used.
     """
     model = Post
     template_name = 'blog/my_post_list.html'
@@ -206,8 +173,7 @@ class My_Post_List_View(LoginRequiredMixin, ListView):
 def userprofile(request):
     """
     Allows a logged in user to view their profile.
-    **Template:**
-    blog/user_profile.html
+    blog/user_profile.html template used
     """
     profile, created = UserProfile.objects.get_or_create(user=request.user)
     context = {
@@ -221,9 +187,7 @@ def userprofile(request):
 def profile_edit(request):
     """
     Allows a logged in user to edit their
-    profile and displays success or error messages.
-    **Template:**
-    blog/profile_edit.html
+    profile. blog/profile_edit.html template used.
     """
     profile, created = UserProfile.objects.get_or_create(user=request.user)
     if request.method == 'POST':
@@ -251,9 +215,7 @@ def profile_edit(request):
 def delete_profile(request):
     """
     Allows a logged in user to delete their profile.
-    - Displays a success message upon successful deletion.
-    - Displays an error message if an exception occurs during deletion.
-    - Logs out the user after successful deletion.
+
     """
     if request.method == 'POST':
         user = request.user
@@ -275,8 +237,7 @@ def delete_profile(request):
 @login_required
 def delete_profile_picture(request):
     """
-    Allows a user to delete their
-    profile picture with success or error messages.
+    For users to delete their profile picture.
     The picture is also deleted from Cloudinary.
     """
     profile = UserProfile.objects.get(user=request.user)
@@ -317,9 +278,7 @@ def add_comment(request, slug):
 def edit_comment(request, comment_id):
     """
     Allows a logged in user to edit their own comments.
-    Displays success or error messages.
-    **Template:**
-    blog/edit_comment.html
+    blog/edit_comment.html template used
     """
     comment = get_object_or_404(Comment, id=comment_id)
     if not comment.can_modify(request.user):
@@ -346,9 +305,7 @@ def edit_comment(request, comment_id):
 def delete_comment(request, comment_id):
     """
     Allows a logged in user to delete their own comment.
-    Displays success or error messages.
-    **Template:**
-    blog/delete_comment.html
+    blog/delete_comment.html template used.
     """
     comment = get_object_or_404(Comment, id=comment_id)
     if not comment.can_modify(request.user):
@@ -368,7 +325,7 @@ def delete_comment(request, comment_id):
 def kayak_toggle_favorite(request, slug):
     """
     Allows a logged in user to toggle the favorite status of a blog post.
-    Displays success or error messages.
+
     """
     post = get_object_or_404(Post, slug=slug)
     try:
@@ -385,10 +342,9 @@ def kayak_toggle_favorite(request, slug):
 
 def kayak_search_result(request):
     """
-    Handles search functionality for blog posts based on user queries.
-    You can search with title, body, excerpt, and author.
-    **Template:**
-    blog/kayak_search_result.html
+    This is to be able to search
+    the title, body, excerpt, and author .
+    blog/kayak_search_result.html template used.
     """
     form = SearchForm(request.GET)
     results = Post.objects.none()

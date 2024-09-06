@@ -56,9 +56,3 @@ class CommentForm(forms.ModelForm):
         widgets = {
             'body': forms.Textarea(attrs={'rows': 4}),
         }
-
-    # def __init__(self, *args, **kwargs):
-    #    super(PostForm, self).__init__(*args, **kwargs)
-    #    if self.instance and self.instance.pk:
-    #        self.fields[
-    # 'delete_image'].widget.attrs.update({'class': 'form-check-input'})

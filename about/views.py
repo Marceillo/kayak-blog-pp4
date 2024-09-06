@@ -14,14 +14,9 @@ def about_kayaking(request):
 
 def contact_kayaker(request):
     """
-    Contact form submissions allow a user to send a message.
-    -if the request method is POST process the sunmit data.
-    -if the form is valid it saves the data and displays a success message
-     or error message if the submission failed or successful.
-    - Redirecting to the kayak page.
-    **Template:**
-    about/contact_kayaker.html
-    about/contact_success.html
+    Allows a user to get in touch with the blog.
+    Using a form the user send a message with their details.
+    about/contact_kayaker.html template used.
     """
     form = ContactForm()
 

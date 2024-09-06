@@ -57,7 +57,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     """
-    This is the comment also realted
+    This is the comment also related
     to :model:'auth.User' with :model:'blog_posts'.
     """
     post = models.ForeignKey(
@@ -79,7 +79,7 @@ class Comment(models.Model):
 
 class UserProfile (models.Model):
     """
-    Stores user profile data also realted
+    Stores user profile data also related
     to :model:'auth.User',
     Including their personal data.
     """
