@@ -343,7 +343,7 @@ The red dot file converted to image [Graphviz online](https://dreampuf.github.io
 
 <br>
 
-* If you did not add an email address as it is optional you can use the About contact form.
+* If you did not add an email address as it is optional you can use the About contact form to get in contact.
 * Once you enter your e-mail address you will see this screen as a user.
 
 <br>
@@ -1430,16 +1430,12 @@ To clone and set up this project, follow these steps:
 * ```os.environ.setdefault("EMAIL_HOST_PASS", "your_email_password","DEVELOPMENT", "1")```sets the default values for the email host user and password environment variables
  
 ## Credits
-* The [Bootstrap](https://getbootstrap.com/) documentation was so cool.
-
-* The AI tool [perplexity](https://www.perplexity.ai/) was used a lot for debugging and helping to understand my mistakes. No code was written by AI, the tool was just used in case of bugs and missing understanding on how a feature works
-
+* The [Bootstrap](https://getbootstrap.com/) documentation was so really helpful.
 * The *I think therefore I blog* code along project from Code Institute has been a valuable source for both starting the project as well as for setting up new apps, models, urls and views
-
 * I have used differant  website and content during this process I found that dajango documentation was the best and the more common sites like stack overflow.
 * I took insperation from the from the LMS *I think therefore I blog* project and used a start code then custimized and changed to match my project.
 * I also took some inspiration from the readme files below and adjusted it to meet my project.
-* AI [perplexity](https://www.perplexity.ai/) helped with writing the blog  kayak stories on the home page. Also as learning tool to explain bug errors found.     
+* AI [perplexity](https://www.perplexity.ai/) helped with writing the blog kayak stories on the home page. Also as learning tool to explain and help with bug errors found.     
 * Took is inspiration from this readme[Marcus Erikssons PP4](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md#existing-features) 
 * [django-extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html)
 * [Coolors web site](https://coolors.co/palettes/trendin)
