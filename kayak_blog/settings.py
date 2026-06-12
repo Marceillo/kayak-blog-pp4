@@ -35,7 +35,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-marceillo-kayakblogpp4-7k6a7fjpl13.ws.codeinstitute-ide.net',
-    'kayak-blog-pp4-1054055911f7.herokuapp.com']
+    'kayak-blog-pp4-1054055911f7.herokuapp.com',
+    os.environ.get('ALLOWED_HOSTS', 'localhost'),
+]
 
 
 # Application definition
@@ -114,14 +116,17 @@ WSGI_APPLICATION = 'kayak_blog.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(
+        os.environ.get('DATABASE_URL'),
+        conn_max_age=0
+    )
 }
 
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.codeinstitute-ide.net',
     'https://*.herokuapp.com',
-
+    'https://*.onrender.com',
 ]
 
 
