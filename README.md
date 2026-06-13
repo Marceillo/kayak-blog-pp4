@@ -51,7 +51,7 @@
 
 ## Overview
 
-I love water sports, and kayaking is one of the best ways for me to be in nature and escape from daily life. That's why I decided to create a kayaking blog, where my fellow paddlers and I can share our experiences on the water. Please feel free to see the [live link](https://kayak-blog-pp4-1054055911f7.herokuapp.com/my-posts/) 
+I love water sports, and kayaking is one of the best ways for me to be in nature and escape from daily life. That's why I decided to create a kayaking blog, where my fellow paddlers and I can share our experiences on the water. Please feel free to see the [live link](https://kayak-blog-pp4.onrender.com) 
 
 ## Migration Deployment
 
