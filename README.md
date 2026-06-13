@@ -4,6 +4,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Migration Deployment ](#migration-deployment)
 - [Project Goal](#project-goal)
 - [User Experience (UX)](#user-experience-ux)
   - [User Stories](#user-stories)
@@ -51,6 +52,88 @@
 ## Overview
 
 I love water sports, and kayaking is one of the best ways for me to be in nature and escape from daily life. That's why I decided to create a kayaking blog, where my fellow paddlers and I can share our experiences on the water. Please feel free to see the [live link](https://kayak-blog-pp4-1054055911f7.herokuapp.com/my-posts/) 
+
+## Migration Deployment
+
+### Migration from Heroku to Render + Supabase
+
+#### Why we migrated
+Heroku removed their free tier in 2023. The app was costing money to run on Heroku with no benefit over free alternatives.
+
+#### Why Render
+- Free tier for web services with no expiry
+- Reads existing `Procfile` and `requirements.txt` directly
+- Auto-deploys from GitHub on every commit
+- Closest alternative to Heroku in terms of setup and feel
+
+#### Why Supabase
+- Free PostgreSQL database with no expiry
+- Works directly with `dj-database-url` which was already in the project
+- 500MB free storage
+- No credit card required
+
+#### Why not Render's own database
+Render's free PostgreSQL tier deletes the database after 90 days, making it unsuitable for a permanent deployment.
+
+---
+
+### Migration Steps
+
+#### 1. Supabase Setup
+- Created a new project on [supabase.com](https://supabase.com)
+- Selected Transaction Pooler connection (port 6543)
+- Added `?sslmode=require` to the connection string
+
+#### 2. Updated settings.py
+- Updated `DATABASES` block to include `conn_max_age=0` for transaction pooler compatibility
+- Added `https://*.onrender.com` to `CSRF_TRUSTED_ORIGINS`
+- Updated `ALLOWED_HOSTS` to read from environment variable
+- Changed `STATICFILES_STORAGE` from Cloudinary static storage to Whitenoise
+- Changed `DEBUG` to read from environment variable
+
+#### 3. Updated requirements.txt
+- Upgraded `gunicorn` from `20.1.0` to `21.2.0` for Python 3.12 compatibility
+- Replaced `psycopg2` with `psycopg2-binary`
+
+#### 4. Render Web Service Setup
+- Connected GitHub repo
+- Set region to Frankfurt EU Central
+- Set build command to:
+```
+pip install -r requirements.txt && python manage.py migrate
+```
+- Set start command to:
+```
+gunicorn kayak_blog.wsgi
+```
+- Set instance type to Free
+- Added the following environment variables:
+
+| Key | Description |
+|-----|-------------|
+| `DATABASE_URL` | Supabase connection string |
+| `SECRET_KEY` | Django secret key |
+| `CLOUDINARY_URL` | Cloudinary API URL |
+| `EMAIL_HOST_USER` | SMTP email address |
+| `EMAIL_HOST_PASS` | SMTP email password |
+| `DEBUG` | Set to False in production |
+| `ALLOWED_HOSTS` | Render app domain |
+| `PYTHON_VERSION` | Set to 3.12.2 |
+
+#### 5. Database Migration
+- Exported data from original Neon database using `pg_dump`
+- Imported into Supabase using `psql`
+- All users, posts, comments and profiles transferred successfully
+
+#### 6. Heroku Cleanup
+- Confirmed all functionality working on Render
+- Deleted Heroku app to stop billing
+
+---
+
+### Live Site
+[https://kayak-blog-pp4.onrender.com](https://kayak-blog-pp4.onrender.com)
+
 
 ## Project Goal:
 
